@@ -24,7 +24,11 @@
       // import React from 'react';
       "allowSyntheticDefaultImports": true,
       // Для абсолютного импорта
-      "baseUrl": "."
+      "baseUrl": ".",
+      // Все абсолютные импорты идут из папки src
+      "paths": {
+        "*": ["./src/*"]
+      }
     },
     // Для использования TS в файле webpack.config.ts
     "ts-node": {

@@ -10,6 +10,22 @@ export function buildLoaders({ isDev, paths }: BuildOptions): webpack.RuleSetRul
         exclude: /node_modules/,
     };
 
+    // для работы с svg файлами
+    const svgLoader = {
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    };
+
+    // для работы с png, jpg, gif файлами
+    const fileLoader = {
+      test: /\.(png|jpe?g|gif)$/i,
+      use: [
+        {
+          loader: 'file-loader',
+        },
+      ],
+    };
+
     const cssLoader = {
         test: /\.s[ac]ss$/i,
         use: [
@@ -41,8 +57,11 @@ export function buildLoaders({ isDev, paths }: BuildOptions): webpack.RuleSetRul
         },
       }
 
+    // ПОРЯДОК ПЛАГИНОВ ОЧЕНЬ ВАЖЕН!!!
     return [
         typescriptLoader,
+        svgLoader,
+        fileLoader,
         cssLoader,
         fontLoader,
     ];

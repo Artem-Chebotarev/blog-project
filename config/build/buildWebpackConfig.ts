@@ -23,7 +23,7 @@ export function buildWebpackConfig (options: BuildOptions): webpack.Configuratio
             rules: buildLoaders(options),
         },
         // указываем те файлы, для которых при импорте не будем указывать расширение
-        resolve: buildResolvers(),
+        resolve: buildResolvers(options),
         devtool: isDev ? 'inline-source-map' : undefined,
         devServer: isDev ? buildDevServer(options) : undefined,
     }

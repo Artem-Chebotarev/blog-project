@@ -8,5 +8,6 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
         open: true,
         // Позволяет проксировать запросы через корневую страницу (index page)
         historyApiFallback: true,
+        hot: true,
     }
 }
