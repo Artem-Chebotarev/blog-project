@@ -6,7 +6,7 @@ export enum ThemeButton {
     CLEAR = 'clear',
 }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     theme?: ThemeButton;
 }
