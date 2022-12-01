@@ -1,14 +1,14 @@
-import { classNames } from "shared/lib/helpers/classNames/classNames";
-import { useTheme } from "app/providers/ThemeProvider";
-import { AppRouter } from "./providers/router";
-import { Navbar } from "widgets/Navbar";
+import { Suspense } from 'react';
+import { useTheme } from 'app/providers/ThemeProvider';
+import { Sidebar } from 'widgets/Sidebar';
+import { Navbar } from 'widgets/Navbar';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { AppRouter } from './providers/router';
 
 import './styles/index.scss';
-import { Sidebar } from "widgets/Sidebar";
-import { Suspense } from "react";
 
 export const App = () => {
-    const { theme } = useTheme(); 
+    const { theme } = useTheme();
 
     return (
         <div className={classNames('app', {}, [theme])}>
@@ -17,7 +17,7 @@ export const App = () => {
                 <div className="content-page">
                     <Sidebar />
                     <AppRouter />
-                </div> 
+                </div>
             </Suspense>
         </div>
     );

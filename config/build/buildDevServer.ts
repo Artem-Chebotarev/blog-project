@@ -1,5 +1,6 @@
-import { BuildOptions } from "./types/config";
-import type { Configuration as DevServerConfiguration } from "webpack-dev-server";
+import type { Configuration as DevServerConfiguration } from 'webpack-dev-server';
+import { BuildOptions } from './types/config';
+
 const path = require('path');
 
 export function buildDevServer(options: BuildOptions): DevServerConfiguration {
@@ -9,5 +10,5 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
         // Позволяет проксировать запросы через корневую страницу (index page)
         historyApiFallback: true,
         hot: true,
-    }
+    };
 }
