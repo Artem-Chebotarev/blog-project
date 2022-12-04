@@ -28,6 +28,6 @@ export function buildPlugins({
         // new BundleAnalyzerPlugin({
         //     openAnalyzer: false,
         // }),
-        analyze && new BundleAnalyzerPlugin(),
+        ...(analyze ? [new BundleAnalyzerPlugin()] : []),
     ].filter(Boolean);
 }
