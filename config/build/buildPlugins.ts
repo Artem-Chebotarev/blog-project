@@ -1,9 +1,14 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
-export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins({
+    paths,
+    isDev,
+    analyze,
+}: BuildOptions): webpack.WebpackPluginInstance[] {
     return [
         // файл index.html будет использоваться как шаблон куда будет встраиваться
         // скомпилированный js код
@@ -20,5 +25,9 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
         }),
         // применяет изменения без обновления браузера
         ...(isDev ? [new webpack.HotModuleReplacementPlugin()] : []), // наш hmr плагин
-    ];
+        // new BundleAnalyzerPlugin({
+        //     openAnalyzer: false,
+        // }),
+        analyze && new BundleAnalyzerPlugin(),
+    ].filter(Boolean);
 }

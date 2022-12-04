@@ -1,3 +1,5 @@
+import path from 'path';
+
 export default {
     preset: 'ts-jest',
     clearMocks: true,
@@ -15,8 +17,15 @@ export default {
     ],
     moduleDirectories: [
         'node_modules',
+        'src',
     ],
     rootDir: '../../',
+    setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
+    moduleNameMapper: {
+        '\\.s?css$': 'identity-obj-proxy',
+        // мок для импортов, в которых используется svg
+        '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    },
     testMatch: [
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
