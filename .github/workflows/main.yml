@@ -7,10 +7,10 @@ on:
     branches: [ master ]
 jobs:
   pipeline:
-    runs-on: windows-latest
+    runs-on: macos-latest
     strategy:
       matrix:
-        node-version: [ 16.x ]
+        node-version: [ 17.x ]
         
     steps:
       - uses: actions/checkout@v2
@@ -22,6 +22,12 @@ jobs:
         run: npm ci
       - name: build production project
         run: npm run build:prod
+      - name: linting typescript
+        run: npm run lint:ts
+      - name: linting scss
+        run: npm run lint:scss
+      - name: unit testing
+        run: npm run test:unit
       - name: build storybook
         run: npm run storybook:build
       - name: screenshot testing
