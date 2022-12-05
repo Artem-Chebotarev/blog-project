@@ -2,7 +2,6 @@ import webpack, { RuleSetRule } from 'webpack';
 import path from 'path';
 import { BuildPaths } from '../build/types/config';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
-import { rules } from '../../.eslintrc';
 
 export default ({ config }: {config: webpack.Configuration}) => {
     const paths: BuildPaths = {
