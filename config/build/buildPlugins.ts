@@ -1,7 +1,6 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
@@ -9,7 +8,7 @@ export function buildPlugins({
     paths,
     isDev,
     analyze,
-}: BuildOptions): any {
+}: BuildOptions): webpack.WebpackPluginInstance[] {
     return [
         // файл index.html будет использоваться как шаблон куда будет встраиваться
         // скомпилированный js код
@@ -20,7 +19,6 @@ export function buildPlugins({
             filename: 'css/[name].[contenthash:8].css',
             chunkFilename: 'css/[name].[contenthash:8].css', // для асинхронной подгрузки файлов css
         }),
-        new CaseSensitivePathsPlugin(),
         // позволяет прокидывать в приложение глобальные переменные (isDev)
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
