@@ -12,6 +12,8 @@ export function useTheme(): UseThemeResult {
     const toggleTheme = () => {
         const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
         setTheme(newTheme);
+        // надо при маунте приложения просто тему из локал стороджа брать и накидывать на body
+        document.body.className = newTheme;
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     };
 

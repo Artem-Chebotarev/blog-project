@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useState } from '@storybook/addons';
-import React, { ReactNode, useRef } from 'react';
+import React, {
+    ReactNode, useRef, useCallback, useEffect, useState,
+} from 'react';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { Portal } from 'shared/ui/Portal/Portal';
 
