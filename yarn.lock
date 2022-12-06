@@ -6564,9 +6564,9 @@ eslint-plugin-jsx-a11y@^6.5.1:
     minimatch "^3.0.4"
 
 eslint-plugin-react-hooks@^4.3.0:
-  version "4.3.0"
-  resolved "https://registry.npmjs.org/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.3.0.tgz"
-  integrity sha512-XslZy0LnMn+84NEG9jSGR6eGqaZB3133L8xewQo3fQagbQuGt7a63gf+P1NGKZavEYEC3UXaWEAA/AqDkuN6xA==
+  version "4.6.0"
+  resolved "https://registry.npmjs.org/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.6.0.tgz"
+  integrity sha512-oFc7Itz9Qxh2x4gNHStv3BqJq54ExXmfC+a1NjAta66IAN87Wu0R/QArgIS9qKzX3dXKPI9H5crl9QchNMY9+g==
 
 eslint-plugin-react@^7.28.0, eslint-plugin-react@^7.29.2:
   version "7.29.2"
@@ -11750,7 +11750,7 @@ redent@^3.0.0:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
 
-reg-cli@*:
+reg-cli@^0.17.7:
   version "0.17.7"
   resolved "https://registry.npmjs.org/reg-cli/-/reg-cli-0.17.7.tgz"
   integrity sha512-cwAJ7Zf/0tv6TArIIrZExJrnmiaTjiZj74ajXpYi8FLux6yOqFdfFfOOUJEIW1DP0zFASuG8HBf1v6m+dY575g==
