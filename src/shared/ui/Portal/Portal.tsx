@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
 interface PortalProps {
-    children: ReactNode; // то что мы телепортируем
+    children: ReactNode; // то, что мы телепортируем
     element?: HTMLElement; // куда мы телепортируем
 }
 
