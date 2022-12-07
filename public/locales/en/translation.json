@@ -10,6 +10,8 @@
   "Главная": "Main",
   "О сайте": "About",
   "Войти": "Login",
-  "Введите username": "Username",
-  "Введите пароль": "Password"
+  "Имя пользователя": "Username",
+  "Пароль": "Password",
+  "Форма авторизации": "Login form",
+  "Вы ввели неверный логин или пароль": "You have entered an incorrect username or password"
 }
