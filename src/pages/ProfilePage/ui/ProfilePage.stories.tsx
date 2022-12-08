@@ -2,18 +2,18 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
-import MainPage from './MainPage';
+import ProfilePage from './ProfilePage';
 
 export default {
-    title: 'pages/MainPage',
-    component: MainPage,
+    title: 'pages/ProfilePage',
+    component: ProfilePage,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof MainPage>;
+} as ComponentMeta<typeof ProfilePage>;
 
-const Template: ComponentStory<typeof MainPage> = () => (
-    <MainPage />
+const Template: ComponentStory<typeof ProfilePage> = () => (
+    <ProfilePage />
 );
 
 export const Normal = Template.bind({});

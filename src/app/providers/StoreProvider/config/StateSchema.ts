@@ -6,6 +6,7 @@ import {
     CombinedState,
 } from '@reduxjs/toolkit';
 import { CounterSchema } from 'entities/Counter';
+import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername/model/types/loginSchema';
 
@@ -16,6 +17,7 @@ export interface StateSchema {
     // Асинхронные редюсеры
     // loginForm необязательный, чтобы подгружать его асинхронно (Code splitting)
     loginForm?: LoginSchema;
+    profile?: ProfileSchema;
 }
 
 // ключи - counter, user, loginForm
