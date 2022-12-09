@@ -1,7 +1,7 @@
 import React, {
-    ReactNode, useRef, useCallback, useEffect, useState,
+    ReactNode, useRef, useCallback, useEffect, useState, MutableRefObject,
 } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/helpers/classNames/classNames';
 import { Portal } from 'shared/ui/Portal/Portal';
 
 import cls from './Modal.module.scss';
@@ -28,7 +28,7 @@ export const Modal = (props: ModalProps) => {
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
 
-    const timerRef = useRef<ReturnType<typeof setTimeout>>();
+    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
     // Управление монтированием
     useEffect(() => {
@@ -70,7 +70,7 @@ export const Modal = (props: ModalProps) => {
         };
     }, [isOpen, onKeyDown]);
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     };

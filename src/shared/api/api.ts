@@ -7,6 +7,6 @@ export const $api = axios.create({
     headers: {
         // имитация авторизации, так как на бэке проверяется только наличие этого
         // заголовка, а не сам токен
-        authorization: localStorage.getItem(USER_LOCAL_STORAGE_KEY),
+        authorization: localStorage.getItem(USER_LOCAL_STORAGE_KEY) || '',
     },
 });
