@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { ThunkConfig } from 'app/providers/StoreProvider';
 import { User, userActions } from 'entities/User';
 import { USER_LOCAL_STORAGE_KEY } from 'shared/const/localStorage';
 
@@ -10,12 +10,15 @@ interface LoginByUsernameProps {
 
 // 1 арг в дженерике - что возвращаем с бека
 // 2 арг в дженерике - тип аргумента на входе
-// 3 арг - настройки конфига thunk (AsyncThunkConfig), где можем задвать dispatch, rejectValue
-export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { rejectValue: string}>(
+// 3 арг - настройки конфига thunk (AsyncThunkConfig), где можем задавать dispatch, rejectValue
+export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, ThunkConfig<string>>(
     'login/loginByUsername',
+    // деструктуризация из thunkAPI
     async (authData, thunkAPI) => {
+        const { dispatch, extra, rejectWithValue } = thunkAPI;
+
         try {
-            const response = await axios.post<User>('http://localhost:8000/login', authData);
+            const response = await extra.api.post<User>('/login', authData);
 
             // если ответ от сервера пришел пустой, то это будет ошибкой
             if (!response.data) {
@@ -24,12 +27,12 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { re
 
             localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data));
 
-            thunkAPI.dispatch(userActions.setAuthData(response.data));
+            dispatch(userActions.setAuthData(response.data));
 
             return response.data;
         } catch (e) {
             // обработка ошибок в thunk
-            return thunkAPI.rejectWithValue('error');
+            return rejectWithValue('error');
         }
     },
 );
