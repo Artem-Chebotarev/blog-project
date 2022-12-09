@@ -7,6 +7,7 @@ import { BuildOptions } from './types/config';
 export function buildPlugins({
     paths,
     isDev,
+    apiUrl,
     analyze,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
     return [
@@ -22,6 +23,7 @@ export function buildPlugins({
         // позволяет прокидывать в приложение глобальные переменные (isDev)
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
+            __API__: JSON.stringify(apiUrl),
         }),
         // применяет изменения без обновления браузера
         ...(isDev ? [new webpack.HotModuleReplacementPlugin()] : []), // наш hmr плагин

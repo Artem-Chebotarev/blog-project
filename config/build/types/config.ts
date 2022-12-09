@@ -7,9 +7,11 @@ export interface BuildPaths {
     src: string;
 }
 
+// ожидаемые поля в переменных окружения
 export interface BuildEnv {
     mode: BuildMode;
     port: number;
+    apiUrl: string;
     analyze: boolean;
 }
 
@@ -18,5 +20,6 @@ export interface BuildOptions {
     paths: BuildPaths;
     isDev: boolean;
     port: number;
+    apiUrl: string;
     analyze: boolean;
 }
