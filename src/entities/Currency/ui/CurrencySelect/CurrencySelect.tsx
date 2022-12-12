@@ -25,7 +25,7 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
         readonly,
     } = props;
 
-    const { t } = useTranslation();
+    const { t } = useTranslation('profile');
 
     const onChangeHandler = useCallback((value: string) => {
         // кастуем тип, когда мы уверены что будут эти значения Currency
@@ -35,7 +35,7 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
     return (
         <Select
             className={classNames('', {}, [className])}
-            label={t('Укажите валюту')}
+            label={t('Валюта')}
             options={currencyOptions}
             value={value}
             onChange={onChangeHandler}
