@@ -21,10 +21,10 @@ export const profileSlice = createSlice({
             state.readonly = true;
             state.form = state.data;
         },
-        // универсальный редючер для полей Profile
+        // универсальный редюcер для полей Profile
         updateProfile: (state, action: PayloadAction<Profile>) => {
             state.form = {
-                ...state.data,
+                ...state.form,
                 ...action.payload,
             };
         },
@@ -52,6 +52,7 @@ export const profileSlice = createSlice({
                 state.data = action.payload;
                 state.form = action.payload;
                 state.isLoading = false;
+                state.readonly = true;
             })
             .addCase(updateProfileData.rejected, (state, action) => {
                 state.isLoading = false;
