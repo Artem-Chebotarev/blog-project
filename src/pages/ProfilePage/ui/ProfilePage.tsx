@@ -1,3 +1,5 @@
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
 import {
     fetchProfileData,
     getProfileError,
@@ -73,6 +75,18 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
         }));
     }, [dispatch]);
 
+    const onChangeCurrency = useCallback((value: Currency) => {
+        dispatch(profileActions.updateProfile({
+            currency: value,
+        }));
+    }, [dispatch]);
+
+    const onChangeCountry = useCallback((value: Country) => {
+        dispatch(profileActions.updateProfile({
+            country: value,
+        }));
+    }, [dispatch]);
+
     return (
         <div className={classNames('', {}, [className])}>
             <ProfilePageHeader />
@@ -86,6 +100,8 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
                 onChangeCity={onChangeCity}
                 onChangeUsername={onChangeUsername}
                 onChangeAvatar={onChangeAvatar}
+                onChangeCurrency={onChangeCurrency}
+                onChangeCountry={onChangeCountry}
                 readonly={readonly}
             />
         </div>

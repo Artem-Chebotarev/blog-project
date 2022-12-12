@@ -1,23 +1,23 @@
 import { useCallback, memo } from 'react';
-import { Currency } from 'entities/Currency/model/types/currency';
+import { Country } from 'entities/Country/model/types/country';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { Select } from 'shared/ui/Select/Select';
 
-interface CurrencySelectProps {
+interface CountrySelectProps {
     className?: string;
     value?: string;
-    onChange?: (value: Currency) => void;
+    onChange?: (value: Country) => void;
     readonly?: boolean;
 }
 
 // ЛЮБЫЕ ОБЪЕКТЫ ИЛИ МАССИВЫ, КОТОРЫЕ ПЕРЕДАЕМ КУДА-ТО ПРОПСАМИ НУЖНО МЕМОИЗИРОВАТЬ
 
 // если массив статичный, то его можно вынести за пределы компонента
-const currencyOptions = Object.entries(Currency)
+const countryOptions = Object.entries(Country)
     .map(([value, content]) => ({ value, content }));
 
-export const CurrencySelect = memo((props: CurrencySelectProps) => {
+export const CountrySelect = memo((props: CountrySelectProps) => {
     const {
         className,
         value,
@@ -29,14 +29,14 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
 
     const onChangeHandler = useCallback((value: string) => {
         // кастуем тип, когда мы уверены что будут эти значения Currency
-        onChange?.(value as Currency);
+        onChange?.(value as Country);
     }, [onChange]);
 
     return (
         <Select
             className={classNames('', {}, [className])}
-            label={t('Укажите валюту')}
-            options={currencyOptions}
+            label={t('Укажите страну')}
+            options={countryOptions}
             value={value}
             onChange={onChangeHandler}
             readonly={readonly}
