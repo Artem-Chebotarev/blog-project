@@ -9,6 +9,7 @@ export function buildPlugins({
     isDev,
     apiUrl,
     analyze,
+    project,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
     return [
         // файл index.html будет использоваться как шаблон куда будет встраиваться
@@ -20,10 +21,11 @@ export function buildPlugins({
             filename: 'css/[name].[contenthash:8].css',
             chunkFilename: 'css/[name].[contenthash:8].css', // для асинхронной подгрузки файлов css
         }),
-        // позволяет прокидывать в приложение глобальные переменные (isDev)
+        // позволяет прокидывать в приложение глобальные переменные (isDev, project, apiUrl)
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
+            __PROJECT__: JSON.stringify(project),
         }),
         // применяет изменения без обновления браузера
         ...(isDev ? [new webpack.HotModuleReplacementPlugin()] : []), // наш hmr плагин
