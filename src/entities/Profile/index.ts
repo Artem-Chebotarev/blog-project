@@ -1,4 +1,4 @@
-export { Profile, ProfileSchema } from './model/types/profile';
+export { Profile, ProfileSchema, ValidateProfileError } from './model/types/profile';
 
 export { profileReducer, profileActions } from './model/slice/profileSlice';
 
@@ -15,3 +15,5 @@ export { getProfileIsLoading } from './model/selectors/getProfileIsLoading/getPr
 export { getProfileError } from './model/selectors/getProfileError/getProfileError';
 
 export { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly';
+
+export { getProfileValidateErrors } from './model/selectors/getProfileValidateErrors/getProfileValidateErrors';
