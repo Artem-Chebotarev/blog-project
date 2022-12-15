@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 import { buildCssLoader } from './loaders/buildCssLoader';
 import { BuildOptions } from './types/config';
 
@@ -11,16 +12,7 @@ export function buildLoaders({ isDev, paths }: BuildOptions): webpack.RuleSetRul
     };
 
     // транспилятор babel
-    const babelLoader = {
-        test: /\.(js|jsx|tsx)$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-            loader: 'babel-loader',
-            options: {
-                presets: ['@babel/preset-env'],
-            },
-        },
-    };
+    const babelLoader = buildBabelLoader(isDev);
 
     // для работы с svg файлами
     const svgLoader = {

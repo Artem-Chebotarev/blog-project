@@ -5,13 +5,18 @@ import { Navbar } from 'widgets/Navbar';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { userActions } from 'entities/User';
 import { AppRouter } from './providers/router';
+import { LOCAL_STORAGE_THEME_KEY, Theme } from './providers/ThemeProvider';
 
 export const App = () => {
     const dispatch = useDispatch();
 
+    const mountTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT;
+
     useEffect(() => {
         dispatch(userActions.initAuthData());
-    }, [dispatch]);
+
+        document.body.className = mountTheme;
+    }, [dispatch, mountTheme]);
 
     return (
         <div className={classNames('app', {}, [])}>
