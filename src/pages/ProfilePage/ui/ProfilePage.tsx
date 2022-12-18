@@ -18,6 +18,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/helpers/hooks/useAppDispatch/useAppDispatch';
 import { ReducersList, useDynamicModuleLoader } from 'shared/lib/helpers/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
+import { useInitialEffect } from 'shared/lib/helpers/hooks/useInitialEffect/useInitialEffect';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
@@ -50,12 +51,9 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
         [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
     };
 
-    useEffect(() => {
-        // чтобы не отправлять запросы на бэк в сторибуке
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
-        }
-    }, [dispatch]);
+    useInitialEffect(() => {
+        dispatch(fetchProfileData());
+    });
 
     const onChangeFirstname = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({
