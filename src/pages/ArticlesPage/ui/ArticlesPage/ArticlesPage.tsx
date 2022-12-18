@@ -8,7 +8,7 @@ interface ArticlesPageProps {
     className?: string;
 }
 
-const ArticlesPage = ({ className }: ArticlesPageProps) => {
+const ArticlesPage = memo(({ className }: ArticlesPageProps) => {
     const { t } = useTranslation();
 
     return (
@@ -16,6 +16,6 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
             ARTICLES PAGE
         </div>
     );
-};
+});
 
 export default memo(ArticlesPage);
