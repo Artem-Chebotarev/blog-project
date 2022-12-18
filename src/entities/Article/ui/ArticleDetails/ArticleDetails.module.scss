@@ -1,0 +1,23 @@
+.ArticleDetails {
+    min-height: 100%;
+}
+
+.Container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    & > *:first-child {
+        margin: 0 auto;
+    }
+}
+
+.articleInfo {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.block {
+    margin-top: 16px;
+}

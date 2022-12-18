@@ -1,5 +1,7 @@
+import { ArticleDetails } from 'entities/Article';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 
 import cls from './ArticleDetailsPage.module.scss';
@@ -9,11 +11,23 @@ interface ArticleDetailsPageProps {
 }
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
-    const { t } = useTranslation('article');
+    const { t } = useTranslation('article-details');
+
+    const { id } = useParams<{ id: string }>();
+
+    // console.log(useParams());
+
+    if (!id) {
+        return (
+            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+                {t('Статья не найдена')}
+            </div>
+        );
+    }
 
     return (
         <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-            ARTICLE DETAILS PAGE
+            <ArticleDetails id={id} />
         </div>
     );
 };

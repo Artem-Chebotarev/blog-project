@@ -1,6 +1,8 @@
 import {
     CombinedState,
-    configureStore, getDefaultMiddleware, Reducer, ReducersMapObject,
+    configureStore,
+    Reducer,
+    ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
