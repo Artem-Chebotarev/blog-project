@@ -1,11 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 import { CommentItem } from './CommentItem';
 
 export default {
-    title: 'shared/CommentItem',
+    title: 'entities/Comment/CommentItem',
     component: CommentItem,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -14,8 +12,21 @@ export default {
 
 const Template: ComponentStory<typeof CommentItem> = (args) => <CommentItem {...args} />;
 
-export const Primary = Template.bind({});
+export const Normal = Template.bind({});
+Normal.args = {
+    comment: {
+        id: 1,
+        text: 'hello world',
+        user: { id: 1, username: 'Vasya' },
+    },
+};
 
-// Primary.args = {
-//     children: 'Text',
-// };
+export const Loading = Template.bind({});
+Loading.args = {
+    comment: {
+        id: 1,
+        text: 'hello world',
+        user: { id: 1, username: 'Vasya' },
+    },
+    isLoading: true,
+};

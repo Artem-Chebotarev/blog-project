@@ -1,14 +1,15 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
+import { ThunkErrors } from 'shared/const/common';
 import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
-import { Profile, ValidateProfileError } from '../../types/profile';
+import { Profile, ValidateAndThunkErrors } from '../../types/profile';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
 
 // 1 арг в дженерике - что возвращаем с бека
 // 2 арг в дженерике - тип аргумента на входе
 // 3 арг - настройки конфига thunk (AsyncThunkConfig), где можем задавать dispatch, rejectValue
 export const updateProfileData = createAsyncThunk<Profile, void,
-    ThunkConfig<ValidateProfileError[]>>(
+    ThunkConfig<ValidateAndThunkErrors[]>>(
         'profile/updateProfileData',
         async (_, thunkAPI) => {
             // деструктуризация из thunkAPI
@@ -24,16 +25,16 @@ export const updateProfileData = createAsyncThunk<Profile, void,
             }
 
             try {
-                const response = await extra.api.put<Profile>('/profile', formData);
+                const response = await extra.api.put<Profile>(`/profile/${formData?.id}`, formData);
 
                 if (!response.data) {
-                    throw new Error(ValidateProfileError.NO_DATA);
+                    throw new Error(ThunkErrors.NO_DATA);
                 }
 
                 return response.data;
             } catch (e) {
                 // обработка серверных ошибок в thunk
-                return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
+                return rejectWithValue([ThunkErrors.SERVER_ERROR]);
             }
         },
     );

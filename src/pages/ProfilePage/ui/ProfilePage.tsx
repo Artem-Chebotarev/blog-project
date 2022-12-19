@@ -10,11 +10,14 @@ import {
     ProfileCard,
     profileReducer,
     ValidateProfileError,
+    ValidateAndThunkErrors,
 } from 'entities/Profile';
 import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { ThunkErrors } from 'shared/const/common';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/helpers/hooks/useAppDispatch/useAppDispatch';
 import { ReducersList, useDynamicModuleLoader } from 'shared/lib/helpers/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
@@ -33,9 +36,11 @@ const reducers: ReducersList = {
 const ProfilePage = memo(({ className }: ProfilePageProps) => {
     const { t } = useTranslation('profile');
 
+    const { id } = useParams<{ id: string }>();
+
     const dispatch = useAppDispatch();
 
-    useDynamicModuleLoader(reducers, true);
+    useDynamicModuleLoader(reducers);
 
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
@@ -44,15 +49,17 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     const validateErrors = useSelector(getProfileValidateErrors);
 
     const validateErrorTranslates = {
-        [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+        [ThunkErrors.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
         [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
-        [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+        [ThunkErrors.NO_DATA]: t('Данные не указаны'),
         [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
         [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
     };
 
     useInitialEffect(() => {
-        dispatch(fetchProfileData());
+        if (id) {
+            dispatch(fetchProfileData(id));
+        }
     });
 
     const onChangeFirstname = useCallback((value: string) => {
