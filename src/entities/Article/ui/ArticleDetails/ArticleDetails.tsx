@@ -40,7 +40,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     const dispatch = useAppDispatch();
 
-    useDynamicModuleLoader(reducers, true);
+    useDynamicModuleLoader(reducers);
 
     const article = useSelector(getArticleDetailsData);
     const isLoading = useSelector(getArticleDetailsIsLoading);

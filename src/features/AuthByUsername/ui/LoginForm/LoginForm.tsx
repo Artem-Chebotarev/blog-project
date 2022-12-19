@@ -28,7 +28,7 @@ const initialReducers: ReducersList = {
 const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     const { t } = useTranslation();
 
-    useDynamicModuleLoader(initialReducers, true);
+    useDynamicModuleLoader(initialReducers);
 
     const dispatch = useAppDispatch();
 

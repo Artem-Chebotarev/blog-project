@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
+import { ThunkErrors } from 'shared/const/common';
 import { Article } from '../../types/article';
 
 // 1 арг в дженерике - что возвращаем с бека
@@ -15,7 +16,7 @@ export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<st
             const response = await extra.api.get<Article>(`/articles/${articleId}`);
 
             if (!response.data) {
-                throw new Error('');
+                throw new Error(ThunkErrors.NO_DATA);
             }
 
             return response.data;

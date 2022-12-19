@@ -1,5 +1,6 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
+import { ThunkErrors } from 'shared/const/common';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { ProfileSchema, ValidateProfileError } from '../types/profile';
 import { profileActions, profileReducer } from './profileSlice';
@@ -51,7 +52,7 @@ describe('profileSlice', () => {
     test('test update profile service pending', () => {
         const state: DeepPartial<ProfileSchema> = {
             isLoading: false,
-            validateErrors: [ValidateProfileError.SERVER_ERROR],
+            validateErrors: [ThunkErrors.SERVER_ERROR],
 
         };
 
@@ -82,9 +83,9 @@ describe('profileSlice', () => {
             validateErrors: undefined,
         };
 
-        expect(profileReducer(state as ProfileSchema, updateProfileData.rejected(new Error(), '', fn(), [ValidateProfileError.SERVER_ERROR]))).toEqual({
+        expect(profileReducer(state as ProfileSchema, updateProfileData.rejected(new Error(), '', fn(), [ThunkErrors.SERVER_ERROR]))).toEqual({
             isLoading: false,
-            validateErrors: [ValidateProfileError.SERVER_ERROR],
+            validateErrors: [ThunkErrors.SERVER_ERROR],
         });
     });
 });

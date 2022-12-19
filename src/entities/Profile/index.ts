@@ -1,4 +1,9 @@
-export { Profile, ProfileSchema, ValidateProfileError } from './model/types/profile';
+export {
+    Profile,
+    ProfileSchema,
+    ValidateProfileError,
+    ValidateAndThunkErrors,
+} from './model/types/profile';
 
 export { profileReducer, profileActions } from './model/slice/profileSlice';
 
@@ -17,3 +22,5 @@ export { getProfileError } from './model/selectors/getProfileError/getProfileErr
 export { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly';
 
 export { getProfileValidateErrors } from './model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+
+export { getCanEdit } from './model/selectors/getCanEdit/getCanEdit';

@@ -1,7 +1,8 @@
 import { ArticleDetails } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
+import { AddCommentForm } from 'features/AddCommentForm';
 import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -10,6 +11,8 @@ import { useAppDispatch } from 'shared/lib/helpers/hooks/useAppDispatch/useAppDi
 import { ReducersList, useDynamicModuleLoader } from 'shared/lib/helpers/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
 import { useInitialEffect } from 'shared/lib/helpers/hooks/useInitialEffect/useInitialEffect';
 import { Text } from 'shared/ui/Text/Text';
+import { getAddCommentFormText } from 'features/AddCommentForm/model/selectors/addCommentFormSelectors';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 
@@ -28,15 +31,16 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
     const { id } = useParams<{ id: string }>();
 
-    // console.log(useParams());
-
-    useDynamicModuleLoader(reducers, true);
+    useDynamicModuleLoader(reducers);
 
     const dispatch = useAppDispatch();
 
     const comments = useSelector(getArticleComments.selectAll);
     const isLoading = useSelector(getArticleCommentsIsLoading);
-    // const error = useSelector(getArticleCommentsError);
+
+    const onSendComment = useCallback((text: string) => {
+        dispatch(addCommentForArticle(text));
+    }, [dispatch]);
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
@@ -57,6 +61,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                 className={cls.commentTitle}
                 title={t('Комментарии')}
             />
+            <AddCommentForm onSendComment={onSendComment} />
             <CommentList
                 comments={comments}
                 isLoading={isLoading}

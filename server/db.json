@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": 1,
@@ -100,8 +102,37 @@
       "text": "some comment 3",
       "articleId": 1,
       "userId": 1
+    },
+    {
+      "articleId": 1,
+      "userId": 1,
+      "text": "12321",
+      "id": 4
+    },
+    {
+      "articleId": 1,
+      "userId": 1,
+      "text": "12321321312",
+      "id": 5
+    },
+    {
+      "articleId": 1,
+      "userId": 1,
+      "text": "312321",
+      "id": 6
+    },
+    {
+      "articleId": 1,
+      "userId": 2,
+      "text": "cat",
+      "id": 7
+    },
+    {
+      "articleId": 1,
+      "userId": 2,
+      "text": "new",
+      "id": 8
     }
-
   ],
   "users": [
     {
@@ -119,14 +150,28 @@
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
-  "profile": {
-    "first": "Art",
-    "lastname": "Ch32312",
-    "age": 2232,
-    "currency": "UER",
-    "country": "Armenia",
-    "city": "Moscow32",
-    "username": "admin",
-    "avatar": "https://cdnstatic.rg.ru/uploads/images/145/57/97/68.jpg"
-  }
+  "profile": [
+    {
+      "id": 1,
+      "first": "Art",
+      "lastname": "Ch32312",
+      "age": 2232,
+      "currency": "UER",
+      "country": "Armenia",
+      "city": "Moscow32",
+      "username": "admin",
+      "avatar": "https://cdnstatic.rg.ru/uploads/images/145/57/97/68.jpg"
+    },
+    {
+      "id": 2,
+      "first": "Cat FCK",
+      "lastname": "Catovich",
+      "age": 15,
+      "currency": "UER",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "user",
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    }
+  ]
 }

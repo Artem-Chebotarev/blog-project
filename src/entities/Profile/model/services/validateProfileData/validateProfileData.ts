@@ -1,8 +1,9 @@
+import { ThunkErrors } from 'shared/const/common';
 import { Profile, ValidateProfileError } from '../../types/profile';
 
 export const validateProfileData = (profile?: Profile) => {
     if (!profile) {
-        return [ValidateProfileError.NO_DATA];
+        return [ThunkErrors.NO_DATA];
     }
 
     const {
