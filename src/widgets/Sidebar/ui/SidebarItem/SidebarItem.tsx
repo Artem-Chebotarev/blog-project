@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { Applink, ApplinkTheme } from 'shared/ui/Applink/Applink';
-import { SidebarItemType } from '../../model/items';
+import { SidebarItemType } from '../../model/types/sidebar';
 
 import cls from './SidebarItem.module.scss';
 
@@ -30,7 +30,7 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
     return (
         <Applink
             theme={ApplinkTheme.SECONDARY}
-            to={item.to}
+            to={item.path}
             className={classNames(cls.item, { [cls.collapsed]: collapsed }, [])}
         >
             <item.Icon className={cls.icon} />

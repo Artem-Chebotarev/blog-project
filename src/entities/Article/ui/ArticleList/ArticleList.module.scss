@@ -1,0 +1,11 @@
+.LIST {
+    & > div {
+        margin-bottom: 30px;
+    }
+}
+
+.GRID {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
