@@ -2,8 +2,9 @@ import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
 import { BuildPaths } from '../build/types/config';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
+import { buildFileLoader } from './loaders/buildFileLoader';
 
-export default ({ config }: {config: webpack.Configuration}) => {
+export default ({ config }: { config: webpack.Configuration }) => {
     const paths: BuildPaths = {
         build: '',
         html: '',
@@ -23,6 +24,8 @@ export default ({ config }: {config: webpack.Configuration}) => {
 
         return rule;
     });
+
+    config.module!.rules.push(buildFileLoader());
 
     config.module!.rules.push({
         test: /\.svg$/,
