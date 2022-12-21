@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { Link, LinkProps } from 'react-router-dom';
 import { memo, ReactNode } from 'react';
-import cls from './Applink.module.scss';
+// import cls from './Applink.module.scss';
 
 export enum ApplinkTheme {
     PRIMARY = 'primary',
@@ -28,7 +28,7 @@ export const Applink = memo((props: ApplinkProps) => {
         <Link
             {...otherProps}
             to={to}
-            className={classNames(cls.Applink, {}, [className, cls[theme]])}
+            // className={classNames(cls.Applink, {}, [className, cls[theme]])}
         >
             {children}
         </Link>
