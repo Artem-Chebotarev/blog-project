@@ -4,10 +4,15 @@ import {
     Reducer,
     ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { ReducerManager, StateSchema, StateSchemaKey } from './StateSchema';
+import {
+    MountedReducers,
+    ReducerManager,
+    StateSchema,
+    StateSchemaKey,
+} from './StateSchema';
 
 export function createReducerManager(initialReducers: ReducersMapObject<StateSchema>):
-ReducerManager {
+    ReducerManager {
     const reducers = { ...initialReducers };
 
     let combinedReducer = combineReducers(reducers);
@@ -15,7 +20,10 @@ ReducerManager {
     // массив редюсеров, которые хотим удалить
     let keysToRemove: Array<StateSchemaKey> = [];
 
+    const mountedReducers: MountedReducers = {};
+
     return {
+        // для проверки вмонтированных редюсеров
         getReducerMap: () => reducers,
         reduce: (state: StateSchema, action: AnyAction) => {
             if (keysToRemove.length > 0) {
@@ -33,6 +41,8 @@ ReducerManager {
             }
             reducers[key] = reducer;
 
+            mountedReducers[key] = true;
+
             combinedReducer = combineReducers(reducers);
         },
         remove: (key: StateSchemaKey) => {
@@ -41,7 +51,9 @@ ReducerManager {
             }
             delete reducers[key];
             keysToRemove.push(key);
+            mountedReducers[key] = false;
             combinedReducer = combineReducers(reducers);
         },
+        // getMountedReducers: () => mountedReducers,
     };
 }

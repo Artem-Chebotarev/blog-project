@@ -10,7 +10,6 @@ import {
     ProfileCard,
     profileReducer,
     ValidateProfileError,
-    ValidateAndThunkErrors,
 } from 'entities/Profile';
 import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';
 import { memo, useCallback } from 'react';
@@ -22,6 +21,7 @@ import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/helpers/hooks/useAppDispatch/useAppDispatch';
 import { ReducersList, useDynamicModuleLoader } from 'shared/lib/helpers/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
 import { useInitialEffect } from 'shared/lib/helpers/hooks/useInitialEffect/useInitialEffect';
+import { Page } from 'shared/ui/Page/Page';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
@@ -111,7 +111,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     }, [dispatch]);
 
     return (
-        <div className={classNames('', {}, [className])}>
+        <Page className={classNames('', {}, [className])}>
             <ProfilePageHeader />
             {validateErrors?.length && validateErrors.map((elem) => (
                 <Text
@@ -134,7 +134,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
                 onChangeCountry={onChangeCountry}
                 readonly={readonly}
             />
-        </div>
+        </Page>
     );
 });
 

@@ -1,6 +1,7 @@
 import {
     createEntityAdapter,
-    createSlice, PayloadAction,
+    createSlice,
+    PayloadAction,
 } from '@reduxjs/toolkit';
 
 import { Comment } from 'entities/Comment';
