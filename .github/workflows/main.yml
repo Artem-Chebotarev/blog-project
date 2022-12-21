@@ -6,10 +6,10 @@ on:
     branches: [ master ]
 jobs:
   pipeline:
-    runs-on: macos-latest
+    runs-on: windows-latest
     strategy:
       matrix:
-        node-version: [ 17.x ]
+        node-version: [ 16.x ]
 
     steps:
       - uses: actions/checkout@v2
@@ -22,15 +22,15 @@ jobs:
       - name: build production project
         run: npm run build:prod
         if: always()
-      - name: linting typescript
-        run: npm run lint:ts
-        if: always()
-      - name: linting css
-        run: npm run lint:scss
-        if: always()
-      - name: unit testing
-        run: npm run test:unit
-        if: always()
+      # - name: linting typescript
+      #   run: npm run lint:ts
+      #   if: always()
+      # - name: linting css
+      #   run: npm run lint:scss
+      #   if: always()
+      # - name: unit testing
+      #   run: npm run test:unit
+      #   if: always()
       - name: build storybook
         run: npm run storybook:build
         if: always()
