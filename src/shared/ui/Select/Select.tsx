@@ -3,21 +3,26 @@ import { classNames, Mods } from 'shared/lib/helpers/classNames/classNames';
 
 import cls from './Select.module.scss';
 
-export interface SelectOption {
-    value: string;
+export interface SelectOption<T extends string> {
+    value: T;
     content: string;
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
     className?: string;
     label?: string;
-    options?: SelectOption[];
-    value?: string;
-    onChange?: (value: string) => void;
+    options?: SelectOption<T>[];
+    value?: T;
+    onChange?: (value: T) => void;
     readonly?: boolean;
 }
 
-export const Select = memo((props: SelectProps) => {
+/**
+ * создаем typedMemo, так как обычный memo плохо работает с дженериками
+ */
+const typedMemo: <K>(c: K) => K = memo;
+
+export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
     const {
         className,
         label,
@@ -29,7 +34,7 @@ export const Select = memo((props: SelectProps) => {
 
     const onChangeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
         if (onChange) {
-            onChange(event.target.value);
+            onChange(event.target.value as T);
         }
         // либо onChange?.(event.target.value);
     };

@@ -21,7 +21,7 @@ describe('fetchNextArticlesPage', () => {
 
         // pending, filfilled and 2 dispatches inside action
         expect(thunk.dispatch).toBeCalledTimes(4);
-        expect(fetchArticlesList).toBeCalledWith({ page: 3 });
+        expect(fetchArticlesList).toHaveBeenCalled();
     });
 
     test('fetchArticlesList in not called', async () => {

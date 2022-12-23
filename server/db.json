@@ -63,10 +63,10 @@
     {
       "id": 3,
       "title": "Kotlin news",
-      "subtitle": "Что нового в JS за 2022 год?",
+      "subtitle": "Что нового в JS за 2019 год?",
       "img": "https://cdn-cdpl.sgp1.cdn.digitaloceanspaces.com/source/bcdfe6d6daa99cd9ad8ded3e6a588819/kotlin_blog_img.jpg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 10022,
+      "createdAt": "26.02.2019",
       "userId": 1,
       "type": [
         "IT"
@@ -113,8 +113,8 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://cdn-cdpl.sgp1.cdn.digitaloceanspaces.com/source/bcdfe6d6daa99cd9ad8ded3e6a588819/kotlin_blog_img.jpg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 666,
+      "createdAt": "05.02.2009",
       "userId": 1,
       "type": [
         "IT"
@@ -134,11 +134,11 @@
     },
     {
       "id": 6,
-      "title": "Kotlin news",
-      "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://cdn-cdpl.sgp1.cdn.digitaloceanspaces.com/source/bcdfe6d6daa99cd9ad8ded3e6a588819/kotlin_blog_img.jpg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "title": "GO news",
+      "subtitle": "Go language",
+      "img": "https://dev-yakuza.posstree.com/assets/images/category/golang/background.jpg",
+      "views": 459,
+      "createdAt": "26.11.2022",
       "userId": 1,
       "type": [
         "IT"
@@ -206,11 +206,11 @@
     },
     {
       "id": 9,
-      "title": "Kotlin news",
-      "subtitle": "Что нового в JS за 2022 год?",
+      "title": "Kotlin news 1998",
+      "subtitle": "Что нового в JS за 1998 год?",
       "img": "https://cdn-cdpl.sgp1.cdn.digitaloceanspaces.com/source/bcdfe6d6daa99cd9ad8ded3e6a588819/kotlin_blog_img.jpg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 1010,
+      "createdAt": "26.02.1998",
       "userId": 1,
       "type": [
         "IT"
@@ -278,14 +278,14 @@
     },
     {
       "id": 12,
-      "title": "Kotlin news",
+      "title": "Chemistry discoveries",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://cdn-cdpl.sgp1.cdn.digitaloceanspaces.com/source/bcdfe6d6daa99cd9ad8ded3e6a588819/kotlin_blog_img.jpg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "img": "https://img2.freepng.ru/20180323/xkq/kisspng-science-scientist-technology-clip-art-melonheadz-computer-cliparts-5ab4e85ec50111.2688591015218054068069.jpg",
+      "views": 90,
+      "createdAt": "26.07.2002",
       "userId": 1,
       "type": [
-        "IT"
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -302,14 +302,14 @@
     },
     {
       "id": 13,
-      "title": "Kotlin news",
+      "title": "БИОЛОГИЯ",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://cdn-cdpl.sgp1.cdn.digitaloceanspaces.com/source/bcdfe6d6daa99cd9ad8ded3e6a588819/kotlin_blog_img.jpg",
-      "views": 1022,
+      "img": "https://cdn.culture.ru/images/627b85cd-645f-5d1d-a0cb-cca78d7f37c5",
+      "views": 456,
       "createdAt": "26.02.2022",
       "userId": 1,
       "type": [
-        "IT"
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -326,14 +326,14 @@
     },
     {
       "id": 14,
-      "title": "Kotlin news",
-      "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://cdn-cdpl.sgp1.cdn.digitaloceanspaces.com/source/bcdfe6d6daa99cd9ad8ded3e6a588819/kotlin_blog_img.jpg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "title": "SCIENCE news",
+      "subtitle": "SCIENCE 2022",
+      "img": "https://www.riskcompliance.it/wp-content/uploads/2020/04/Covid-19-Science.jpg",
+      "views": 41,
+      "createdAt": "01.01.2022",
       "userId": 1,
       "type": [
-        "IT"
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -350,14 +350,14 @@
     },
     {
       "id": 15,
-      "title": "Kotlin news",
-      "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://cdn-cdpl.sgp1.cdn.digitaloceanspaces.com/source/bcdfe6d6daa99cd9ad8ded3e6a588819/kotlin_blog_img.jpg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "title": "ECONOMICS news",
+      "subtitle": "ECONOMICS за 2022 год?",
+      "img": "https://quizizz.com/_media/quizzes/81f94fe4-5bc2-4bf1-8a0f-a6e7d576eb7f_900_900",
+      "views": 45,
+      "createdAt": "26.02.2005",
       "userId": 1,
       "type": [
-        "IT"
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -374,11 +374,11 @@
     },
     {
       "id": 16,
-      "title": "Kotlin news",
+      "title": "Kotlin news 12",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://cdn-cdpl.sgp1.cdn.digitaloceanspaces.com/source/bcdfe6d6daa99cd9ad8ded3e6a588819/kotlin_blog_img.jpg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 12,
+      "createdAt": "26.02.2009",
       "userId": 1,
       "type": [
         "IT"
@@ -422,11 +422,35 @@
     },
     {
       "id": 18,
-      "title": "Kotlin news",
+      "title": "Kotlin news OMG",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://cdn-cdpl.sgp1.cdn.digitaloceanspaces.com/source/bcdfe6d6daa99cd9ad8ded3e6a588819/kotlin_blog_img.jpg",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 33,
+      "createdAt": "23.02.2022",
+      "userId": 1,
+      "type": [
+        "IT"
+      ],
+      "blocks": [
+        {
+          "id": 1,
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.",
+            "JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.",
+            "Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:"
+          ]
+        } 
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Kotlin news OMG",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://cdn-cdpl.sgp1.cdn.digitaloceanspaces.com/source/bcdfe6d6daa99cd9ad8ded3e6a588819/kotlin_blog_img.jpg",
+      "views": 33,
+      "createdAt": "23.02.2022",
       "userId": 1,
       "type": [
         "IT"

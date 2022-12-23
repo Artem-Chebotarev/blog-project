@@ -3,9 +3,11 @@ import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Comment } from 'entities/Comment';
 import { ThunkErrors } from 'shared/const/common';
 
-// 1 арг в дженерике - что возвращаем с бека
-// 2 арг в дженерике - тип аргумента на входе
-// 3 арг - настройки конфига thunk (AsyncThunkConfig), где можем задавать dispatch, rejectValue
+/**
+ * 1 арг в дженерике - что возвращаем с бека
+ * 2 арг в дженерике - тип аргумента на входе
+ * 3 арг - настройки конфига thunk (AsyncThunkConfig), где можем задавать dispatch, rejectValue
+ */
 export const fetchCommentsByArticleId = createAsyncThunk<
     Comment[],
     string | undefined,

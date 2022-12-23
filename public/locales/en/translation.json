@@ -18,5 +18,18 @@
   "Форма авторизации": "Login form",
   "Вы ввели неверный логин или пароль": "You have entered an incorrect username or password",
   "Комментарии отсутствуют": "No comments",
-  "Читать далее...": "Read more..."
+  "Читать далее...": "Read more...",
+  "Сортировать ПО": "Sort BY",
+  "Поиск": "Search",
+  "по": "by",
+  "возрастанию": "ascending",
+  "убыванию": "descending",
+  "количеству просмотров": "views",
+  "названию": "title",
+  "дате создания": "date created",
+  "Все": "All",
+  "Айти": "IT",
+  "Экономика": "Economics",
+  "Наука": "Science",
+  "Статьи не найдены": "No articles"
 }

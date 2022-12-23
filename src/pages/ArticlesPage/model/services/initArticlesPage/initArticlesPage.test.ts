@@ -7,6 +7,8 @@ jest.mock('../fetchArticlesList/fetchArticlesList');
 jest.mock('../../slice/articlesPageSlice');
 
 describe('initArticlesPage', () => {
+    const searchParams = new URLSearchParams(window.location.search);
+
     test('success', async () => {
         const thunk = new TestAsyncThunk(initArticlesPage, {
             articlesPage: {
@@ -20,12 +22,12 @@ describe('initArticlesPage', () => {
             },
         });
 
-        await thunk.callThunk();
+        await thunk.callThunk(searchParams);
 
         // pending, filfilled and 2 dispatches inside action
         expect(thunk.dispatch).toBeCalledTimes(4);
         expect(articlesPageActions.initView).toHaveBeenCalled();
-        expect(fetchArticlesList).toBeCalledWith({ page: 1 });
+        expect(fetchArticlesList).toHaveBeenCalled();
     });
 
     test('fetchArticlesList in not called because of inited = true', async () => {
@@ -41,7 +43,7 @@ describe('initArticlesPage', () => {
             },
         });
 
-        await thunk.callThunk();
+        await thunk.callThunk(searchParams);
 
         // pending, filfilled
         expect(thunk.dispatch).toBeCalledTimes(2);

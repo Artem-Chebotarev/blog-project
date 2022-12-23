@@ -26,9 +26,7 @@ export const fetchNextArticlesPage = createAsyncThunk<
         // для того, чтобы запрос не отрпавлялся в момент загрузки данных
         if (hasMore && !isLoading) {
             dispatch(articlesPageActions.setPage(page + 1));
-            dispatch(fetchArticlesList({
-                page: page + 1,
-            }));
+            dispatch(fetchArticlesList({}));
         }
     },
 );

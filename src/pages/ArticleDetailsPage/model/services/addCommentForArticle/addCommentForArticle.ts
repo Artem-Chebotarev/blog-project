@@ -6,9 +6,11 @@ import { getUserAuthData } from 'entities/User';
 import { ThunkErrors } from 'shared/const/common';
 import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
 
-// 1 арг в дженерике - что возвращаем с бека
-// 2 арг в дженерике - тип аргумента на входе
-// 3 арг - настройки конфига thunk (AsyncThunkConfig), где можем задавать dispatch, rejectValue
+/**
+ * 1 арг в дженерике - что возвращаем с бека
+ * 2 арг в дженерике - тип аргумента на входе
+ * 3 арг - настройки конфига thunk (AsyncThunkConfig), где можем задавать dispatch, rejectValue
+ */
 export const addCommentForArticle = createAsyncThunk<Comment, string, ThunkConfig<string>>(
     'articleDetails/addCommentForArticle',
     // деструктуризация из thunkAPI

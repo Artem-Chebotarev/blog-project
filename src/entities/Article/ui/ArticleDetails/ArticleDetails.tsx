@@ -1,6 +1,6 @@
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from 'entities/Article/model/selectors/articleDetails';
 import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
@@ -35,6 +35,8 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         className,
         id,
     } = props;
+
+    console.log(id, 'id - ArticleDetails');
 
     const { t } = useTranslation('article-details');
 
@@ -77,9 +79,13 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         }
     }, []);
 
-    useInitialEffect(() => {
+    // useInitialEffect(() => {
+    //     dispatch(fetchArticleById(id));
+    // });
+
+    useEffect(() => {
         dispatch(fetchArticleById(id));
-    });
+    }, [dispatch, id]);
 
     let content;
 

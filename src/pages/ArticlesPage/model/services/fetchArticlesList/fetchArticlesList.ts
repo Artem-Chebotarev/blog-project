@@ -1,11 +1,19 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { Article } from 'entities/Article';
+import { Article, ArticleType } from 'entities/Article';
 import { ThunkErrors } from 'shared/const/common';
-import { getArticlesPageLimit } from '../../selectors/articlesPageSelectors';
+import { addQueryParams } from 'shared/lib/helpers/url/addQueryParams/addQueryParams';
+import {
+    getArticlesPageNumber,
+    getArticlesPageLimit,
+    getArticlesPageOrder,
+    getArticlesPageSort,
+    getArticlesPageSearch,
+    getArticlesPageType,
+} from '../../selectors/articlesPageSelectors';
 
 interface FetchArticlesListProps {
-    page?: number;
+    replace?: boolean;
 }
 
 // 1 арг в дженерике - что возвращаем с бека
@@ -17,20 +25,35 @@ export const fetchArticlesList = createAsyncThunk<
     ThunkConfig<string>
 >(
     'articlesPage/fetchArticlesList',
-    async (props, thunkAPI) => {
+    async (_, thunkAPI) => {
         // деструктуризация из thunkAPI
         const { extra, rejectWithValue, getState } = thunkAPI;
 
-        const { page = 1 } = props;
-
+        const page = getArticlesPageNumber(getState());
         const limit = getArticlesPageLimit(getState());
+        const order = getArticlesPageOrder(getState());
+        const sort = getArticlesPageSort(getState());
+        const search = getArticlesPageSearch(getState());
+        const type = getArticlesPageType(getState());
 
         try {
+            addQueryParams({
+                // page: String(page),
+                // limit: String(limit),
+                order,
+                sort,
+                search,
+                type,
+            });
             const response = await extra.api.get<Article[]>('/articles', {
                 params: {
                     _expand: 'user',
                     _limit: limit,
                     _page: page,
+                    _order: order,
+                    _sort: sort,
+                    q: search,
+                    type: type === ArticleType.ALL ? undefined : type,
                 },
             });
 
