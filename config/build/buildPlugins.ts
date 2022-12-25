@@ -3,6 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import CopyPlugin from 'copy-webpack-plugin';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins({
@@ -27,6 +28,12 @@ export function buildPlugins({
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
             __PROJECT__: JSON.stringify(project),
+        }),
+        // откуда перемещаем, куда перемещаем
+        new CopyPlugin({
+            patterns: [
+                { from: paths.locales, to: paths.buidLocales },
+            ],
         }),
         // применяет изменения без обновления браузера
         ...(isDev ? [new ReactRefreshWebpackPlugin()] : []),

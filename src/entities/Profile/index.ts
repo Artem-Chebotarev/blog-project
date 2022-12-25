@@ -23,4 +23,4 @@ export { getProfileReadonly } from './model/selectors/getProfileReadonly/getProf
 
 export { getProfileValidateErrors } from './model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 
-export { getCanEdit } from './model/selectors/getCanEdit/getCanEdit';
+export { getCanEditProfile } from './model/selectors/getCanEditProfile/getCanEditProfile';

@@ -5,7 +5,7 @@ import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
 import { useSelector } from 'react-redux';
 import {
-    getCanEdit,
+    getCanEditProfile,
     getProfileReadonly,
     profileActions,
     updateProfileData,
@@ -28,7 +28,7 @@ export const ProfilePageHeader = memo(({ className }: ProfilePageHeaderProps) =>
     const readonly = useSelector(getProfileReadonly);
 
     // селектор с использованием реселект
-    const canEdit = useSelector(getCanEdit);
+    const canEditProfile = useSelector(getCanEditProfile);
 
     const onEdit = useCallback(() => {
         dispatch(profileActions.setReadonly(false));
@@ -45,7 +45,7 @@ export const ProfilePageHeader = memo(({ className }: ProfilePageHeaderProps) =>
     return (
         <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
             <Text title={t('Профиль')} />
-            {canEdit && (
+            {canEditProfile && (
                 <div className={cls.btnsWrapper}>
                     {readonly ? (
                         <Button

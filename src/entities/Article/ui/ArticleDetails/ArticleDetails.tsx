@@ -36,8 +36,6 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         id,
     } = props;
 
-    console.log(id, 'id - ArticleDetails');
-
     const { t } = useTranslation('article-details');
 
     const dispatch = useAppDispatch();
@@ -79,13 +77,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         }
     }, []);
 
-    // useInitialEffect(() => {
-    //     dispatch(fetchArticleById(id));
-    // });
-
-    useEffect(() => {
+    useInitialEffect(() => {
         dispatch(fetchArticleById(id));
-    }, [dispatch, id]);
+    });
 
     let content;
 

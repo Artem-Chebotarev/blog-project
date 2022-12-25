@@ -12,7 +12,7 @@ import {
     ValidateProfileError,
 } from 'entities/Profile';
 import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -56,11 +56,11 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
         [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
     };
 
-    useInitialEffect(() => {
+    useEffect(() => {
         if (id) {
             dispatch(fetchProfileData(id));
         }
-    });
+    }, [dispatch, id]);
 
     const onChangeFirstname = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({

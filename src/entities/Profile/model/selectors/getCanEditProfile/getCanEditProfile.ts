@@ -8,7 +8,13 @@ const selectors: [
     Selector<StateSchema, User | undefined>, Selector<StateSchema, Profile | undefined>
 ] = [getUserAuthData, getProfileData];
 
-export const getCanEdit = createSelector(
+export const getCanEditProfile = createSelector(
     selectors,
-    (authData, profileData) => authData?.id === profileData?.id,
+    (authData, profileData) => {
+        if (!authData || !profileData) {
+            return false;
+        }
+
+        return authData?.id === profileData?.id;
+    },
 );
