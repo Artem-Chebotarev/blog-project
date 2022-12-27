@@ -15,6 +15,7 @@ import { articlesPageReducer, getArticles } from '../../model/slice/articlesPage
 
 import cls from './ArticlesPage.module.scss';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList';
 
 interface ArticlesPageProps {
     className?: string;
@@ -31,18 +32,13 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
 
     const dispatch = useAppDispatch();
 
-    const articles = useSelector(getArticles.selectAll);
-    const isLoading = useSelector(getArticlesPageIsLoading);
-
-    const view = useSelector(getArticlesPageView);
+    const [searchParams] = useSearchParams();
 
     const onLoadNextPart = useCallback(() => {
         if (__PROJECT__ !== 'storybook') {
             dispatch(fetchNextArticlesPage());
         }
     }, [dispatch]);
-
-    const [searchParams] = useSearchParams();
 
     useInitialEffect(() => {
         dispatch(initArticlesPage(searchParams));
@@ -54,12 +50,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
             onScrollEnd={onLoadNextPart}
         >
             <ArticlesPageFilters />
-            <ArticleList
-                className={cls.list}
-                isLoading={isLoading}
-                view={view}
-                articles={articles}
-            />
+            <ArticlesInfiniteList />
         </Page>
     );
 };

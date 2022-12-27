@@ -1,5 +1,6 @@
+import { Profile } from 'entities/Profile';
 import { ThunkErrors } from 'shared/const/common';
-import { Profile, ValidateProfileError } from '../../types/profile';
+import { ValidateProfileError } from '../../types/editableProfileCardSchema';
 
 export const validateProfileData = (profile?: Profile) => {
     if (!profile) {

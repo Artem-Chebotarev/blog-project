@@ -1,5 +1,5 @@
 import { Menu } from '@headlessui/react';
-import { Fragment, ReactNode } from 'react';
+import { createRef, Fragment, ReactNode } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { DropdownDirection } from 'shared/types/ui';
 import { Applink } from '../Applink/Applink';
@@ -7,6 +7,7 @@ import { Applink } from '../Applink/Applink';
 import cls from './Dropdown.module.scss';
 
 export interface DropdowItem {
+    id: string;
     disabled?: boolean;
     content?: ReactNode;
     onClick?: () => void;
@@ -34,6 +35,8 @@ export const Dropdown = (props: DropdownProps) => {
         trigger,
         direction = 'bottom right',
     } = props;
+
+    const ref = createRef();
 
     const menuClasses = [mapDirectionClass[direction]];
 
@@ -63,10 +66,11 @@ export const Dropdown = (props: DropdownProps) => {
                     if (elem.href) {
                         return (
                             <Menu.Item
-                                key={elem.href}
+                                key={elem.id}
                                 as={Applink}
                                 to={elem.href}
                                 disabled={elem.disabled}
+                                ref={ref}
                             >
                                 {content}
                             </Menu.Item>
@@ -75,7 +79,7 @@ export const Dropdown = (props: DropdownProps) => {
 
                     return (
                         <Menu.Item
-                            key={elem.href}
+                            key={elem.id}
                             as={Fragment}
                             disabled={elem.disabled}
                         >

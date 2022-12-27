@@ -2,6 +2,7 @@ import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { List, ListRowProps, WindowScroller } from 'react-virtualized';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
+import { HStack } from 'shared/ui/Stack';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { PAGE_ID } from 'widgets/Page/Page';
 import { Article, ArticleView } from '../../model/types/article';
@@ -122,7 +123,14 @@ export const ArticleList = memo((props: ArticleListProps) => {
                         isScrolling={isScrolling}
                         scrollTop={scrollTop}
                     />
-                    {isLoading && getSkeletons(view)}
+
+                    {isLoading && (
+                        <div
+                            className={classNames(cls.skeletonsWrapper, {}, [className, cls[view]])}
+                        >
+                            {getSkeletons(view)}
+                        </div>
+                    )}
                 </div>
             )}
         </WindowScroller>

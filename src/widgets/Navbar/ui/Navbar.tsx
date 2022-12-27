@@ -1,7 +1,11 @@
 import { getUserAuthData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
 import { loginActions } from 'features/AuthByUsername/model/slice/loginSlice';
-import { memo, useCallback, useState } from 'react';
+import {
+    memo,
+    useCallback,
+    useState,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
@@ -59,10 +63,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     direction="bottom left"
                     items={[
                         {
+                            id: '1',
                             content: t('Профиль'),
                             href: `${RoutePath.profile}${authData.id}`,
                         },
                         {
+                            id: '2',
                             content: t('Выйти'),
                             onClick: onLogout,
                         },

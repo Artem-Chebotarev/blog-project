@@ -86,29 +86,30 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     if (isLoading) {
         content = (
-            <div className={cls.Container}>
+            <VStack
+                justify="center"
+                gap="16"
+                max
+            >
                 <Skeleton
+                    className={cls.avatar}
                     width={200}
                     height={200}
                     border="50%"
                 />
                 <Skeleton
-                    width={300}
                     height={32}
                 />
                 <Skeleton
-                    width={600}
                     height={23}
                 />
                 <Skeleton
-                    width="100%"
                     height={200}
                 />
                 <Skeleton
-                    width="100%"
                     height={200}
                 />
-            </div>
+            </VStack>
         );
     } else if (error) {
         content = (
@@ -120,7 +121,6 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     } else {
         content = (
             <VStack
-                className={cls.Container}
                 justify="center"
                 gap="16"
                 max
@@ -160,6 +160,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         <VStack
             className={classNames(cls.ArticleDetails, {}, [className])}
             gap="16"
+            max
         >
             {content}
         </VStack>

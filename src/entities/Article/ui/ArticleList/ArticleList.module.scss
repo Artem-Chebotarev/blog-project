@@ -7,6 +7,7 @@
 .GRID {
     display: flex;
     flex-wrap: wrap;
+    gap: 30px;
     
 
     .card {
@@ -18,4 +19,8 @@
         display: flex;
         gap: 30px;
     }
+}
+
+.skeletonsWrapper {
+    margin-top: -30px;
 }

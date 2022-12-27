@@ -1,7 +1,7 @@
 import { createSelector, Selector } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
+import { Profile } from 'entities/Profile';
 import { getUserAuthData, User } from 'entities/User';
-import { Profile } from '../../types/profile';
 import { getProfileData } from '../getProfileData/getProfileData';
 
 const selectors: [
