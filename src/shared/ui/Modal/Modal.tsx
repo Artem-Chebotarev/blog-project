@@ -1,8 +1,13 @@
 import React, {
-    ReactNode, useRef, useCallback, useEffect, useState, MutableRefObject,
+    ReactNode,
+    useRef,
+    useCallback,
+    useEffect,
+    useState,
+    MutableRefObject,
 } from 'react';
 import { classNames, Mods } from 'shared/lib/helpers/classNames/classNames';
-import { Portal } from 'shared/ui/Portal/Portal';
+import { Portal } from '../Portal/Portal';
 
 import cls from './Modal.module.scss';
 
@@ -55,6 +60,7 @@ export const Modal = (props: ModalProps) => {
         }
     }, [closeHandler]);
 
+    // без этой функции клик по модалке будет отрабатывать как клик outside
     const onContentClick = (event: React.MouseEvent) => {
         event.stopPropagation();
     };

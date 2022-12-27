@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 import { componentRender } from 'shared/config/tests/componentRender/componentRender';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Text, TextTheme } from './Text';
 
 describe('Text', () => {
     test('Test render', () => {

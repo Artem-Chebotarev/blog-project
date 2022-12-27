@@ -4,6 +4,7 @@ import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { Applink } from 'shared/ui/Applink/Applink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { VStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text/Text';
 import { Comment } from '../../model/types/comment';
 
@@ -24,7 +25,10 @@ export const CommentItem = memo((props: CommentItemProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.CommentItem, {}, [className, cls.loading])}>
+            <VStack
+                className={classNames(cls.CommentItem, {}, [className, cls.loading])}
+                max
+            >
                 <div className={cls.header}>
                     <Skeleton
                         width={30}
@@ -41,7 +45,7 @@ export const CommentItem = memo((props: CommentItemProps) => {
                     width="100%"
                     height={50}
                 />
-            </div>
+            </VStack>
         );
     }
 
@@ -50,7 +54,11 @@ export const CommentItem = memo((props: CommentItemProps) => {
     }
 
     return (
-        <div className={classNames(cls.CommentItem, {}, [className])}>
+        <VStack
+            className={classNames(cls.CommentItem, {}, [className])}
+            gap="8"
+            max
+        >
             <Applink
                 className={cls.header}
                 to={`${RoutePath.profile}${comment.user.id}`}
@@ -67,6 +75,6 @@ export const CommentItem = memo((props: CommentItemProps) => {
                 className={cls.text}
                 text={comment.text}
             />
-        </div>
+        </VStack>
     );
 });

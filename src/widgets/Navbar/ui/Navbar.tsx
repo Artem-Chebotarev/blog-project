@@ -7,8 +7,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { Applink, ApplinkTheme } from 'shared/ui/Applink/Applink';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -52,12 +55,25 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 >
                     {t('Создать статью')}
                 </Applink>
-                <Button
-                    theme={ButtonTheme.CLEAR_INVERTED}
-                    onClick={onLogout}
-                >
-                    {t('Выйти')}
-                </Button>
+                <Dropdown
+                    direction="bottom left"
+                    items={[
+                        {
+                            content: t('Профиль'),
+                            href: `${RoutePath.profile}${authData.id}`,
+                        },
+                        {
+                            content: t('Выйти'),
+                            onClick: onLogout,
+                        },
+                    ]}
+                    trigger={(
+                        <Avatar
+                            size={30}
+                            src={authData.avatar}
+                        />
+                    )}
+                />
             </header>
         );
     }

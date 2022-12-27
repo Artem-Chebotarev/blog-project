@@ -6,13 +6,6 @@ import {
 } from 'entities/Article';
 import { ArticleType } from 'entities/Article/model/types/article';
 import { ArticleViewSelector } from 'features/ArticleViewSelector';
-import {
-    getArticlesPageOrder,
-    getArticlesPageSearch,
-    getArticlesPageSort,
-    getArticlesPageType,
-    getArticlesPageView,
-} from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -23,6 +16,13 @@ import { SortOrder } from 'shared/types';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
 import { TabItem } from 'shared/ui/Tabs/Tabs';
+import {
+    getArticlesPageOrder,
+    getArticlesPageSearch,
+    getArticlesPageSort,
+    getArticlesPageType,
+    getArticlesPageView,
+} from '../../model/selectors/articlesPageSelectors';
 import { articlesPageActions } from '../../model/slice/articlesPageSlice';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 

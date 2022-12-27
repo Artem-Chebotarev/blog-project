@@ -1,0 +1,73 @@
+.ListBox {
+    position: relative;
+}
+
+.trigger {
+    background: none;
+    border: none;
+    outline: none;
+    padding: none;
+    margin: none;
+}
+
+.options {
+    position: absolute;
+    z-index: var(--modal-z-index);
+    background: var(--listbox-bg);
+    border-radius: 12px;
+    box-shadow: 4px 4px 8px var(--listbox-bg);
+}
+
+.item {
+    position: relative;
+    cursor: default;
+    padding: 10px 15px;
+
+    &:first-child {
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+
+    &:last-child {
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+    }
+}
+
+.active {
+    background: var(--inverted-primary-color);
+}
+
+.checkIcon {
+    position: absolute;
+    top: 30%;
+    left: 0;
+}
+
+.disabled {
+    opacity: 0.7;
+}
+
+.readonly {
+    opacity: 0.7;
+}
+
+.optionsBottomLeft {
+    top: 100%;
+    right: 0;
+}
+
+.optionsBottomRight {
+    top: 100%;
+    left: 0;
+}
+
+.optionsTopRight {
+    bottom: 100%;
+    left: 0;
+}
+
+.optionsTopLeft {
+    right: 0;
+    bottom: 100%;
+}

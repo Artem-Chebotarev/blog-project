@@ -23,6 +23,7 @@ import { ReducersList, useDynamicModuleLoader } from 'shared/lib/helpers/hooks/u
 import { useInitialEffect } from 'shared/lib/helpers/hooks/useInitialEffect/useInitialEffect';
 import { Page } from 'widgets/Page/Page';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
@@ -112,28 +113,33 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
 
     return (
         <Page className={classNames('', {}, [className])}>
-            <ProfilePageHeader />
-            {validateErrors?.length && validateErrors.map((elem) => (
-                <Text
-                    key={elem}
-                    theme={TextTheme.ERROR}
-                    title={validateErrorTranslates[elem]}
+            <VStack
+                gap="16"
+                max
+            >
+                <ProfilePageHeader />
+                {validateErrors?.length && validateErrors.map((elem) => (
+                    <Text
+                        key={elem}
+                        theme={TextTheme.ERROR}
+                        title={validateErrorTranslates[elem]}
+                    />
+                ))}
+                <ProfileCard
+                    data={formData}
+                    isLoading={isLoading}
+                    error={error}
+                    onChangeFirstname={onChangeFirstname}
+                    onChangeLastname={onChangeLastname}
+                    onChangeAge={onChangeAge}
+                    onChangeCity={onChangeCity}
+                    onChangeUsername={onChangeUsername}
+                    onChangeAvatar={onChangeAvatar}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
+                    readonly={readonly}
                 />
-            ))}
-            <ProfileCard
-                data={formData}
-                isLoading={isLoading}
-                error={error}
-                onChangeFirstname={onChangeFirstname}
-                onChangeLastname={onChangeLastname}
-                onChangeAge={onChangeAge}
-                onChangeCity={onChangeCity}
-                onChangeUsername={onChangeUsername}
-                onChangeAvatar={onChangeAvatar}
-                onChangeCurrency={onChangeCurrency}
-                onChangeCountry={onChangeCountry}
-                readonly={readonly}
-            />
+            </VStack>
         </Page>
     );
 });

@@ -1,6 +1,4 @@
-import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from 'entities/Article/model/selectors/articleDetails';
-import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
@@ -12,14 +10,17 @@ import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
-import { ArticleBlock, ArticleBlockType } from 'entities/Article/model/types/article';
 import { useInitialEffect } from 'shared/lib/helpers/hooks/useInitialEffect/useInitialEffect';
+import { HStack, VStack } from 'shared/ui/Stack';
+import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/articleDetails';
+import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-
-import cls from './ArticleDetails.module.scss';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+
+import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
     className?: string;
@@ -118,33 +119,49 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         );
     } else {
         content = (
-            <div className={cls.Container}>
+            <VStack
+                className={cls.Container}
+                justify="center"
+                gap="16"
+                max
+            >
                 <Avatar
                     className={cls.avatar}
                     size={200}
                     src={article?.img}
                 />
-                <Text
-                    title={article?.title}
-                    text={article?.subtitle}
-                    size={TextSize.L}
-                />
-                <div className={cls.articleInfo}>
-                    <Icon Svg={EyeIcon} />
-                    <Text text={String(article?.views)} />
-                </div>
-                <div className={cls.articleInfo}>
-                    <Icon Svg={CalendarIcon} />
-                    <Text text={article?.createdAt} />
-                </div>
+                <VStack gap="4">
+                    <Text
+                        title={article?.title}
+                        text={article?.subtitle}
+                        size={TextSize.L}
+                    />
+                    <HStack
+                        className={cls.articleInfo}
+                        gap="8"
+                    >
+                        <Icon Svg={EyeIcon} />
+                        <Text text={String(article?.views)} />
+                    </HStack>
+                    <HStack
+                        className={cls.articleInfo}
+                        gap="8"
+                    >
+                        <Icon Svg={CalendarIcon} />
+                        <Text text={article?.createdAt} />
+                    </HStack>
+                </VStack>
                 {article?.blocks.map(renderBlock)}
-            </div>
+            </VStack>
         );
     }
 
     return (
-        <div className={classNames(cls.ArticleDetails, {}, [className])}>
+        <VStack
+            className={classNames(cls.ArticleDetails, {}, [className])}
+            gap="16"
+        >
             {content}
-        </div>
+        </VStack>
     );
 });
