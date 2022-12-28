@@ -529,6 +529,18 @@
       "userId": 1,
       "text": "2",
       "id": 10
+    },
+    {
+      "articleId": 13,
+      "userId": 1,
+      "text": "1321321312",
+      "id": 11
+    },
+    {
+      "articleId": 13,
+      "userId": 1,
+      "text": "321312",
+      "id": 12
     }
   ],
   "users": [
@@ -536,14 +548,27 @@
       "id": 1,
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://pbs.twimg.com/media/FFUbOUsXwAAHlnf.jpg"
     },
     {
       "id": 2,
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": [
+        "USER"
+      ],
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    },
+    {
+      "id": 3,
+      "username": "manager",
+      "password": "123",
+      "roles": [
+        "MANAGER"
+      ],
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
@@ -563,7 +588,7 @@
       "id": 2,
       "first": "Cat FCK",
       "lastname": "Catovich",
-      "age": 15,
+      "age": 12,
       "currency": "UER",
       "country": "Russia",
       "city": "Moscow",

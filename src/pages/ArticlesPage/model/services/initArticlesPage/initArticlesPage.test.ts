@@ -45,9 +45,9 @@ describe('initArticlesPage', () => {
 
         await thunk.callThunk(searchParams);
 
-        // pending, filfilled
-        expect(thunk.dispatch).toBeCalledTimes(2);
+        // pending, filfilled and 1 dispatch
+        expect(thunk.dispatch).toBeCalledTimes(3);
         expect(articlesPageActions.initView).not.toHaveBeenCalled();
-        expect(fetchArticlesList).not.toHaveBeenCalled();
+        expect(fetchArticlesList).toHaveBeenCalled();
     });
 });

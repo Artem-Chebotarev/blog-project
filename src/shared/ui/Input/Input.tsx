@@ -13,6 +13,9 @@ interface InputProps extends HTMLInputProps {
     onChange?: (value: string) => void;
     autofocus?: boolean;
     readonly?: boolean;
+
+    // for RTL tests
+    'data-testid'?: string;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -24,6 +27,7 @@ export const Input = memo((props: InputProps) => {
         placeholder,
         autofocus,
         readonly,
+        'data-testid': dataTestId = 'Input',
         ...otherProps
     } = props;
 
@@ -84,7 +88,7 @@ export const Input = memo((props: InputProps) => {
                     onBlur={onBlur}
                     onSelect={onSelect}
                     readOnly={readonly}
-                    data-testid="input"
+                    data-testid={`${dataTestId}`}
                 />
                 {isCaretVisible && (
                     <span

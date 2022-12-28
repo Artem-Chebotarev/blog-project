@@ -44,7 +44,8 @@ export const initArticlesPage = createAsyncThunk<
             }
 
             dispatch(articlesPageActions.initView());
-            dispatch(fetchArticlesList({}));
         }
+
+        dispatch(fetchArticlesList({}));
     },
 );

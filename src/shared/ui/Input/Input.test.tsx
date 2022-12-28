@@ -5,14 +5,14 @@ import { Input } from './Input';
 describe('Input', () => {
     test('render input', () => {
         render(<Input />);
-        expect(screen.getByTestId('input')).toBeInTheDocument();
+        expect(screen.getByTestId('Input')).toBeInTheDocument();
     });
 
-    test('focus on input', () => {
+    test('focus on input', async () => {
         render(<Input />);
-        const input = screen.getByTestId('input');
+        const input = screen.getByTestId('Input');
 
-        userEvent.click(input);
+        await userEvent.click(input);
 
         expect(input).toHaveFocus();
     });
@@ -26,7 +26,7 @@ describe('Input', () => {
 
         render(<Input />);
 
-        const input = screen.getByTestId('input');
+        const input = screen.getByTestId('Input');
 
         fireEvent.change(input, { target: { value: '123' } });
 

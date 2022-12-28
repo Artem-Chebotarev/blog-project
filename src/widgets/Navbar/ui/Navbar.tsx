@@ -1,4 +1,9 @@
-import { getUserAuthData, userActions } from 'entities/User';
+import {
+    getUserAuthData,
+    isUserAdmin,
+    isUserManager,
+    userActions,
+} from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
 import { loginActions } from 'features/AuthByUsername/model/slice/loginSlice';
 import {
@@ -26,10 +31,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
 
     const dispatch = useDispatch();
-
     const authData = useSelector(getUserAuthData);
-
     const [isAuthModal, setIsAuthModal] = useState(false);
+
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
 
     // для всех функций, которые будем передавать куда то как props, будем использовать useCallback
     const onCloseModal = useCallback(() => {
@@ -44,6 +50,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const onLogout = useCallback(() => {
         dispatch(userActions.logout());
     }, [dispatch]);
+
+    const isAdminPanelAvailable = isAdmin || isManager;
 
     if (authData) {
         return (
@@ -62,13 +70,18 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 <Dropdown
                     direction="bottom left"
                     items={[
-                        {
+                        ...(isAdminPanelAvailable ? [{
                             id: '1',
+                            content: t('Админка'),
+                            href: RoutePath.admin_panel,
+                        }] : []),
+                        {
+                            id: '2',
                             content: t('Профиль'),
                             href: `${RoutePath.profile}${authData.id}`,
                         },
                         {
-                            id: '2',
+                            id: '3',
                             content: t('Выйти'),
                             onClick: onLogout,
                         },

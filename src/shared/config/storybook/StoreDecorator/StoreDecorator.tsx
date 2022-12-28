@@ -5,7 +5,7 @@ import { ReducersList } from 'shared/lib/helpers/hooks/useDynamicModuleLoad/useD
 import { articleDetailsReducer } from 'entities/Article';
 import { addCommentFormReducer } from 'features/AddCommentForm/model/slice/addCommentFormSlice';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slice';
-import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice';
+import { profileReducer } from 'features/EditableProfileCard/model/slice/profileSlice';
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,

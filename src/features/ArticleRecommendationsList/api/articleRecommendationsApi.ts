@@ -1,9 +1,12 @@
+import { Article } from 'entities/Article';
 import { rtkApi } from 'shared/api/rtkApi';
 
 // lazy подгрузка(injection) эндпоинтов и не попадают в main bundle
 const recommendationsApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({
-        getArticleRecommendationsList: build.query({
+        // 1 арг - что возвращаем
+        // 2 арг - что отдаем на входе
+        getArticleRecommendationsList: build.query<Article[], number>({
             // настраиваем запрос (аналогично axios)
             query: (limit) => ({
                 url: '/articles',

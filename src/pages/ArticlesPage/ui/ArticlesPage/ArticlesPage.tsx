@@ -1,5 +1,7 @@
 import { ArticleList } from 'entities/Article';
-import { memo, useCallback } from 'react';
+import {
+    memo, useCallback, useEffect, useLayoutEffect,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
@@ -26,8 +28,6 @@ const reducers: ReducersList = {
 };
 
 const ArticlesPage = ({ className }: ArticlesPageProps) => {
-    const { t } = useTranslation();
-
     useDynamicModuleLoader(reducers, false);
 
     const dispatch = useAppDispatch();
