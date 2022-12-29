@@ -31,14 +31,6 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
     useDynamicModuleLoader(reducers);
 
-    if (!id) {
-        return (
-            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-                {t('Статья не найдена')}
-            </div>
-        );
-    }
-
     return (
         <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
             <VStack
@@ -46,9 +38,9 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                 max
             >
                 <ArticleDetailsPageHeader />
-                <ArticleDetails id={id} />
+                <ArticleDetails id={id!} />
                 <ArticleRecommendationsList />
-                <ArticleDetailsComments id={id} />
+                <ArticleDetailsComments id={id!} />
             </VStack>
         </Page>
     );

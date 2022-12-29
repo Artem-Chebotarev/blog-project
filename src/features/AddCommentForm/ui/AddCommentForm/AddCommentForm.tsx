@@ -34,7 +34,6 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     useDynamicModuleLoader(reducers);
 
     const text = useSelector(getAddCommentFormText);
-    const error = useSelector(getAddCommentFormError);
 
     // так как передаем пропсом, то нужно использовать useCallback
     const onCommentTextChange = useCallback((value: string) => {

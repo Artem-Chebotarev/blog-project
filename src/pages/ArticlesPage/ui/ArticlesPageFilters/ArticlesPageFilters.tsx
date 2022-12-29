@@ -1,10 +1,10 @@
 import {
     ArticleSortField,
     ArticleSortSelector,
+    ArticleType,
     ArticleTypeTabs,
     ArticleView,
 } from 'entities/Article';
-import { ArticleType } from 'entities/Article/model/types/article';
 import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';

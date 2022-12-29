@@ -1,11 +1,6 @@
 import { Profile } from 'entities/Profile';
 import { ThunkErrors } from 'shared/const/common';
-
-export enum ValidateProfileError {
-    INCORRECT_USER_DATA = 'INCORRECT_USER_DATA',
-    INCORRECT_AGE = 'INCORRECT_AGE',
-    INCORRECT_COUNTRY = 'INCORRECT_COUNTRY',
-}
+import { ValidateProfileError } from '../consts/consts';
 
 export type ValidateAndThunkErrors = ValidateProfileError | ThunkErrors;
 

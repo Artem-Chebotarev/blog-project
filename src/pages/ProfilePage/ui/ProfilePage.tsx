@@ -11,17 +11,11 @@ interface ProfilePageProps {
 }
 
 const ProfilePage = memo(({ className }: ProfilePageProps) => {
-    const { t } = useTranslation('profile');
-
     const { id } = useParams<{ id: string }>();
-
-    if (!id) {
-        return <Text text={t('Профиль не найден')} />;
-    }
 
     return (
         <Page className={classNames('', {}, [className])}>
-            <EditableProfileCard id={id} />
+            <EditableProfileCard id={id!} />
         </Page>
     );
 });
