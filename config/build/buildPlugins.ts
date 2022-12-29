@@ -3,6 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import { BuildOptions } from './types/config';
 
@@ -34,6 +35,12 @@ export function buildPlugins({
             patterns: [
                 { from: paths.locales, to: paths.buidLocales },
             ],
+        }),
+        // для отлавливания кольцевых зависимостей в проекте(напр. модуль А импортирует
+        // что-то из модуля Б, а модуль Б импортирует что-то из модуля А)
+        new CircularDependencyPlugin({
+            exclude: /node_modules/,
+            failOnError: true,
         }),
         // применяет изменения без обновления браузера
         ...(isDev ? [new ReactRefreshWebpackPlugin()] : []),
