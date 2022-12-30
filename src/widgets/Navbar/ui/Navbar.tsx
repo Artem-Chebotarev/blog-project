@@ -12,15 +12,17 @@ import {
     useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { Applink, ApplinkTheme } from 'shared/ui/Applink/Applink';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { HStack } from 'shared/ui/Stack';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { NotificationButton } from 'features/NotificationButton';
 
+import { AvatarDropdown } from 'features/AvatarDropdown';
+import { useAppDispatch } from 'shared/lib/helpers/hooks/useAppDispatch/useAppDispatch';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -30,12 +32,9 @@ interface NavbarProps {
 export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const authData = useSelector(getUserAuthData);
     const [isAuthModal, setIsAuthModal] = useState(false);
-
-    const isAdmin = useSelector(isUserAdmin);
-    const isManager = useSelector(isUserManager);
 
     // для всех функций, которые будем передавать куда то как props, будем использовать useCallback
     const onCloseModal = useCallback(() => {
@@ -46,12 +45,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         setIsAuthModal(true);
         dispatch(loginActions.setError(''));
     }, [dispatch]);
-
-    const onLogout = useCallback(() => {
-        dispatch(userActions.logout());
-    }, [dispatch]);
-
-    const isAdminPanelAvailable = isAdmin || isManager;
 
     if (authData) {
         return (
@@ -67,32 +60,13 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 >
                     {t('Создать статью')}
                 </Applink>
-                <Dropdown
-                    direction="bottom left"
-                    items={[
-                        ...(isAdminPanelAvailable ? [{
-                            id: '1',
-                            content: t('Админка'),
-                            href: RoutePath.admin_panel,
-                        }] : []),
-                        {
-                            id: '2',
-                            content: t('Профиль'),
-                            href: `${RoutePath.profile}${authData.id}`,
-                        },
-                        {
-                            id: '3',
-                            content: t('Выйти'),
-                            onClick: onLogout,
-                        },
-                    ]}
-                    trigger={(
-                        <Avatar
-                            size={30}
-                            src={authData.avatar}
-                        />
-                    )}
-                />
+                <HStack
+                    className={cls.actions}
+                    gap="16"
+                >
+                    <NotificationButton />
+                    <AvatarDropdown />
+                </HStack>
             </header>
         );
     }

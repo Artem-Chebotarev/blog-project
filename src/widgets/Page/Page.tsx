@@ -50,10 +50,6 @@ export const Page = memo((props: PageProps) => {
         (state: StateSchema) => getScrollSaveByPath(state, pathname),
     );
 
-    console.log('RENDER');
-
-    console.log(scrollPosition, 'scrollPosition');
-
     useInfiniteScroll({
         wrapperRef,
         triggerRef,

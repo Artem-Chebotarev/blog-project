@@ -2,8 +2,10 @@ import { Menu } from '@headlessui/react';
 import { createRef, Fragment, ReactNode } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { DropdownDirection } from 'shared/types/ui';
-import { Applink } from '../Applink/Applink';
+import { Applink } from '../../../Applink/Applink';
+import { mapDirectionClass } from '../../styles/consts';
 
+import popupCls from '../../styles/popup.module.scss';
 import cls from './Dropdown.module.scss';
 
 export interface DropdowItem {
@@ -21,13 +23,6 @@ interface DropdownProps {
     direction?: DropdownDirection;
 }
 
-const mapDirectionClass: Record<DropdownDirection, string> = {
-    'bottom left': cls.optionsBottomLeft,
-    'bottom right': cls.optionsBottomRight,
-    'top left': cls.optionsTopLeft,
-    'top right': cls.optionsTopRight,
-};
-
 export const Dropdown = (props: DropdownProps) => {
     const {
         className,
@@ -42,10 +37,10 @@ export const Dropdown = (props: DropdownProps) => {
 
     return (
         <Menu
-            className={classNames(cls.Dropdown, {}, [className])}
+            className={classNames(cls.Dropdown, {}, [className, popupCls.popup])}
             as="div"
         >
-            <Menu.Button className={cls.btn}>
+            <Menu.Button className={popupCls.trigger}>
                 {trigger}
             </Menu.Button>
             <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>

@@ -22,8 +22,8 @@ export function buildBabelLoader({ isDev, isTsx }: BuildBabelLoaderProps) {
                         },
                     ],
                     '@babel/plugin-transform-runtime',
-                    // самописный babel плагин на удаление заданных атрибутов в продакшен и дев сборке сборке 
-                    // (меньше вес бандла)
+                    // самописный babel плагин на удаление заданных атрибутов в продакшен и дев
+                    // сборке (меньше вес бандла)
                     isTsx && [
                         babelRemovePropsPlugin,
                         {
