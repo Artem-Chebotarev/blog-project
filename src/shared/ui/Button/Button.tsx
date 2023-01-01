@@ -25,6 +25,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     square?: boolean;
     size?: ButtonSize;
     children?: ReactNode;
+    fullWidth?: boolean;
     // Пропс disabled было необязательно передавать вручную,
     // он и так бы передался в otherProps rest оператор
     // disabled?: boolean;
@@ -38,6 +39,7 @@ export const Button = memo((props: ButtonProps) => {
         square,
         size = ButtonSize.M,
         disabled,
+        fullWidth,
         ...otherProps
     } = props;
 
@@ -46,6 +48,7 @@ export const Button = memo((props: ButtonProps) => {
         [cls.square]: square,
         // [cls[size]]: true,
         [cls.disabled]: disabled,
+        [cls.fullWidth]: fullWidth,
     };
 
     return (
