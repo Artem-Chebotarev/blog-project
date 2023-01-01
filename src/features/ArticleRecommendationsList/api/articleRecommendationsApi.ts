@@ -1,5 +1,5 @@
-import { Article } from 'entities/Article';
-import { rtkApi } from 'shared/api/rtkApi';
+import { Article } from '@/entities/Article';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 // lazy подгрузка(injection) эндпоинтов и не попадают в main bundle
 const recommendationsApi = rtkApi.injectEndpoints({

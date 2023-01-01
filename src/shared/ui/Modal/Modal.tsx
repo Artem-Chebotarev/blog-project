@@ -1,12 +1,7 @@
-import React, {
-    ReactNode,
-    useRef,
-    useCallback,
-    useEffect,
-    useState,
-    MutableRefObject,
-} from 'react';
-import { classNames, Mods } from 'shared/lib/helpers/classNames/classNames';
+import { ReactNode } from 'react';
+import { classNames, Mods } from '@/shared/lib/helpers/classNames/classNames';
+import { useModal } from '@/shared/lib/helpers/hooks/useModal/useModal';
+import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 
 import cls from './Modal.module.scss';
@@ -19,8 +14,6 @@ interface ModalProps {
     lazy?: boolean;
 }
 
-const ANIMATION_DELAY = 300;
-
 export const Modal = (props: ModalProps) => {
     const {
         className,
@@ -30,51 +23,11 @@ export const Modal = (props: ModalProps) => {
         lazy,
     } = props;
 
-    const [isClosing, setIsClosing] = useState(false);
-    const [isMounted, setIsMounted] = useState(false);
-
-    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
-
-    // Управление монтированием
-    useEffect(() => {
-        if (isOpen) {
-            setIsMounted(true);
-        }
-    }, [isOpen]);
-
-    const closeHandler = useCallback(() => {
-        if (onClose) {
-            setIsClosing(true);
-
-            timerRef.current = setTimeout(() => {
-                onClose();
-                setIsClosing(false);
-            }, ANIMATION_DELAY);
-        }
-    }, [onClose]);
-
-    // На каждый перерендер компонента эти функции создаются заного (новые ссылки)
-    const onKeyDown = useCallback((event: KeyboardEvent) => {
-        if (event.key === 'Escape') {
-            closeHandler();
-        }
-    }, [closeHandler]);
-
-    // без этой функции клик по модалке будет отрабатывать как клик outside
-    const onContentClick = (event: React.MouseEvent) => {
-        event.stopPropagation();
-    };
-
-    useEffect(() => {
-        if (isOpen) {
-            window.addEventListener('keydown', onKeyDown);
-        }
-
-        return () => {
-            clearTimeout(timerRef.current);
-            window.removeEventListener('keydown', onKeyDown);
-        };
-    }, [isOpen, onKeyDown]);
+    const {
+        isClosing,
+        isMounted,
+        close,
+    } = useModal({ animationDelay: 300, isOpen, onClose });
 
     const mods: Mods = {
         [cls.opened]: isOpen,
@@ -88,13 +41,11 @@ export const Modal = (props: ModalProps) => {
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
-                <div className={cls.overlay} onClick={closeHandler}>
-                    <div
-                        className={cls.content}
-                        onClick={onContentClick}
-                    >
-                        {children}
-                    </div>
+                <Overlay onClick={close} />
+                <div
+                    className={cls.content}
+                >
+                    {children}
                 </div>
             </div>
         </Portal>

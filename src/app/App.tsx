@@ -1,9 +1,9 @@
 import { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Sidebar } from 'widgets/Sidebar';
-import { Navbar } from 'widgets/Navbar';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
-import { getUserInited, userActions } from 'entities/User';
+import { Sidebar } from '@/widgets/Sidebar';
+import { Navbar } from '@/widgets/Navbar';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
+import { getUserInited, userActions } from '@/entities/User';
 import { AppRouter } from './providers/router';
 import { LOCAL_STORAGE_THEME_KEY, Theme } from './providers/ThemeProvider';
 

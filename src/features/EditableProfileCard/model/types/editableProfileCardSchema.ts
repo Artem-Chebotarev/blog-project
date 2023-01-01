@@ -1,5 +1,5 @@
-import { Profile } from 'entities/Profile';
-import { ThunkErrors } from 'shared/const/common';
+import { Profile } from '@/entities/Profile';
+import { ThunkErrors } from '@/shared/const/common';
 import { ValidateProfileError } from '../consts/consts';
 
 export type ValidateAndThunkErrors = ValidateProfileError | ThunkErrors;

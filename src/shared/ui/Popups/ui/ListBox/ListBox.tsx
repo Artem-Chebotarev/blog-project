@@ -4,9 +4,9 @@ import {
     ReactNode,
 } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
-import CheckIcon from 'shared/assets/icons/check-20-20.svg';
-import { DropdownDirection } from 'shared/types/ui';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
+import CheckIcon from '@/shared/assets/icons/check-20-20.svg';
+import { DropdownDirection } from '@/shared/types/ui';
 import { Icon } from '../../../Icon/Icon';
 import { Button } from '../../../Button/Button';
 import { HStack } from '../../../Stack';
