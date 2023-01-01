@@ -1,14 +1,11 @@
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { detectDevice as isMobile } from '@/shared/lib/helpers/detectDevice/detectDevice';
-import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { Card } from '@/shared/ui/Card/Card';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { StarRating } from '@/shared/ui/StarRaiting/StarRating';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text, TextAlign } from '@/shared/ui/Text/Text';
 import { Input } from '@/shared/ui/Input/Input';
-
-import cls from './RatingCard.module.scss';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
 import { Modal } from '@/shared/ui/Modal/Modal';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
@@ -20,6 +17,8 @@ interface RatingCardProps {
     hasFeedback?: boolean;
     onCancel?: (starsCount: number) => void;
     onAccept?: (starsCount: number, feedback?: string) => void;
+    rate?: number;
+    align?: TextAlign.CENTER;
 }
 
 export const RatingCard = memo((props: RatingCardProps) => {
@@ -30,12 +29,14 @@ export const RatingCard = memo((props: RatingCardProps) => {
         hasFeedback,
         onCancel,
         onAccept,
+        rate = 0,
+        align,
     } = props;
 
     const { t } = useTranslation();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [starsCount, setStarsCount] = useState(0);
+    const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
     const onSelectStars = useCallback((selectedStarsCount: number) => {
@@ -74,16 +75,17 @@ export const RatingCard = memo((props: RatingCardProps) => {
     );
 
     return (
-        <Card className={classNames(cls.RatingCard, {}, [className])}>
+        <Card className={className} max>
             <VStack
                 align="center"
                 gap="8"
             >
-                <Text title={title} />
+                <Text title={starsCount ? t('Спасибо за оценку') : title} />
                 <StarRating
                     size={40}
                     onSelect={onSelectStars}
-                    selectedStars={0}
+                    selectedStars={starsCount}
+                    align={align}
                 />
             </VStack>
 
