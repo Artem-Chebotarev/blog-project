@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
 import { Link, LinkProps } from 'react-router-dom';
-import { forwardRef, memo, ReactNode } from 'react';
+import { forwardRef, ReactNode } from 'react';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import cls from './Applink.module.scss';
 
 export enum ApplinkTheme {

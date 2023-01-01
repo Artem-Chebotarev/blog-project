@@ -1,7 +1,6 @@
 import path from 'path';
 
 export default {
-    preset: 'ts-jest',
     clearMocks: true,
     testEnvironment: 'jsdom',
     coveragePathIgnorePatterns: [
@@ -22,9 +21,14 @@ export default {
     rootDir: '../../',
     setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
     moduleNameMapper: {
+        '^@/(.*)$': '<rootDir>/src/$1',
         '\\.s?css$': 'identity-obj-proxy',
         // мок для импортов, в которых используется svg
-        '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        // '\\.svg': '<rootDir>/config/jest/fileMock.js',
+    },
+    transform: {
+        '^.+\\.(ts|tsx)$': 'babel-jest',
+        '^.+\\.svg$': path.resolve(__dirname, 'jestSvgTransformer.ts'),
     },
     testMatch: [
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',

@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
-import { Profile } from 'entities/Profile';
-import { ThunkErrors } from 'shared/const/common';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { Profile } from '@/entities/Profile';
+import { ThunkErrors } from '@/shared/const/common';
 
 // 1 арг в дженерике - что возвращаем с бека
 // 2 арг в дженерике - тип аргумента на входе

@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import {
     memo,
     MutableRefObject,
@@ -9,11 +9,11 @@ import {
 } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { classNames } from 'shared/lib/helpers/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/helpers/hooks/useAppDispatch/useAppDispatch';
-import { useInfiniteScroll } from 'shared/lib/helpers/hooks/useInfiniteScroll/useInfiniteScroll';
-import { useInitialEffect } from 'shared/lib/helpers/hooks/useInitialEffect/useInitialEffect';
-import { useThrottle } from 'shared/lib/helpers/hooks/useThrottle/useThrottle';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch/useAppDispatch';
+import { useInfiniteScroll } from '@/shared/lib/helpers/hooks/useInfiniteScroll/useInfiniteScroll';
+import { useInitialEffect } from '@/shared/lib/helpers/hooks/useInitialEffect/useInitialEffect';
+import { useThrottle } from '@/shared/lib/helpers/hooks/useThrottle/useThrottle';
 import { getScrollSaveByPath, scrollSaveActions } from './components/ScrollSave';
 
 import cls from './Page.module.scss';
