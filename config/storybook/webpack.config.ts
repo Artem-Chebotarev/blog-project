@@ -13,6 +13,9 @@ export default ({ config }: { config: webpack.Configuration }) => {
         locales: '',
         buidLocales: '',
     };
+    config.resolve!.alias = {
+        '@': paths.src,
+    };
     config.resolve!.modules!.push(paths.src);
 
     config.resolve!.extensions!.push('.ts', '.tsx');
@@ -32,7 +35,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
         use: ['@svgr/webpack'],
     });
 
-    config.module!.rules.push(buildFileLoader());
+    // config.module!.rules.push(buildFileLoader());
 
     config.module!.rules.push(buildCssLoader(true));
 
