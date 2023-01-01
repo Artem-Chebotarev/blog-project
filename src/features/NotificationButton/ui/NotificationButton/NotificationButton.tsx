@@ -8,7 +8,6 @@ import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
 import { detectDevice as isMobile } from '@/shared/lib/helpers/detectDevice/detectDevice';
 
-import { AnimationProvider } from '@/shared/lib/helpers/components/AnimationProvider';
 import cls from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {
@@ -42,7 +41,7 @@ export const NotificationButton = (props: NotificationButtonProps) => {
 
     return (
         isMobile() ? (
-            <AnimationProvider>
+            <>
                 {trigger}
                 <Drawer
                     isOpen={isOpen}
@@ -50,7 +49,7 @@ export const NotificationButton = (props: NotificationButtonProps) => {
                 >
                     <NotificationList />
                 </Drawer>
-            </AnimationProvider>
+            </>
         )
             : (
                 <Popover
