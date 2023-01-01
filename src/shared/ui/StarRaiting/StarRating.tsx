@@ -4,13 +4,14 @@ import StarIcon from '@/shared/assets/icons/star.svg';
 import { Icon } from '../Icon/Icon';
 
 import cls from './StarRating.module.scss';
-import { Text } from '../Text/Text';
+import { Text, TextAlign } from '../Text/Text';
 
 interface StarRatingProps {
     className?: string;
     onSelect?: (starsCount: number) => void;
     size?: number;
     selectedStars?: number;
+    align?: TextAlign.CENTER;
 }
 
 const maxStar = 5;
@@ -22,6 +23,7 @@ export const StarRating = memo((props: StarRatingProps) => {
         onSelect,
         size = 30,
         selectedStars = 3,
+        align,
     } = props;
 
     const [rating, setRating] = useState(selectedStars);
@@ -41,7 +43,7 @@ export const StarRating = memo((props: StarRatingProps) => {
     };
 
     return (
-        <div className={classNames(cls.StarRating, {}, [])}>
+        <div className={classNames(cls.StarRating, {}, [className])}>
             {[...Array(maxStar)].map((_, index) => {
                 const value = index + 1;
 
@@ -64,7 +66,7 @@ export const StarRating = memo((props: StarRatingProps) => {
                     />
                 );
             })}
-            <Text title={`Rating: ${rating}`} />
+            <Text title={`Rating: ${rating}`} align={align} />
         </div>
     );
 });
