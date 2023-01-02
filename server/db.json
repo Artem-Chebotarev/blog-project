@@ -575,6 +575,12 @@
       "userId": 1,
       "text": "321312",
       "id": 12
+    },
+    {
+      "articleId": 14,
+      "userId": 2,
+      "text": "eqweqweqweqw",
+      "id": 13
     }
   ],
   "users": [
@@ -723,6 +729,13 @@
       "rate": 3,
       "feedback": "",
       "id": 14
+    },
+    {
+      "userId": 2,
+      "articleId": "14",
+      "rate": 5,
+      "feedback": "",
+      "id": 15
     }
   ],
   "profile-ratings": [

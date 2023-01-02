@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { Applink } from '@/shared/ui/Applink/Applink';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
@@ -9,6 +8,7 @@ import { Text } from '@/shared/ui/Text/Text';
 import { Comment } from '../../model/types/comment';
 
 import cls from './CommentItem.module.scss';
+import { RoutePath } from '@/shared/const/router';
 
 interface CommentItemProps {
     className?: string;

@@ -5,7 +5,8 @@ import { Navbar } from '@/widgets/Navbar';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { getUserInited, userActions } from '@/entities/User';
 import { AppRouter } from './providers/router';
-import { LOCAL_STORAGE_THEME_KEY, Theme } from './providers/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localStorage';
 
 export const App = () => {
     const dispatch = useDispatch();

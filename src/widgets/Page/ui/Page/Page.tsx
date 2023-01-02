@@ -13,9 +13,10 @@ import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch/useApp
 import { useInfiniteScroll } from '@/shared/lib/helpers/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useInitialEffect } from '@/shared/lib/helpers/hooks/useInitialEffect/useInitialEffect';
 import { useThrottle } from '@/shared/lib/helpers/hooks/useThrottle/useThrottle';
-import { getScrollSaveByPath, scrollSaveActions } from './components/ScrollSave';
 
 import cls from './Page.module.scss';
+import { getScrollSaveByPath } from './components/ScrollSave/model/selectors/scrollSaveSelectors';
+import { scrollSaveActions } from './components/ScrollSave/model/slice/scrollSaveSlice';
 
 interface PageProps {
     className?: string;
