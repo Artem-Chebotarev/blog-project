@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { BugButton } from '@/app/providers/ErrorBoundary';
-import { Page } from '@/widgets/Page/Page';
+// import { BugButton } from '@/app/providers/ErrorBoundary';
+import { Page } from '@/widgets/Page';
 import { RatingCard } from '@/entities/Rating';
 
 const MainPage = memo(() => {
@@ -9,7 +9,7 @@ const MainPage = memo(() => {
 
     return (
         <Page>
-            <BugButton />
+            {/* <BugButton /> */}
             {t('Главная страница')}
             {/* <StarRating size={50} /> */}
             <RatingCard

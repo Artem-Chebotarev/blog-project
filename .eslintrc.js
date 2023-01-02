@@ -50,6 +50,20 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'path-checker-fsd/path-checker': ['error', { alias: '@' }],
+        'path-checker-fsd/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+            },
+        ],
+        'path-checker-fsd/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,

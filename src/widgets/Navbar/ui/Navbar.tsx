@@ -6,9 +6,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
-import { LoginModal } from '@/features/AuthByUsername';
-import { loginActions } from '@/features/AuthByUsername/model/slice/loginSlice';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { LoginModal, loginActions } from '@/features/AuthByUsername';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { Applink, ApplinkTheme } from '@/shared/ui/Applink/Applink';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
@@ -19,6 +17,7 @@ import { AvatarDropdown } from '@/features/AvatarDropdown';
 import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch/useAppDispatch';
 
 import cls from './Navbar.module.scss';
+import { RoutePath } from '@/shared/const/router';
 
 interface NavbarProps {
     className?: string;
