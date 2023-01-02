@@ -1,14 +1,13 @@
-import { StateSchema } from '@/app/providers/StoreProvider';
 import {
     memo,
     MutableRefObject,
     ReactNode,
     useRef,
     UIEvent,
-    useEffect,
 } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch/useAppDispatch';
 import { useInfiniteScroll } from '@/shared/lib/helpers/hooks/useInfiniteScroll/useInfiniteScroll';
