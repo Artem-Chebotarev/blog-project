@@ -1,15 +1,11 @@
-import { fireEvent, screen, cleanup } from '@testing-library/react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch/useAppDispatch';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { Profile } from '@/entities/Profile';
 import { $api } from '@/shared/api/api';
 import { componentRender } from '@/shared/config/tests/componentRender/componentRender';
-import { createReduxStore, StateSchema } from '@/app/providers/StoreProvider';
-import { ReducersMapObject } from '@reduxjs/toolkit';
-import { profileActions, profileReducer } from '../../model/slice/profileSlice';
+import { profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCard } from './EditableProfileCard';
 
 const profile: Profile = {

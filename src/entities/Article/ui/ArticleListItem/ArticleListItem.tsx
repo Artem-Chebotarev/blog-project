@@ -1,4 +1,5 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { Icon } from '@/shared/ui/Icon/Icon';
 import { Text } from '@/shared/ui/Text/Text';
@@ -6,7 +7,6 @@ import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { Card } from '@/shared/ui/Card/Card';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { useTranslation } from 'react-i18next';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { Applink } from '@/shared/ui/Applink/Applink';
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
