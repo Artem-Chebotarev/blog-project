@@ -1,18 +1,20 @@
+import { Listbox as HListBox } from '@headlessui/react';
 import {
     Fragment,
     memo,
     ReactNode,
 } from 'react';
-import { Listbox as HListBox } from '@headlessui/react';
-import { classNames } from '@/shared/lib/helpers/classNames/classNames';
+
 import CheckIcon from '@/shared/assets/icons/check-20-20.svg';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
-import { Icon } from '../../../Icon/Icon';
+
 import { Button } from '../../../Button/Button';
+import { Icon } from '../../../Icon/Icon';
 import { HStack } from '../../../Stack';
 import { mapDirectionClass } from '../../styles/consts';
-
 import popupCls from '../../styles/popup.module.scss';
+
 import cls from './ListBox.module.scss';
 
 export interface ListBoxItem {

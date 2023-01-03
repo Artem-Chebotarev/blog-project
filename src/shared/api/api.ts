@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { USER_LOCAL_STORAGE_KEY } from '@/shared/const/localStorage';
 
 // создаем инстанс axios, чтобы удобнее было работать

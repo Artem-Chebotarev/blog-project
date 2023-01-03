@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+
 import { AddCommentFormProps } from './AddCommentForm';
 
 // чтобы предотвратить потерю типов для компонента при использовании memo и промиса

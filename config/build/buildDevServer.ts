@@ -1,5 +1,6 @@
-import type { Configuration as DevServerConfiguration } from 'webpack-dev-server';
 import { BuildOptions } from './types/config';
+
+import type { Configuration as DevServerConfiguration } from 'webpack-dev-server';
 
 const path = require('path');
 

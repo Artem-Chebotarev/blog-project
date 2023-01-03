@@ -2,7 +2,9 @@ import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { TestAsyncThunk } from '@/shared/config/tests/TestAsyncThunk/TestAsyncThunk';
 import { ThunkErrors } from '@/shared/const/common';
+
 import { ValidateProfileError } from '../../consts/consts';
+
 import { updateProfileData } from './updateProfileData';
 
 const data = {

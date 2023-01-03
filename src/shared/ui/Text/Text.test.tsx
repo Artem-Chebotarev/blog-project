@@ -1,5 +1,7 @@
 import { screen } from '@testing-library/react';
+
 import { componentRender } from '@/shared/config/tests/componentRender/componentRender';
+
 import { Text, TextTheme } from './Text';
 
 describe('Text', () => {

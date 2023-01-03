@@ -1,15 +1,17 @@
 import { memo } from 'react';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/helpers/classNames/classNames';
+import { useSelector } from 'react-redux';
+
 import { ArticleList } from '@/entities/Article';
-import { Text } from '@/shared/ui/Text/Text';
-import { getArticles } from '../../model/slice/articlesPageSlice';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
+import { Text } from '@/shared/ui/Text';
+
 import {
     getArticlesPageError,
     getArticlesPageIsLoading,
     getArticlesPageView,
 } from '../../model/selectors/articlesPageSelectors';
+import { getArticles } from '../../model/slice/articlesPageSlice';
 
 interface ArticlesInfiniteListProps {
     className?: string;
