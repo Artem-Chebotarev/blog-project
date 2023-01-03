@@ -23,6 +23,8 @@ module.exports = {
         'i18next',
         'react-hooks',
         'path-checker-fsd',
+        'unused-imports',
+        'import',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -32,6 +34,7 @@ module.exports = {
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'warn',
+        'unused-imports/no-unused-imports': 'error',
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
         'react/jsx-props-no-spreading': 'warn',
@@ -62,6 +65,38 @@ module.exports = {
             {
                 alias: '@',
                 ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
+        'import/order': [
+            'error',
+            {
+                groups: [
+                    'builtin',
+                    'external',
+                    'internal',
+                    'parent',
+                    'sibling',
+                    'index',
+                    'object',
+                    'type',
+                ],
+                pathGroups: [
+                    {
+                        pattern: '@/**',
+                        group: 'external',
+                        position: 'after',
+                    },
+                    {
+                        pattern: '*/**.scss',
+                        group: 'type',
+                        position: 'after',
+                    },
+                ],
+                'newlines-between': 'always',
+                alphabetize: {
+                    order: 'asc',
+                    caseInsensitive: false,
+                },
             },
         ],
     },

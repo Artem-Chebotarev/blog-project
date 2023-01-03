@@ -1,22 +1,24 @@
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/helpers/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
-import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch/useAppDispatch';
-import { ThunkErrors } from '@/shared/const/common';
-import { ProfileCard } from '@/entities/Profile';
-import { Currency } from '@/entities/Currency';
+
 import { Country } from '@/entities/Country';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Currency } from '@/entities/Currency';
+import { ProfileCard } from '@/entities/Profile';
+import { ThunkErrors } from '@/shared/const/common';
+import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch/useAppDispatch';
+import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/helpers/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
 import { VStack } from '@/shared/ui/Stack';
+import { Text, TextTheme } from '@/shared/ui/Text';
+
 import { ValidateProfileError } from '../../model/consts/consts';
-import { profileActions, profileReducer } from '../../model/slice/profileSlice';
-import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
-import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
+import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
+import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
-import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
+import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
+import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 interface EditableProfileCardProps {

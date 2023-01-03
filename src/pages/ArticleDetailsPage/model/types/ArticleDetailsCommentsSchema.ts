@@ -1,4 +1,5 @@
 import { EntityState } from '@reduxjs/toolkit';
+
 import { Comment } from '@/entities/Comment';
 
 // расширением типа автоматически добавляем ids и entities

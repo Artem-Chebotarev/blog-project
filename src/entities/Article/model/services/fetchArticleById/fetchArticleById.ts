@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { ThunkErrors } from '@/shared/const/common';
+
 import { Article } from '../../types/article';
 
 // 1 арг в дженерике - что возвращаем с бека

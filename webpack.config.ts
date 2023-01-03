@@ -2,7 +2,9 @@
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const webpack = require('webpack');
 import path from 'path';
+
 import webpack from 'webpack';
+
 import { buildWebpackConfig } from './config/build/buildWebpackConfig';
 import { BuildEnv, BuildPaths } from './config/build/types/config';
 

@@ -4,13 +4,15 @@ import {
     useCallback,
     useEffect,
 } from 'react';
+
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { AnimationProvider, useAnimationLibs } from '@/shared/lib/helpers/components/AnimationProvider';
+import { useTheme } from '@/shared/lib/helpers/hooks/useTheme/useTheme';
+
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 
 import cls from './Drawer.module.scss';
-import { useTheme } from '@/shared/lib/helpers/hooks/useTheme/useTheme';
 
 interface DrawerProps {
     className?: string;

@@ -1,5 +1,6 @@
 import { Profile } from '@/entities/Profile';
 import { ThunkErrors } from '@/shared/const/common';
+
 import { ValidateProfileError } from '../../consts/consts';
 
 export const validateProfileData = (profile?: Profile) => {

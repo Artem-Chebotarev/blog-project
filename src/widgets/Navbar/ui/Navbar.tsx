@@ -5,19 +5,20 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
 import { getUserAuthData } from '@/entities/User';
 import { LoginModal, loginActions } from '@/features/AuthByUsername';
-import { classNames } from '@/shared/lib/helpers/classNames/classNames';
-import { Applink, ApplinkTheme } from '@/shared/ui/Applink/Applink';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { HStack } from '@/shared/ui/Stack';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
-import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
+import { NotificationButton } from '@/features/NotificationButton';
+import { RoutePath } from '@/shared/const/router';
+import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch/useAppDispatch';
+import { Applink, ApplinkTheme } from '@/shared/ui/Applink';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { HStack } from '@/shared/ui/Stack';
+import { Text, TextTheme } from '@/shared/ui/Text';
 
 import cls from './Navbar.module.scss';
-import { RoutePath } from '@/shared/const/router';
 
 interface NavbarProps {
     className?: string;

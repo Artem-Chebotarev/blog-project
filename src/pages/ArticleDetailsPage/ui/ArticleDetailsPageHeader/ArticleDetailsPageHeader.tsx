@@ -2,11 +2,13 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
 import { getArticleDetailsData } from '@/entities/Article';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { HStack } from '@/shared/ui/Stack';
-import { getCanEditArticle } from '../../model/selectors/article';
 import { RoutePath } from '@/shared/const/router';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { HStack } from '@/shared/ui/Stack';
+
+import { getCanEditArticle } from '../../model/selectors/article';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;
