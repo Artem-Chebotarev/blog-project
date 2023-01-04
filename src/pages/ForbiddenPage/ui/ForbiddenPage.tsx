@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { getUserAuthData } from '@/entities/User';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteMain } from '@/shared/const/router';
 import { Page } from '@/widgets/Page';
 
 const ForbiddenPage = memo(() => {
@@ -16,7 +16,7 @@ const ForbiddenPage = memo(() => {
 
     useEffect(() => {
         if (!authData) {
-            navigate(RoutePath.main);
+            navigate(getRouteMain());
         }
     }, [navigate, authData]);
 

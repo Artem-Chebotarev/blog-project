@@ -8,7 +8,7 @@ import {
     isUserManager,
     userActions,
 } from '@/entities/User';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch/useAppDispatch';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -47,12 +47,12 @@ export const AvatarDropdown = (props: AvatarDropdownProps) => {
                 ...(isAdminPanelAvailable ? [{
                     id: '1',
                     content: t('Админка'),
-                    href: RoutePath.admin_panel,
+                    href: getRouteAdminPanel(),
                 }] : []),
                 {
                     id: '2',
                     content: t('Профиль'),
-                    href: `${RoutePath.profile}${authData.id}`,
+                    href: getRouteProfile(String(authData.id)),
                 },
                 {
                     id: '3',

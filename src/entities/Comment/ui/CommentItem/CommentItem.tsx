@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { RoutePath } from '@/shared/const/router';
+import { getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { Applink } from '@/shared/ui/Applink';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -63,7 +63,7 @@ export const CommentItem = memo((props: CommentItemProps) => {
         >
             <Applink
                 className={cls.header}
-                to={`${RoutePath.profile}${comment.user.id}`}
+                to={getRouteProfile(String(comment.user.id))}
             >
                 {comment.user.avatar && (
                     <Avatar
