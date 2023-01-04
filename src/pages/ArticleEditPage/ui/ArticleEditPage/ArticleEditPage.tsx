@@ -4,8 +4,6 @@ import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { Page } from '@/widgets/Page';
 
-import cls from './ArticleEditPage.module.scss';
-
 interface ArticleEditPageProps {
     className?: string;
 }
@@ -18,7 +16,7 @@ const ArticleEditPage = memo((props: ArticleEditPageProps) => {
     const isEdit = Boolean(id);
 
     return (
-        <Page className={classNames(cls.ArticleEditPage, {}, [className])} data-testid="ArticleEditPage">
+        <Page className={classNames('', {}, [className])} data-testid="ArticleEditPage">
             Article edit page
         </Page>
     );
