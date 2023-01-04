@@ -5,6 +5,8 @@ import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { BuildPaths } from '../build/types/config';
 
+import { buildFileLoader } from './loaders/buildFileLoader';
+
 export default ({ config }: { config: webpack.Configuration }) => {
     const paths: BuildPaths = {
         build: '',
@@ -37,7 +39,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
         use: ['@svgr/webpack'],
     });
 
-    // config.module!.rules.push(buildFileLoader());
+    config.module!.rules.push(buildFileLoader());
 
     config.module!.rules.push(buildCssLoader(true));
 
