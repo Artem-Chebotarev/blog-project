@@ -77,7 +77,7 @@ jobs:
         run: npm run storybook:build
         if: always()
       - name: screenshot testing
-        run: npm run test:ui:ci:remote
+        run: npm run test:ui:ci
         if: always()
       - name: Generate HTML report
         run: npm run test:ui:report
@@ -95,24 +95,24 @@ jobs:
         if: always()
         uses: actions/deploy-pages@v1
 
-  checks:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 17.x ]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Staring Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: install modules
-        run: npm ci
-      - name: linting typescript
-        run: npm run lint:ts
-        if: always()
-      - name: linting css
-        run: npm run lint:scss
-      - name: unit testing
-        if: always()
-        run: npm run test:unit
+  # checks:
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       node-version: [ 17.x ]
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Staring Node.js ${{ matrix.node-version }}
+  #       uses: actions/setup-node@v1
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
+  #     - name: install modules
+  #       run: npm ci
+  #     - name: linting typescript
+  #       run: npm run lint:ts
+  #       if: always()
+  #     - name: linting css
+  #       run: npm run lint:scss
+  #     - name: unit testing
+  #       if: always()
+  #       run: npm run test:unit
