@@ -1,9 +1,9 @@
 import {
     memo,
     MutableRefObject,
-    ReactNode,
     useRef,
     UIEvent,
+    ReactNode,
 } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
@@ -14,12 +14,13 @@ import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch/useApp
 import { useInfiniteScroll } from '@/shared/lib/helpers/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useInitialEffect } from '@/shared/lib/helpers/hooks/useInitialEffect/useInitialEffect';
 import { useThrottle } from '@/shared/lib/helpers/hooks/useThrottle/useThrottle';
+import { TestProps } from '@/shared/types/tests';
 
 import cls from './Page.module.scss';
 import { getScrollSaveByPath } from './components/ScrollSave/model/selectors/scrollSaveSelectors';
 import { scrollSaveActions } from './components/ScrollSave/model/slice/scrollSaveSlice';
 
-interface PageProps {
+interface PageProps extends TestProps {
     className?: string;
     children: ReactNode;
     onScrollEnd?: () => void;
@@ -32,6 +33,7 @@ export const Page = memo((props: PageProps) => {
         className,
         children,
         onScrollEnd,
+        'data-testid': dataTestId = 'Page',
     } = props;
 
     const dispatch = useAppDispatch();
@@ -76,6 +78,7 @@ export const Page = memo((props: PageProps) => {
             ref={wrapperRef}
             onScroll={onScroll}
             id={PAGE_ID}
+            data-testid={`${dataTestId}`}
         >
             {children}
             {onScrollEnd ? (

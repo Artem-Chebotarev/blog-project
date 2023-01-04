@@ -3,20 +3,18 @@ import React, {
 } from 'react';
 
 import { classNames, Mods } from '@/shared/lib/helpers/classNames/classNames';
+import { TestProps } from '@/shared/types/tests';
 
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>;
 
-interface InputProps extends HTMLInputProps {
+interface InputProps extends HTMLInputProps, TestProps {
     className?: string;
     value?: string | number;
     onChange?: (value: string) => void;
     autofocus?: boolean;
     readonly?: boolean;
-
-    // for RTL tests
-    'data-testid'?: string;
 }
 
 export const Input = memo((props: InputProps) => {

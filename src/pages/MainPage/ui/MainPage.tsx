@@ -10,7 +10,7 @@ const MainPage = memo(() => {
     const { t } = useTranslation();
 
     return (
-        <Page>
+        <Page data-testid="MainPage">
             {/* <BugButton /> */}
             {t('Главная страница')}
             {/* <StarRating size={50} /> */}
