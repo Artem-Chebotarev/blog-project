@@ -1,6 +1,12 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+npx lint-staged
+
+
+
+
+# imitation of CI/CD (when GitHub Actions are not operating)
 # npm run build:prod
 # npm run lint:ts
 # npm run lint:scss

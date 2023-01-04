@@ -28,6 +28,10 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
     useDynamicModuleLoader(reducers);
 
+    if (!id) {
+        return null;
+    }
+
     return (
         <Page className={classNames(cls.ArticleDetailsPage, {}, [className])} data-testid="ArticleDetailsPage">
             <VStack
@@ -35,10 +39,10 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                 max
             >
                 <ArticleDetailsPageHeader />
-                <ArticleDetails id={id!} />
-                <ArticleRating id={id!} />
+                <ArticleDetails id={id} />
+                <ArticleRating id={id} />
                 <ArticleRecommendationsList />
-                <ArticleDetailsComments id={id!} />
+                <ArticleDetailsComments id={id} />
             </VStack>
         </Page>
     );
