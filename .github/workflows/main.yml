@@ -38,6 +38,7 @@
 #         run: npm run test:ui:ci:remote
 #         if: always()
 
+# two parallel jobs
 name: linting, testing, building
 on:
   push:
