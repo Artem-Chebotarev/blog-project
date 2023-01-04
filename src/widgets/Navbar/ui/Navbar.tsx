@@ -10,7 +10,7 @@ import { getUserAuthData } from '@/entities/User';
 import { LoginModal, loginActions } from '@/features/AuthByUsername';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import { NotificationButton } from '@/features/NotificationButton';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleCreate } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch/useAppDispatch';
 import { Applink, ApplinkTheme } from '@/shared/ui/Applink';
@@ -51,7 +51,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 />
                 <Applink
                     theme={ApplinkTheme.SECONDARY}
-                    to={RoutePath.article_create}
+                    to={getRouteArticleCreate()}
                 >
                     {t('Создать статью')}
                 </Applink>
