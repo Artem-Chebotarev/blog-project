@@ -1,6 +1,7 @@
 import { memo } from 'react';
 
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
+import { TestProps } from '@/shared/types/tests';
 
 import cls from './Text.module.scss';
 
@@ -22,16 +23,13 @@ export enum TextSize {
     L = 'size_l',
 }
 
-interface TextProps {
+interface TextProps extends TestProps {
     className?: string;
     title?: string;
     text?: string;
     theme?: TextTheme;
     align?: TextAlign;
     size?: TextSize;
-
-    // for RTL tests
-    'data-testid'?: string;
 }
 
 type HeaderTagType = 'h1' | 'h2' | 'h3';

@@ -6,12 +6,16 @@ interface BuildBabelLoaderProps extends BuildOptions {
 }
 
 export function buildBabelLoader({ isDev, isTsx }: BuildBabelLoaderProps) {
+    const isProd = !isDev;
+
     return {
         test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
         exclude: /(node_modules|bower_components)/,
         use: {
             loader: 'babel-loader',
             options: {
+                // кеширование для более быстрой сборки (полезно для большого проекта)
+                cacheDirectory: true,
                 presets: ['@babel/preset-env'],
                 plugins: [
                     [
@@ -24,7 +28,7 @@ export function buildBabelLoader({ isDev, isTsx }: BuildBabelLoaderProps) {
                     '@babel/plugin-transform-runtime',
                     // самописный babel плагин на удаление заданных атрибутов в продакшен и дев
                     // сборке (меньше вес бандла)
-                    isTsx && [
+                    isTsx && isProd && [
                         babelRemovePropsPlugin,
                         {
                             props: ['data-testid'],

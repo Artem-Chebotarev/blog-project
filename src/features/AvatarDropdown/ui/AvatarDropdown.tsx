@@ -64,6 +64,7 @@ export const AvatarDropdown = (props: AvatarDropdownProps) => {
                 <Avatar
                     size={30}
                     src={authData.avatar}
+                    fallbackInverted
                 />
             )}
         />

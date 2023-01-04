@@ -21,7 +21,7 @@ const ForbiddenPage = memo(() => {
     }, [navigate, authData]);
 
     return (
-        <Page>
+        <Page data-testid="ForbiddenPage">
             {t('У вас нет доступа к этой странице')}
         </Page>
     );
