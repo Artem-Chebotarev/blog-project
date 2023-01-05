@@ -28,8 +28,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
     const rules = config.module!.rules as RuleSetRule[];
     config.module!.rules = rules.map((rule: RuleSetRule) => {
         if (rule.test instanceof RegExp && rule.test.toString().includes('svg')) {
-            // return { ...rule, exclude: /\.(png|svg|jpe?g"gif)$/i };
-            return { ...rule, exclude: /\.(svg)$/i };
+            return { ...rule, exclude: /\.(png|svg|jpe?g"gif)$/i };
+            // return { ...rule, exclude: /\.(svg)$/i };
         }
 
         return rule;
