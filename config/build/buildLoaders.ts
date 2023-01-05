@@ -50,7 +50,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         tsxCodeBabelLoader,
         // typescriptLoader,
         svgLoader,
-        // fileLoader,
+        fileLoader,
         cssLoader,
         fontLoader,
     ];

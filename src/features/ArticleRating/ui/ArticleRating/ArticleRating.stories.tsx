@@ -1,6 +1,5 @@
 // TODO не работает addon-mock для storybook
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import withMock from 'storybook-addon-mock';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 
@@ -12,7 +11,6 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [withMock],
 } as ComponentMeta<typeof ArticleRating>;
 
 const Template: ComponentStory<typeof ArticleRating> = (args) => <ArticleRating {...args} />;
@@ -33,7 +31,7 @@ Normal.decorators = [StoreDecorator({
 Normal.parameters = {
     mockData: [
         {
-            url: `${__API__}/article-rating?userId=1&articleId=1`,
+            url: `${__API__}/article-ratings?articleId=1&userId=1`,
             method: 'GET',
             status: 200,
             response: [
@@ -61,7 +59,7 @@ WithoutRate.decorators = [StoreDecorator({
 WithoutRate.parameters = {
     mockData: [
         {
-            url: `${__API__}/article-rating?userId=1&articleId=1`,
+            url: `${__API__}/article-ratings?articleId=1&userId=1`,
             method: 'GET',
             status: 200,
             response: [],
