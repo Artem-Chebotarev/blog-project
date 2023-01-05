@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "lib": ["es5", "dom"],
+      "types": ["cypress", "node"],
+      "allowJs": true,
+      "isolatedModules": false,
+    },
+    // расширяем дефолтный кофиг ts
+    "extends": "../tsconfig.json",
+    "include": ["**/*.ts"]
+  }
+  
