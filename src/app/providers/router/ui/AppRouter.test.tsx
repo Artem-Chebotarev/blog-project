@@ -1,7 +1,6 @@
 import { screen } from '@testing-library/react';
 
 import { UserRole } from '@/entities/User';
-import { componentRender } from '@/shared/config/tests/componentRender/componentRender';
 import {
     getRouteAbout,
     getRouteAdminPanel,
@@ -10,10 +9,11 @@ import {
     getRouteMain,
     getRouteProfile,
 } from '@/shared/const/router';
+import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 
 import { AppRouter } from './AppRouter';
 
-import '@/shared/config/tests/intersectionObserverMock/intersectionObserverMock';
+import '@/shared/lib/tests/intersectionObserverMock/intersectionObserverMock';
 
 describe('AppRouter', () => {
     test('AboutPage should render', async () => {
