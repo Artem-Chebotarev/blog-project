@@ -30,6 +30,7 @@ export const CommentItem = memo((props: CommentItemProps) => {
             <VStack
                 className={classNames(cls.CommentItem, {}, [className, cls.loading])}
                 max
+                data-testid="CommentCard.Loading"
             >
                 <div className={cls.header}>
                     <Skeleton
@@ -60,6 +61,7 @@ export const CommentItem = memo((props: CommentItemProps) => {
             className={classNames(cls.CommentItem, {}, [className])}
             gap="8"
             max
+            data-testid="CommentCard.Content"
         >
             <Applink
                 className={cls.header}
@@ -76,6 +78,7 @@ export const CommentItem = memo((props: CommentItemProps) => {
             <Text
                 className={cls.text}
                 text={comment.text}
+
             />
         </VStack>
     );
