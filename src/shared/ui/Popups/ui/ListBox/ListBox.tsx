@@ -1,9 +1,5 @@
 import { Listbox as HListBox } from '@headlessui/react';
-import {
-    Fragment,
-    memo,
-    ReactNode,
-} from 'react';
+import { Fragment, memo, ReactNode } from 'react';
 
 import CheckIcon from '@/shared/assets/icons/check-20-20.svg';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
@@ -50,37 +46,43 @@ export const ListBox = memo((props: ListBoxProps) => {
 
     return (
         <HStack gap="4">
-            {label && <span className={classNames('', { [cls.readonly]: readonly }, [className])}>{`${label}>`}</span>}
+            {label && (
+                <span
+                    className={classNames('', { [cls.readonly]: readonly }, [
+                        className,
+                    ])}>{`${label}>`}</span>
+            )}
             <HListBox
-                className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
+                className={classNames(cls.ListBox, {}, [
+                    className,
+                    popupCls.popup,
+                ])}
                 as="div"
                 value={value}
                 onChange={onChange}
-                disabled={readonly}
-            >
-                <HListBox.Button
-                    className={popupCls.trigger}
-                    as="div"
-                >
-                    <Button disabled={readonly}>
-                        {value ?? defaultValue}
-                    </Button>
+                disabled={readonly}>
+                <HListBox.Button className={popupCls.trigger} as="div">
+                    <Button disabled={readonly}>{value ?? defaultValue}</Button>
                 </HListBox.Button>
 
-                <HListBox.Options className={classNames(cls.options, {}, optionsClasses)}>
+                <HListBox.Options
+                    className={classNames(cls.options, {}, optionsClasses)}>
                     {items?.map((item) => (
                         <HListBox.Option
                             key={item.value}
                             value={item.value}
                             disabled={item.disabled}
-                            as={Fragment}
-                        >
+                            as={Fragment}>
                             {({ active, selected, disabled }) => (
-                                <li className={classNames(cls.item, {
-                                    [popupCls.active]: active,
-                                    [popupCls.disabled]: disabled,
-                                }, [])}
-                                >
+                                <li
+                                    className={classNames(
+                                        cls.item,
+                                        {
+                                            [popupCls.active]: active,
+                                            [popupCls.disabled]: disabled,
+                                        },
+                                        [],
+                                    )}>
                                     {item.content}
                                     {selected && (
                                         <Icon

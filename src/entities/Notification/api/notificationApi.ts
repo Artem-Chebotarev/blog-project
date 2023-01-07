@@ -17,5 +17,5 @@ const notificationApi = rtkApi.injectEndpoints({
 });
 
 // хук был сгенерирован автоматически rtkApi
-export const useNotificationsList = notificationApi
-    .useGetNotificationsListQuery;
+export const useNotificationsList =
+    notificationApi.useGetNotificationsListQuery;

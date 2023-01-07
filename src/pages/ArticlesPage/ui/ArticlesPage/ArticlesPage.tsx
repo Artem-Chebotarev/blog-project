@@ -3,7 +3,10 @@ import { useSearchParams } from 'react-router-dom';
 
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch/useAppDispatch';
-import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/helpers/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
+import {
+    ReducersList,
+    useDynamicModuleLoader,
+} from '@/shared/lib/helpers/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
 import { useInitialEffect } from '@/shared/lib/helpers/hooks/useInitialEffect/useInitialEffect';
 import { Page } from '@/widgets/Page';
 
@@ -44,8 +47,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
         <Page
             className={classNames(cls.ArticlesPage, {}, [className])}
             onScrollEnd={onLoadNextPart}
-            data-testid="ArticlesPage"
-        >
+            data-testid="ArticlesPage">
             <ArticlesPageFilters />
             <ArticlesInfiniteList />
         </Page>

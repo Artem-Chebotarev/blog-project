@@ -13,28 +13,25 @@ export const fetchArticleRecommendations = createAsyncThunk<
     Article[],
     void,
     ThunkConfig<string>
->(
-    'articleDetails/fetchArticleRecommendations',
-    async (_, thunkAPI) => {
-        // деструктуризация из thunkAPI
-        const { extra, rejectWithValue } = thunkAPI;
+>('articleDetails/fetchArticleRecommendations', async (_, thunkAPI) => {
+    // деструктуризация из thunkAPI
+    const { extra, rejectWithValue } = thunkAPI;
 
-        try {
-            const response = await extra.api.get<Article[]>('/articles', {
-                params: {
-                    _limit: 4,
-                    _expand: 'user',
-                },
-            });
+    try {
+        const response = await extra.api.get<Article[]>('/articles', {
+            params: {
+                _limit: 4,
+                _expand: 'user',
+            },
+        });
 
-            if (!response.data) {
-                throw new Error(ThunkErrors.NO_DATA);
-            }
-
-            return response.data;
-        } catch (e) {
-            // обработка ошибок в thunk
-            return rejectWithValue('error');
+        if (!response.data) {
+            throw new Error(ThunkErrors.NO_DATA);
         }
-    },
-);
+
+        return response.data;
+    } catch (e) {
+        // обработка ошибок в thunk
+        return rejectWithValue('error');
+    }
+});

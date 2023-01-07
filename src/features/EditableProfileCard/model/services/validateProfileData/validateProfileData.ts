@@ -8,12 +8,7 @@ export const validateProfileData = (profile?: Profile) => {
         return [ThunkErrors.NO_DATA];
     }
 
-    const {
-        first,
-        lastname,
-        age,
-        country,
-    } = profile;
+    const { first, lastname, age, country } = profile;
 
     const errors: ValidateProfileError[] = [];
 

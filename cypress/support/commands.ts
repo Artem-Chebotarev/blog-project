@@ -22,4 +22,4 @@ Cypress.Commands.addAll(ratingCommands);
 //     }
 // });
 
-export { };
+export {};

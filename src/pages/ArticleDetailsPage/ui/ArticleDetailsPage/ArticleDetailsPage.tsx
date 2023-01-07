@@ -5,7 +5,10 @@ import { ArticleDetails } from '@/entities/Article';
 import { ArticleRating } from '@/features/ArticleRating';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
-import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/helpers/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
+import {
+    ReducersList,
+    useDynamicModuleLoader,
+} from '@/shared/lib/helpers/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
 import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
 
@@ -33,11 +36,10 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     }
 
     return (
-        <Page className={classNames(cls.ArticleDetailsPage, {}, [className])} data-testid="ArticleDetailsPage">
-            <VStack
-                gap="16"
-                max
-            >
+        <Page
+            className={classNames(cls.ArticleDetailsPage, {}, [className])}
+            data-testid="ArticleDetailsPage">
+            <VStack gap="16" max>
                 <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
                 <ArticleRating id={id} />

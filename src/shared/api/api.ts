@@ -13,7 +13,9 @@ $api.interceptors.request.use((config) => {
     if (config.headers) {
         // имитация авторизации, так как на бэке проверяется только наличие этого
         // заголовка, а не сам токен
-        config.headers = { authorization: localStorage.getItem(USER_LOCAL_STORAGE_KEY) || '' };
+        config.headers = {
+            authorization: localStorage.getItem(USER_LOCAL_STORAGE_KEY) || '',
+        };
     }
     return config;
 });

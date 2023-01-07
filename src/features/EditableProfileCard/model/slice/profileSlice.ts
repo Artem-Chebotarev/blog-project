@@ -39,11 +39,14 @@ export const profileSlice = createSlice({
                 state.error = undefined;
                 state.isLoading = true;
             })
-            .addCase(fetchProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
-                state.data = action.payload;
-                state.form = action.payload;
-                state.isLoading = false;
-            })
+            .addCase(
+                fetchProfileData.fulfilled,
+                (state, action: PayloadAction<Profile>) => {
+                    state.data = action.payload;
+                    state.form = action.payload;
+                    state.isLoading = false;
+                },
+            )
             .addCase(fetchProfileData.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
@@ -52,20 +55,20 @@ export const profileSlice = createSlice({
                 state.validateErrors = undefined;
                 state.isLoading = true;
             })
-            .addCase(updateProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
-                state.data = action.payload;
-                state.form = action.payload;
-                state.isLoading = false;
-                state.readonly = true;
-                state.validateErrors = undefined;
-            })
             .addCase(
-                updateProfileData.rejected,
-                (state, action) => {
+                updateProfileData.fulfilled,
+                (state, action: PayloadAction<Profile>) => {
+                    state.data = action.payload;
+                    state.form = action.payload;
                     state.isLoading = false;
-                    state.validateErrors = action.payload;
+                    state.readonly = true;
+                    state.validateErrors = undefined;
                 },
-            );
+            )
+            .addCase(updateProfileData.rejected, (state, action) => {
+                state.isLoading = false;
+                state.validateErrors = action.payload;
+            });
     },
 });
 

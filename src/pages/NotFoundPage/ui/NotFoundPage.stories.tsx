@@ -15,9 +15,7 @@ export default {
     decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof NotFoundPage>;
 
-const Template: ComponentStory<typeof NotFoundPage> = () => (
-    <NotFoundPage />
-);
+const Template: ComponentStory<typeof NotFoundPage> = () => <NotFoundPage />;
 
 export const Normal = Template.bind({});
 

@@ -20,13 +20,7 @@ const maxStar = 5;
 // const stars = [1, 2, 3, 4, 5];
 
 export const StarRating = memo((props: StarRatingProps) => {
-    const {
-        className,
-        onSelect,
-        size = 30,
-        selectedStars = 3,
-        align,
-    } = props;
+    const { className, onSelect, size = 30, selectedStars = 3, align } = props;
 
     const [rating, setRating] = useState(selectedStars);
     const [hover, setHover] = useState(0);

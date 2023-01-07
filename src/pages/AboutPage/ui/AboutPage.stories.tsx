@@ -14,9 +14,7 @@ export default {
     },
 } as ComponentMeta<typeof AboutPage>;
 
-const Template: ComponentStory<typeof AboutPage> = () => (
-    <AboutPage />
-);
+const Template: ComponentStory<typeof AboutPage> = () => <AboutPage />;
 
 export const Normal = Template.bind({});
 

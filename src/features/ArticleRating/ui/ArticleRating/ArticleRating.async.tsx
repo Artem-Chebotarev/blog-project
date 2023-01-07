@@ -4,9 +4,7 @@ import { Skeleton } from '@/shared/ui/Skeleton';
 
 import { ArticleRatingProps } from './ArticleRating';
 
-const ArticleRatingLazy = lazy(
-    () => import('./ArticleRating'),
-);
+const ArticleRatingLazy = lazy(() => import('./ArticleRating'));
 
 // чтобы предотвратить потерю типов для компонента при использовании memo и промиса
 export const ArticleRatingAsync = (props: ArticleRatingProps) => (

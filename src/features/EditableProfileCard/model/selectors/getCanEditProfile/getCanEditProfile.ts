@@ -7,7 +7,8 @@ import { getUserAuthData, User } from '@/entities/User';
 import { getProfileData } from '../getProfileData/getProfileData';
 
 const selectors: [
-    Selector<StateSchema, User | undefined>, Selector<StateSchema, Profile | undefined>
+    Selector<StateSchema, User | undefined>,
+    Selector<StateSchema, Profile | undefined>,
 ] = [getUserAuthData, getProfileData];
 
 export const getCanEditProfile = createSelector(

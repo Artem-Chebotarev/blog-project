@@ -17,41 +17,41 @@ interface ArticleSortSelectorProps {
 }
 
 export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
-    const {
-        className,
-        sort,
-        order,
-        onChangeSort,
-        onChangeOrder,
-    } = props;
+    const { className, sort, order, onChangeSort, onChangeOrder } = props;
 
     const { t } = useTranslation();
 
-    const orderOptions = useMemo<SelectOption<SortOrder>[]>(() => [
-        {
-            value: SortOrder.ASC,
-            content: t('возрастанию'),
-        },
-        {
-            value: SortOrder.DESC,
-            content: t('убыванию'),
-        },
-    ], [t]);
+    const orderOptions = useMemo<SelectOption<SortOrder>[]>(
+        () => [
+            {
+                value: SortOrder.ASC,
+                content: t('возрастанию'),
+            },
+            {
+                value: SortOrder.DESC,
+                content: t('убыванию'),
+            },
+        ],
+        [t],
+    );
 
-    const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(() => [
-        {
-            value: ArticleSortField.VIEW,
-            content: t('количеству просмотров'),
-        },
-        {
-            value: ArticleSortField.TITLE,
-            content: t('названию'),
-        },
-        {
-            value: ArticleSortField.CREATED,
-            content: t('дате создания'),
-        },
-    ], [t]);
+    const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(
+        () => [
+            {
+                value: ArticleSortField.VIEW,
+                content: t('количеству просмотров'),
+            },
+            {
+                value: ArticleSortField.TITLE,
+                content: t('названию'),
+            },
+            {
+                value: ArticleSortField.CREATED,
+                content: t('дате создания'),
+            },
+        ],
+        [t],
+    );
 
     /**
      * Это bad practises и так делать не нужно (кастовать типы в данном случае)

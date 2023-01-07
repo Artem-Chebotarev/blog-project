@@ -29,37 +29,24 @@ export const NotificationButton = (props: NotificationButtonProps) => {
     }, []);
 
     const trigger = (
-        <Button
-            theme={ButtonTheme.CLEAR}
-            onClick={onOpenDrawer}
-        >
-            <Icon
-                Svg={NotificationIcon}
-                inverted
-            />
+        <Button theme={ButtonTheme.CLEAR} onClick={onOpenDrawer}>
+            <Icon Svg={NotificationIcon} inverted />
         </Button>
     );
 
-    return (
-        isMobile() ? (
-            <>
-                {trigger}
-                <Drawer
-                    isOpen={isOpen}
-                    onClose={onCloseDrawer}
-                >
-                    <NotificationList />
-                </Drawer>
-            </>
-        )
-            : (
-                <Popover
-                    className={classNames(cls.NotificationButton, {}, [className])}
-                    trigger={trigger}
-                    direction="bottom left"
-                >
-                    <NotificationList className={cls.notifications} />
-                </Popover>
-            )
+    return isMobile() ? (
+        <>
+            {trigger}
+            <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                <NotificationList />
+            </Drawer>
+        </>
+    ) : (
+        <Popover
+            className={classNames(cls.NotificationButton, {}, [className])}
+            trigger={trigger}
+            direction="bottom left">
+            <NotificationList className={cls.notifications} />
+        </Popover>
     );
 };

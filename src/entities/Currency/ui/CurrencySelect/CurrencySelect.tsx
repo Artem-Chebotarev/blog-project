@@ -16,23 +16,23 @@ interface CurrencySelectProps {
 // ЛЮБЫЕ ОБЪЕКТЫ ИЛИ МАССИВЫ, КОТОРЫЕ ПЕРЕДАЕМ КУДА-ТО ПРОПСАМИ НУЖНО МЕМОИЗИРОВАТЬ
 
 // если массив статичный, то его можно вынести за пределы компонента
-const currencyOptions = Object.entries(Currency)
-    .map(([value, content]) => ({ value, content }));
+const currencyOptions = Object.entries(Currency).map(([value, content]) => ({
+    value,
+    content,
+}));
 
 export const CurrencySelect = memo((props: CurrencySelectProps) => {
-    const {
-        className,
-        value,
-        onChange,
-        readonly,
-    } = props;
+    const { className, value, onChange, readonly } = props;
 
     const { t } = useTranslation('profile');
 
-    const onChangeHandler = useCallback((value: string) => {
-        // кастуем тип, когда мы уверены что будут эти значения Currency
-        onChange?.(value as Currency);
-    }, [onChange]);
+    const onChangeHandler = useCallback(
+        (value: string) => {
+            // кастуем тип, когда мы уверены что будут эти значения Currency
+            onChange?.(value as Currency);
+        },
+        [onChange],
+    );
 
     return (
         <ListBox

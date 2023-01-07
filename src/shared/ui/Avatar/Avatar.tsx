@@ -21,13 +21,7 @@ interface AvatarProps {
 }
 
 export const Avatar = memo((props: AvatarProps) => {
-    const {
-        className,
-        src,
-        size = 100,
-        alt,
-        fallbackInverted,
-    } = props;
+    const { className, src, size = 100, alt, fallbackInverted } = props;
 
     const mods: Mods = {};
 

@@ -5,19 +5,19 @@ import { getUserAuthData } from '@/entities/User';
 import { getRouteMain } from '@/shared/const/router';
 
 interface RequireAuthProps {
-    children: JSX.Element,
+    children: JSX.Element;
 }
 
 export function RequireAuth(props: RequireAuthProps) {
-    const {
-        children,
-    } = props;
+    const { children } = props;
 
     const auth = useSelector(getUserAuthData);
     const location = useLocation();
 
     if (!auth) {
-        return <Navigate to={getRouteMain()} state={{ from: location }} replace />;
+        return (
+            <Navigate to={getRouteMain()} state={{ from: location }} replace />
+        );
     }
 
     return children;

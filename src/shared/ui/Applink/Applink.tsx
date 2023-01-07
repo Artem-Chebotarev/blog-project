@@ -28,10 +28,11 @@ export const Applink = forwardRef((props: ApplinkProps, ref) => {
 
     return (
         <Link
-            className={classNames(cls.AppLink, { [cls[theme]]: true }, [className])}
+            className={classNames(cls.AppLink, { [cls[theme]]: true }, [
+                className,
+            ])}
             to={to}
-            {...otherProps}
-        >
+            {...otherProps}>
             {children}
         </Link>
     );

@@ -19,16 +19,14 @@ interface UseModalProps {
  */
 
 export function useModal(props: UseModalProps) {
-    const {
-        onClose,
-        isOpen,
-        animationDelay,
-    } = props;
+    const { onClose, isOpen, animationDelay } = props;
 
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
 
-    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+    const timerRef = useRef() as MutableRefObject<
+        ReturnType<typeof setTimeout>
+    >;
 
     // Управление монтированием
     useEffect(() => {
@@ -49,11 +47,14 @@ export function useModal(props: UseModalProps) {
     }, [onClose, animationDelay]);
 
     // На каждый перерендер компонента эти функции создаются заного (новые ссылки)
-    const onKeyDown = useCallback((event: KeyboardEvent) => {
-        if (event.key === 'Escape') {
-            close();
-        }
-    }, [close]);
+    const onKeyDown = useCallback(
+        (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                close();
+            }
+        },
+        [close],
+    );
 
     // без этой функции клик по модалке будет отрабатывать как клик outside
     // const onContentClick = (event: React.MouseEvent) => {

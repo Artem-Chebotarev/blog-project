@@ -2,6 +2,9 @@ export type { ScrollSaveSchema } from './ui/Page/components/ScrollSave/model/typ
 
 export { getScrollSaveByPath } from './ui/Page/components/ScrollSave/model/selectors/scrollSaveSelectors';
 
-export { scrollSaveReducer, scrollSaveActions } from './ui/Page/components/ScrollSave/model/slice/scrollSaveSlice';
+export {
+    scrollSaveReducer,
+    scrollSaveActions,
+} from './ui/Page/components/ScrollSave/model/slice/scrollSaveSlice';
 
 export { Page } from './ui/Page/Page';

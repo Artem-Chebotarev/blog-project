@@ -11,34 +11,23 @@ import cls from './NotificationItem.module.scss';
 
 interface NotificationItemProps {
     className?: string;
-    item: Notification
+    item: Notification;
 }
 
 export const NotificationItem = memo((props: NotificationItemProps) => {
-    const {
-        className,
-        item,
-    } = props;
+    const { className, item } = props;
 
     const content = (
         <Card
             className={classNames(cls.NotificationItem, {}, [className])}
-            theme={CardTheme.OUTLINED}
-        >
-            <Text
-                title={item.title}
-                text={item.description}
-            />
+            theme={CardTheme.OUTLINED}>
+            <Text title={item.title} text={item.description} />
         </Card>
     );
 
     if (item.href) {
         return (
-            <Applink
-                className={cls.link}
-                to={item.href}
-                target="_blank"
-            >
+            <Applink className={cls.link} to={item.href} target="_blank">
                 {content}
             </Applink>
         );
