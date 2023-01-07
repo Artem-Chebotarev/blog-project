@@ -47,9 +47,14 @@ describe('loginByUsername', () => {
 
         thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }));
 
-        const result = await thunk.callThunk({ username: 'Ivan', password: '111' });
+        const result = await thunk.callThunk({
+            username: 'Ivan',
+            password: '111',
+        });
 
-        expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
+        expect(thunk.dispatch).toHaveBeenCalledWith(
+            userActions.setAuthData(userValue),
+        );
         // 1 раз - при вызове async thunk
         // 2 раз - при thunkAPI.dispatch(userActions.setAuthData(response.data));
         // 3 раз - при return response.data;
@@ -64,7 +69,10 @@ describe('loginByUsername', () => {
 
         thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }));
 
-        const result = await thunk.callThunk({ username: 'Ivan', password: '111' });
+        const result = await thunk.callThunk({
+            username: 'Ivan',
+            password: '111',
+        });
 
         // без 2 раза
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);

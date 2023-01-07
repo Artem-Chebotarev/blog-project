@@ -16,7 +16,9 @@ const ArticleEditPage = memo((props: ArticleEditPageProps) => {
     const isEdit = Boolean(id);
 
     return (
-        <Page className={classNames('', {}, [className])} data-testid="ArticleEditPage">
+        <Page
+            className={classNames('', {}, [className])}
+            data-testid="ArticleEditPage">
             Article edit page
         </Page>
     );

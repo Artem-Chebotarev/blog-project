@@ -4,13 +4,19 @@ import { useSelector } from 'react-redux';
 
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch/useAppDispatch';
-import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/helpers/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
+import {
+    ReducersList,
+    useDynamicModuleLoader,
+} from '@/shared/lib/helpers/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import { HStack } from '@/shared/ui/Stack';
 
 import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
-import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
+import {
+    addCommentFormActions,
+    addCommentFormReducer,
+} from '../../model/slice/addCommentFormSlice';
 
 import cls from './AddCommentForm.module.scss';
 
@@ -24,10 +30,7 @@ const reducers: ReducersList = {
 };
 
 const AddCommentForm = memo((props: AddCommentFormProps) => {
-    const {
-        className,
-        onSendComment,
-    } = props;
+    const { className, onSendComment } = props;
 
     const { t } = useTranslation('article-details');
 
@@ -38,9 +41,12 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     const text = useSelector(getAddCommentFormText);
 
     // так как передаем пропсом, то нужно использовать useCallback
-    const onCommentTextChange = useCallback((value: string) => {
-        dispatch(addCommentFormActions.setText(value));
-    }, [dispatch]);
+    const onCommentTextChange = useCallback(
+        (value: string) => {
+            dispatch(addCommentFormActions.setText(value));
+        },
+        [dispatch],
+    );
 
     const onSendHandler = useCallback(() => {
         if (text) {
@@ -55,8 +61,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
             className={classNames(cls.AddCommentForm, {}, [className])}
             justify="between"
             max
-            data-testid="AddCommentForm"
-        >
+            data-testid="AddCommentForm">
             <Input
                 className={cls.input}
                 placeholder={t('Введите текст комментария')}
@@ -67,8 +72,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
             <Button
                 theme={ButtonTheme.OUTLINE}
                 onClick={onSendHandler}
-                data-testid="AddCommentForm.Button"
-            >
+                data-testid="AddCommentForm.Button">
                 {t('Отправить')}
             </Button>
         </HStack>

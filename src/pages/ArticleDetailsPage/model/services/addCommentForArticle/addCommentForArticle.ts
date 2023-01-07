@@ -13,16 +13,15 @@ import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchComme
  * 2 арг в дженерике - тип аргумента на входе
  * 3 арг - настройки конфига thunk (AsyncThunkConfig), где можем задавать dispatch, rejectValue
  */
-export const addCommentForArticle = createAsyncThunk<Comment, string, ThunkConfig<string>>(
+export const addCommentForArticle = createAsyncThunk<
+    Comment,
+    string,
+    ThunkConfig<string>
+>(
     'articleDetails/addCommentForArticle',
     // деструктуризация из thunkAPI
     async (text, thunkAPI) => {
-        const {
-            dispatch,
-            extra,
-            rejectWithValue,
-            getState,
-        } = thunkAPI;
+        const { dispatch, extra, rejectWithValue, getState } = thunkAPI;
 
         const userData = getUserAuthData(getState());
         const article = getArticleDetailsData(getState());

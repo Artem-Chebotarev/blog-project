@@ -53,10 +53,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
     if (isLoading) {
         return (
             <HStack
-                className={classNames(cls.ProfileCard, {}, [className, cls.loading])}
+                className={classNames(cls.ProfileCard, {}, [
+                    className,
+                    cls.loading,
+                ])}
                 justify="center"
-                max
-            >
+                max>
                 <Loader />
             </HStack>
         );
@@ -65,10 +67,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
     if (error) {
         return (
             <HStack
-                className={classNames(cls.ProfileCard, {}, [className, cls.error])}
+                className={classNames(cls.ProfileCard, {}, [
+                    className,
+                    cls.error,
+                ])}
                 justify="center"
-                max
-            >
+                max>
                 <Text
                     theme={TextTheme.ERROR}
                     title={t('Произошла ошибка при загрузке профиля')}
@@ -81,8 +85,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     const onKeyPress = (event: React.KeyboardEvent) => {
         if (
-            !/[0-9]/.test(event.key)
-            && !(Object.values(validKeyboardKeys).some((elem) => elem === event.key))
+            !/[0-9]/.test(event.key) &&
+            !Object.values(validKeyboardKeys).some((elem) => elem === event.key)
         ) {
             event.preventDefault();
         }
@@ -96,14 +100,9 @@ export const ProfileCard = (props: ProfileCardProps) => {
         <VStack
             className={classNames(cls.ProfileCard, mods, [className])}
             gap="16"
-            max
-        >
+            max>
             {data?.avatar && (
-                <HStack
-                    className={cls.avatarWrapper}
-                    justify="center"
-                    max
-                >
+                <HStack className={cls.avatarWrapper} justify="center" max>
                     <Avatar src={data?.avatar} alt="avatar" />
                 </HStack>
             )}

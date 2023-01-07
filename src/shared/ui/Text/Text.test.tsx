@@ -11,7 +11,9 @@ describe('Text', () => {
     });
 
     test('Should have class error', () => {
-        componentRender(<Text title="Title" text="Text" theme={TextTheme.ERROR} />);
+        componentRender(
+            <Text title="Title" text="Text" theme={TextTheme.ERROR} />,
+        );
 
         const container = screen.getByText('Title').parentElement;
 

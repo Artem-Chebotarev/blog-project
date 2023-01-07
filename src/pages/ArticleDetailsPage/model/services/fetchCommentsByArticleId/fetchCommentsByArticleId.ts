@@ -13,32 +13,29 @@ export const fetchCommentsByArticleId = createAsyncThunk<
     Comment[],
     string | undefined,
     ThunkConfig<string>
->(
-    'articleDetails/fetchCommentsByArticleId',
-    async (articleId, thunkAPI) => {
-        // деструктуризация из thunkAPI
-        const { extra, rejectWithValue } = thunkAPI;
+>('articleDetails/fetchCommentsByArticleId', async (articleId, thunkAPI) => {
+    // деструктуризация из thunkAPI
+    const { extra, rejectWithValue } = thunkAPI;
 
-        if (!articleId) {
-            return rejectWithValue('error');
+    if (!articleId) {
+        return rejectWithValue('error');
+    }
+
+    try {
+        const response = await extra.api.get<Comment[]>('/comments', {
+            params: {
+                articleId,
+                _expand: 'user',
+            },
+        });
+
+        if (!response.data) {
+            throw new Error(ThunkErrors.NO_DATA);
         }
 
-        try {
-            const response = await extra.api.get<Comment[]>('/comments', {
-                params: {
-                    articleId,
-                    _expand: 'user',
-                },
-            });
-
-            if (!response.data) {
-                throw new Error(ThunkErrors.NO_DATA);
-            }
-
-            return response.data;
-        } catch (e) {
-            // обработка ошибок в thunk
-            return rejectWithValue('error');
-        }
-    },
-);
+        return response.data;
+    } catch (e) {
+        // обработка ошибок в thunk
+        return rejectWithValue('error');
+    }
+});

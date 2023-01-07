@@ -1,10 +1,4 @@
-import {
-    memo,
-    MutableRefObject,
-    useRef,
-    UIEvent,
-    ReactNode,
-} from 'react';
+import { memo, MutableRefObject, useRef, UIEvent, ReactNode } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
@@ -44,13 +38,13 @@ export const Page = memo((props: PageProps) => {
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
 
     /**
-    * тк getScrollSaveByPath помимо стейта принимает еще один аргумент,
-    * мы не можем его передать напрямую в
-    * useSelector, так как useSelector принимает только один аргумент,
-    * поэтому нужно использовать внутри функцию
-    */
-    const scrollPosition = useSelector(
-        (state: StateSchema) => getScrollSaveByPath(state, pathname),
+     * тк getScrollSaveByPath помимо стейта принимает еще один аргумент,
+     * мы не можем его передать напрямую в
+     * useSelector, так как useSelector принимает только один аргумент,
+     * поэтому нужно использовать внутри функцию
+     */
+    const scrollPosition = useSelector((state: StateSchema) =>
+        getScrollSaveByPath(state, pathname),
     );
 
     useInfiniteScroll({
@@ -64,12 +58,12 @@ export const Page = memo((props: PageProps) => {
     });
 
     const onScroll = useThrottle((event: UIEvent<HTMLDivElement>) => {
-        dispatch(scrollSaveActions.setScrollPosition(
-            {
+        dispatch(
+            scrollSaveActions.setScrollPosition({
                 path: pathname,
                 position: event.currentTarget.scrollTop,
-            },
-        ));
+            }),
+        );
     }, 1000);
 
     return (
@@ -78,14 +72,10 @@ export const Page = memo((props: PageProps) => {
             ref={wrapperRef}
             onScroll={onScroll}
             id={PAGE_ID}
-            data-testid={`${dataTestId}`}
-        >
+            data-testid={`${dataTestId}`}>
             {children}
             {onScrollEnd ? (
-                <div
-                    className={cls.trigger}
-                    ref={triggerRef}
-                />
+                <div className={cls.trigger} ref={triggerRef} />
             ) : null}
         </main>
     );

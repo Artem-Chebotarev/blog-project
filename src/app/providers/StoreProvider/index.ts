@@ -8,10 +8,7 @@ import type {
     StateSchemaKey,
 } from './config/StateSchema';
 
-export {
-    StoreProvider,
-    createReduxStore,
-};
+export { StoreProvider, createReduxStore };
 
 export type {
     StateSchema,

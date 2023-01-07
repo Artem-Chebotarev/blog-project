@@ -3,26 +3,14 @@ import path from 'path';
 export default {
     clearMocks: true,
     testEnvironment: 'jsdom',
-    coveragePathIgnorePatterns: [
-        '/node_modules/',
-    ],
-    moduleFileExtensions: [
-        'js',
-        'jsx',
-        'ts',
-        'tsx',
-        'json',
-        'node',
-    ],
-    moduleDirectories: [
-        'node_modules',
-        'src',
-    ],
+    coveragePathIgnorePatterns: ['/node_modules/'],
+    moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
+    moduleDirectories: ['node_modules', 'src'],
     rootDir: '../../',
     setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
     moduleNameMapper: {
-        '^@/(.*)$': '<rootDir>/src/$1',
         '\\.s?css$': 'identity-obj-proxy',
+        '^@/(.*)$': '<rootDir>/src/$1',
         // мок для импортов, в которых используется svg
         // '\\.svg': '<rootDir>/config/jest/fileMock.js',
     },
@@ -30,9 +18,7 @@ export default {
         '^.+\\.(ts|tsx)$': 'babel-jest',
         '^.+\\.svg$': path.resolve(__dirname, 'jestSvgTransformer.ts'),
     },
-    testMatch: [
-        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
-    ],
+    testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
 
     // A set of global variables that need to be available in all test environments
     globals: {
@@ -42,12 +28,15 @@ export default {
     },
     reporters: [
         'default',
-        ['jest-html-reporters', {
-            publicPath: '<rootDir>/reports/unit',
-            filename: 'report.html',
-            openReport: true,
-            inlineSource: true,
-        }],
+        [
+            'jest-html-reporters',
+            {
+                publicPath: '<rootDir>/reports/unit',
+                filename: 'report.html',
+                openReport: true,
+                inlineSource: true,
+            },
+        ],
     ],
     // A list of reporter names that Jest uses when writing coverage reports
     // coverageReporters: [

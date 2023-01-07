@@ -1,6 +1,4 @@
-import {
-    ButtonHTMLAttributes, memo, ReactNode,
-} from 'react';
+import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 
 import { classNames, Mods } from '@/shared/lib/helpers/classNames/classNames';
 
@@ -18,7 +16,7 @@ export enum ButtonTheme {
 export enum ButtonSize {
     M = 'size_m',
     L = 'size_l',
-    XL = 'size_xl'
+    XL = 'size_xl',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -77,8 +75,11 @@ export const Button = memo((props: ButtonProps) => {
         <button
             {...otherProps}
             type="button"
-            className={classNames(cls.Button, mods, [className, cls[theme], cls[size]])}
-        >
+            className={classNames(cls.Button, mods, [
+                className,
+                cls[theme],
+                cls[size],
+            ])}>
             {children}
         </button>
     );

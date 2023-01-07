@@ -3,9 +3,12 @@
     "rules": {
         "indentation": [4],
         "selector-class-pattern": null,
-        "no-eol-whitespace": [ true, {
-            "ignore": ["empty-lines"]
-        } ],
+        "no-eol-whitespace": [
+            true,
+            {
+                "ignore": ["empty-lines"]
+            }
+        ],
         "declaration-empty-line-before": null
     }
 }

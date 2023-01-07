@@ -27,26 +27,28 @@ const viewTypes = [
 ];
 
 export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
-    const {
-        className,
-        view,
-        onViewClick,
-    } = props;
+    const { className, view, onViewClick } = props;
 
     // обход ошибки с event через замыкание
-    const onClick = useCallback((newView: ArticleView) => () => {
-        onViewClick?.(newView);
-    }, [onViewClick]);
+    const onClick = useCallback(
+        (newView: ArticleView) => () => {
+            onViewClick?.(newView);
+        },
+        [onViewClick],
+    );
     return (
         <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
             {viewTypes.map((elem) => (
                 <Button
                     key={elem.view}
                     theme={ButtonTheme.CLEAR}
-                    onClick={onClick(elem.view)}
-                >
+                    onClick={onClick(elem.view)}>
                     <Icon
-                        className={classNames('', { [cls.selected]: elem.view === view }, [])}
+                        className={classNames(
+                            '',
+                            { [cls.selected]: elem.view === view },
+                            [],
+                        )}
                         Svg={elem.icon}
                     />
                 </Button>

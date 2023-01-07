@@ -13,17 +13,21 @@ export default {
     },
 } as ComponentMeta<typeof ArticlesPage>;
 
-const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {...args} />;
+const Template: ComponentStory<typeof ArticlesPage> = (args) => (
+    <ArticlesPage {...args} />
+);
 
 export const Primary = Template.bind({});
 
 Primary.args = {};
 
-Primary.decorators = [StoreDecorator({
-    articlesPage: {
-        page: 2,
-        view: ArticleView.GRID,
-        hasMore: true,
-        _inited: true,
-    },
-})];
+Primary.decorators = [
+    StoreDecorator({
+        articlesPage: {
+            page: 2,
+            view: ArticleView.GRID,
+            hasMore: true,
+            _inited: true,
+        },
+    }),
+];

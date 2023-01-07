@@ -1,8 +1,4 @@
-import {
-    memo,
-    useCallback,
-    useState,
-} from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
@@ -51,14 +47,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 />
                 <Applink
                     theme={ApplinkTheme.SECONDARY}
-                    to={getRouteArticleCreate()}
-                >
+                    to={getRouteArticleCreate()}>
                     {t('Создать статью')}
                 </Applink>
-                <HStack
-                    className={cls.actions}
-                    gap="16"
-                >
+                <HStack className={cls.actions} gap="16">
                     <NotificationButton />
                     <AvatarDropdown />
                 </HStack>
@@ -76,15 +68,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             <Button
                 theme={ButtonTheme.CLEAR_INVERTED}
                 className={cls.links}
-                onClick={onShowModal}
-            >
+                onClick={onShowModal}>
                 {t('Войти')}
             </Button>
             {isAuthModal && (
-                <LoginModal
-                    isOpen={isAuthModal}
-                    onClose={onCloseModal}
-                />
+                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
             )}
         </header>
     );

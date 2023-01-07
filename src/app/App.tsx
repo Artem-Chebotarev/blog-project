@@ -15,7 +15,8 @@ export const App = () => {
 
     const inited = useSelector(getUserInited);
 
-    const mountTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.LIGHT;
+    const mountTheme =
+        (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
 
     useEffect(() => {
         dispatch(userActions.initAuthData());
@@ -23,18 +24,15 @@ export const App = () => {
         document.body.className = mountTheme;
     }, [dispatch, mountTheme]);
 
-    return (
-        inited
-            ? (
-                <div className={classNames('app', {}, [])}>
-                    <Suspense fallback="">
-                        <Navbar />
-                        <div className="content-page">
-                            <Sidebar />
-                            <AppRouter />
-                        </div>
-                    </Suspense>
+    return inited ? (
+        <div className={classNames('app', {}, [])}>
+            <Suspense fallback="">
+                <Navbar />
+                <div className="content-page">
+                    <Sidebar />
+                    <AppRouter />
                 </div>
-            ) : null
-    );
+            </Suspense>
+        </div>
+    ) : null;
 };

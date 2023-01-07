@@ -44,11 +44,15 @@ export const AvatarDropdown = (props: AvatarDropdownProps) => {
             className={classNames('', {}, [className])}
             direction="bottom left"
             items={[
-                ...(isAdminPanelAvailable ? [{
-                    id: '1',
-                    content: t('Админка'),
-                    href: getRouteAdminPanel(),
-                }] : []),
+                ...(isAdminPanelAvailable
+                    ? [
+                          {
+                              id: '1',
+                              content: t('Админка'),
+                              href: getRouteAdminPanel(),
+                          },
+                      ]
+                    : []),
                 {
                     id: '2',
                     content: t('Профиль'),
@@ -60,13 +64,9 @@ export const AvatarDropdown = (props: AvatarDropdownProps) => {
                     onClick: onLogout,
                 },
             ]}
-            trigger={(
-                <Avatar
-                    size={30}
-                    src={authData.avatar}
-                    fallbackInverted
-                />
-            )}
+            trigger={
+                <Avatar size={30} src={authData.avatar} fallbackInverted />
+            }
         />
     );
 };

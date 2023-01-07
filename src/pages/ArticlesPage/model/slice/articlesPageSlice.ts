@@ -6,7 +6,10 @@ import {
 
 import { StateSchema } from '@/app/providers/StoreProvider';
 import {
-    Article, ArticleSortField, ArticleType, ArticleView,
+    Article,
+    ArticleSortField,
+    ArticleType,
+    ArticleView,
 } from '@/entities/Article';
 import { ARTICLES_VIEW_LOCAL_STORAGE_KEY } from '@/shared/const/localStorage';
 import { SortOrder } from '@/shared/types/sort';
@@ -41,14 +44,19 @@ const articlesPageSlice = createSlice({
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
-            localStorage.setItem(ARTICLES_VIEW_LOCAL_STORAGE_KEY, action.payload);
+            localStorage.setItem(
+                ARTICLES_VIEW_LOCAL_STORAGE_KEY,
+                action.payload,
+            );
             state.view = action.payload;
         },
         setPage: (state, action: PayloadAction<number>) => {
             state.page = action.payload;
         },
         initView: (state) => {
-            const view = localStorage.getItem(ARTICLES_VIEW_LOCAL_STORAGE_KEY) as ArticleView;
+            const view = localStorage.getItem(
+                ARTICLES_VIEW_LOCAL_STORAGE_KEY,
+            ) as ArticleView;
 
             if (view) {
                 state.view = view;
@@ -80,10 +88,7 @@ const articlesPageSlice = createSlice({
                     articlesAdapter.removeAll(state);
                 }
             })
-            .addCase(fetchArticlesList.fulfilled, (
-                state,
-                action,
-            ) => {
+            .addCase(fetchArticlesList.fulfilled, (state, action) => {
                 state.isLoading = false;
 
                 /**
@@ -97,7 +102,7 @@ const articlesPageSlice = createSlice({
                 } else {
                     /**
                      * для правильной работы бесконечного скролла
-                    */
+                     */
                     articlesAdapter.addMany(state, action.payload);
                 }
             })
@@ -108,7 +113,5 @@ const articlesPageSlice = createSlice({
     },
 });
 
-export const {
-    reducer: articlesPageReducer,
-    actions: articlesPageActions,
-} = articlesPageSlice;
+export const { reducer: articlesPageReducer, actions: articlesPageActions } =
+    articlesPageSlice;

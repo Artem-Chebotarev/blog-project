@@ -4,7 +4,10 @@ import { useSelector } from 'react-redux';
 
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch/useAppDispatch';
-import { ReducersList, useDynamicModuleLoader } from '@/shared/lib/helpers/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
+import {
+    ReducersList,
+    useDynamicModuleLoader,
+} from '@/shared/lib/helpers/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import { Text, TextTheme } from '@/shared/ui/Text';
@@ -59,13 +62,19 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     //     // eslint-disable-next-line react-hooks/exhaustive-deps
     // }, []);
 
-    const onChangeUsername = useCallback((value: string) => {
-        dispatch(loginActions.setUsername(value));
-    }, [dispatch]);
+    const onChangeUsername = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setUsername(value));
+        },
+        [dispatch],
+    );
 
-    const onChangePassword = useCallback((value: string) => {
-        dispatch(loginActions.setPassword(value));
-    }, [dispatch]);
+    const onChangePassword = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setPassword(value));
+        },
+        [dispatch],
+    );
 
     const onLoginClick = useCallback(async () => {
         const result = await dispatch(loginByUsername({ username, password }));
@@ -105,8 +114,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                 className={cls.loginBtn}
                 theme={ButtonTheme.OUTLINE}
                 onClick={onLoginClick}
-                disabled={isLoading}
-            >
+                disabled={isLoading}>
                 {t('Войти')}
             </Button>
         </div>

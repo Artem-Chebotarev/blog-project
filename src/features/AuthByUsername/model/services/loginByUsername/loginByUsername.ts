@@ -13,7 +13,11 @@ interface LoginByUsernameProps {
 // 1 арг в дженерике - что возвращаем с бека
 // 2 арг в дженерике - тип аргумента на входе
 // 3 арг - настройки конфига thunk (AsyncThunkConfig), где можем задавать dispatch, rejectValue
-export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, ThunkConfig<string>>(
+export const loginByUsername = createAsyncThunk<
+    User,
+    LoginByUsernameProps,
+    ThunkConfig<string>
+>(
     'login/loginByUsername',
     // деструктуризация из thunkAPI
     async (authData, thunkAPI) => {
@@ -27,7 +31,10 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, Thun
                 throw new Error(ThunkErrors.NO_DATA);
             }
 
-            localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data));
+            localStorage.setItem(
+                USER_LOCAL_STORAGE_KEY,
+                JSON.stringify(response.data),
+            );
 
             dispatch(userActions.setAuthData(response.data));
 

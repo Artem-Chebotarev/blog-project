@@ -13,29 +13,24 @@ interface ArticleTextBlockComponentProps {
     block: ArticleTextBlock;
 }
 
-export const ArticleTextBlockComponent = memo((props: ArticleTextBlockComponentProps) => {
-    const {
-        className,
-        block,
-    } = props;
+export const ArticleTextBlockComponent = memo(
+    (props: ArticleTextBlockComponentProps) => {
+        const { className, block } = props;
 
-    const { t } = useTranslation();
+        const { t } = useTranslation();
 
-    return (
-        <div className={classNames(cls.ArticleTextBlockComponent, {}, [className])}>
-            {block.title && (
-                <Text
-                    className={cls.title}
-                    title={block.title}
-                />
-            )}
-            {block.paragraphs.map((elem) => (
-                <Text
-                    key={elem}
-                    className={cls.paragraph}
-                    text={elem}
-                />
-            ))}
-        </div>
-    );
-});
+        return (
+            <div
+                className={classNames(cls.ArticleTextBlockComponent, {}, [
+                    className,
+                ])}>
+                {block.title && (
+                    <Text className={cls.title} title={block.title} />
+                )}
+                {block.paragraphs.map((elem) => (
+                    <Text key={elem} className={cls.paragraph} text={elem} />
+                ))}
+            </div>
+        );
+    },
+);

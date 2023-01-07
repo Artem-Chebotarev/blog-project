@@ -26,12 +26,7 @@ interface DropdownProps {
 }
 
 export const Dropdown = (props: DropdownProps) => {
-    const {
-        className,
-        items,
-        trigger,
-        direction = 'bottom right',
-    } = props;
+    const { className, items, trigger, direction = 'bottom right' } = props;
 
     const ref = createRef();
 
@@ -39,23 +34,26 @@ export const Dropdown = (props: DropdownProps) => {
 
     return (
         <Menu
-            className={classNames(cls.Dropdown, {}, [className, popupCls.popup])}
-            as="div"
-        >
-            <Menu.Button className={popupCls.trigger}>
-                {trigger}
-            </Menu.Button>
+            className={classNames(cls.Dropdown, {}, [
+                className,
+                popupCls.popup,
+            ])}
+            as="div">
+            <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
             <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
                 {items.map((elem) => {
                     const content = ({ active }: { active: boolean }) => (
                         <button
-                            className={classNames(cls.item, {
-                                [cls.active]: active,
-                            }, [className])}
+                            className={classNames(
+                                cls.item,
+                                {
+                                    [cls.active]: active,
+                                },
+                                [className],
+                            )}
                             disabled={elem.disabled}
                             type="button"
-                            onClick={elem.onClick}
-                        >
+                            onClick={elem.onClick}>
                             {elem.content}
                         </button>
                     );
@@ -67,8 +65,7 @@ export const Dropdown = (props: DropdownProps) => {
                                 as={Applink}
                                 to={elem.href}
                                 disabled={elem.disabled}
-                                ref={ref}
-                            >
+                                ref={ref}>
                                 {content}
                             </Menu.Item>
                         );
@@ -78,8 +75,7 @@ export const Dropdown = (props: DropdownProps) => {
                         <Menu.Item
                             key={elem.id}
                             as={Fragment}
-                            disabled={elem.disabled}
-                        >
+                            disabled={elem.disabled}>
                             {content}
                         </Menu.Item>
                     );

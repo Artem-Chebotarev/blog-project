@@ -40,15 +40,18 @@ export const RatingCard = memo((props: RatingCardProps) => {
     const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
-    const onSelectStars = useCallback((selectedStarsCount: number) => {
-        setStarsCount(selectedStarsCount);
+    const onSelectStars = useCallback(
+        (selectedStarsCount: number) => {
+            setStarsCount(selectedStarsCount);
 
-        if (hasFeedback) {
-            setIsModalOpen(true);
-        } else {
-            onAccept?.(starsCount);
-        }
-    }, [hasFeedback, onAccept, starsCount]);
+            if (hasFeedback) {
+                setIsModalOpen(true);
+            } else {
+                onAccept?.(starsCount);
+            }
+        },
+        [hasFeedback, onAccept, starsCount],
+    );
 
     const acceptHandler = useCallback(() => {
         setIsModalOpen(false);
@@ -77,15 +80,8 @@ export const RatingCard = memo((props: RatingCardProps) => {
     );
 
     return (
-        <Card
-            className={className}
-            max
-            data-testid="RatingCard"
-        >
-            <VStack
-                align="center"
-                gap="8"
-            >
+        <Card className={className} max data-testid="RatingCard">
+            <VStack align="center" gap="8">
                 <Text title={starsCount ? t('Спасибо за оценку') : title} />
                 <StarRating
                     size={40}
@@ -96,55 +92,37 @@ export const RatingCard = memo((props: RatingCardProps) => {
             </VStack>
 
             {isMobile() ? (
-                <Drawer
-                    isOpen={isModalOpen}
-                    lazy
-                >
+                <Drawer isOpen={isModalOpen} lazy>
                     <VStack gap="32">
                         {modalContent}
                         <Button
                             onClick={acceptHandler}
                             size={ButtonSize.L}
-                            fullWidth
-                        >
+                            fullWidth>
                             {t('Отправить')}
                         </Button>
                     </VStack>
                 </Drawer>
-            )
-                : (
-                    <Modal
-                        isOpen={isModalOpen}
-                        onClose={cancelHandler}
-                        lazy
-                    >
-                        <VStack
-                            gap="32"
-                            max
-                        >
-                            {modalContent}
-                            <HStack
-                                justify="end"
-                                gap="16"
-                                max
-                            >
-                                <Button
-                                    onClick={acceptHandler}
-                                    data-testid="RatingCard.Send"
-                                >
-                                    {t('Отправить')}
-                                </Button>
-                                <Button
-                                    theme={ButtonTheme.OUTLINE_RED}
-                                    onClick={cancelHandler}
-                                    data-testid="RatingCard.Close"
-                                >
-                                    {t('Закрыть')}
-                                </Button>
-                            </HStack>
-                        </VStack>
-                    </Modal>
-                )}
+            ) : (
+                <Modal isOpen={isModalOpen} onClose={cancelHandler} lazy>
+                    <VStack gap="32" max>
+                        {modalContent}
+                        <HStack justify="end" gap="16" max>
+                            <Button
+                                onClick={acceptHandler}
+                                data-testid="RatingCard.Send">
+                                {t('Отправить')}
+                            </Button>
+                            <Button
+                                theme={ButtonTheme.OUTLINE_RED}
+                                onClick={cancelHandler}
+                                data-testid="RatingCard.Close">
+                                {t('Закрыть')}
+                            </Button>
+                        </HStack>
+                    </VStack>
+                </Modal>
+            )}
         </Card>
     );
 });
