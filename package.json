@@ -33,7 +33,9 @@
         "storybook:build": "build-storybook -c ./config/storybook",
         "prepare": "husky install",
         "generate:slice": "node ./scripts/createSlice/index.js",
-        "postinstall": "node ./scripts/clear-cache.js"
+        "postinstall": "if [ -e ./scripts/clear-cache.js ]; then node ./scripts/clear-cache.js; fi",
+        "docker:build": "docker build . --tag blog-project",
+        "docker:run": "docker run -d --name blogproject -p 80:80 blog-project"
     },
     "lint-staged": {
         "**/*.{ts,tsx}": [

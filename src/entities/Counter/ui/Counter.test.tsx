@@ -28,4 +28,11 @@ describe('Counter', () => {
         userEvent.click(screen.getByTestId('decrement-btn'));
         expect(screen.getByTestId('value-title')).toHaveTextContent('9');
     });
+    test('add 5', () => {
+        componentRender(<Counter />, {
+            initialState: { counter: { value: 10 } },
+        });
+        userEvent.click(screen.getByTestId('add-btn'));
+        expect(screen.getByTestId('value-title')).toHaveTextContent('15');
+    });
 });
