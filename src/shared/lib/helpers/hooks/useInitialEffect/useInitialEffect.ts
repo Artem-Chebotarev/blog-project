@@ -1,5 +1,9 @@
 import { useEffect } from 'react';
 
+/**
+ * hook for using effect once
+ * @param callback
+ */
 export function useInitialEffect(callback: () => void) {
     useEffect(() => {
         // чтобы не отправлять запросы на бэк в сторибуке

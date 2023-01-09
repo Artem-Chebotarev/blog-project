@@ -7,6 +7,10 @@ interface UseHoverBind {
 
 type UseHoverResult = [boolean, UseHoverBind];
 
+/**
+ * Хук аналогичный поведению :hover
+ * @returns
+ */
 export function useHover() {
     const [isHover, setIsHover] = useState(false);
 

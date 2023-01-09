@@ -10,6 +10,10 @@ export interface UseInfiniteScrollOptions {
     wrapperRef: MutableRefObject<HTMLElement>;
 }
 
+/**
+ * Хук для использования intersection API
+ * @param param0
+ */
 export function useInfiniteScroll({
     callback,
     triggerRef,

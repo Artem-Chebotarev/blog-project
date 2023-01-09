@@ -9,6 +9,10 @@ interface UseThemeResult {
     theme: Theme;
 }
 
+/**
+ * Хук для переключения темы
+ * @returns
+ */
 export function useTheme(): UseThemeResult {
     const { theme, setTheme } = useContext(ThemeContext);
 
