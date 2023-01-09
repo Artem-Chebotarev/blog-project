@@ -2,7 +2,10 @@ import { useDispatch } from 'react-redux';
 
 import { AppDispatch } from '@/app/providers/StoreProvider';
 
-// Типизированный диспатч
+/**
+ * Typed dispatch
+ * @returns
+ */
 export function useAppDispatch() {
     return useDispatch<AppDispatch>();
 }

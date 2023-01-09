@@ -12,6 +12,11 @@ export type ReducersList = {
     [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
 };
 
+/**
+ * Хук для асинхронной подгрузки редьюсеров
+ * @param reducers
+ * @param removeAfterUnmount
+ */
 export function useDynamicModuleLoader(
     reducers: ReducersList,
     removeAfterUnmount: boolean = true,
