@@ -46,10 +46,4 @@
         "./src/**/*.ts",
         "./src/**/*.tsx"
     ]
-    // чтобы jest не конфликтовал с cypress
-    // "exclude": [
-    //   "node_modules",
-    //   "cypress",
-    //   "./cypress.config.ts"
-    // ],
 }
