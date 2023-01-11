@@ -62,6 +62,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                         key={block.id}
                         className={cls.block}
                         block={block}
+                        data-testid="ArticleBlock"
                     />
                 );
             case ArticleBlockType.CODE:
@@ -70,6 +71,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                         key={block.id}
                         className={cls.block}
                         block={block}
+                        data-testid="ArticleBlock"
                     />
                 );
             case ArticleBlockType.IMAGE:
@@ -78,6 +80,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                         key={block.id}
                         className={cls.block}
                         block={block}
+                        data-testid="ArticleBlock"
                     />
                 );
             default:
@@ -93,7 +96,12 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     if (isLoading) {
         content = (
-            <VStack justify="center" gap="16" max>
+            <VStack
+                justify="center"
+                gap="16"
+                max
+                data-testid="ArticleDetails.Skeleton"
+            >
                 <Skeleton
                     className={cls.avatar}
                     width={200}
@@ -111,6 +119,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             <Text
                 align={TextAlign.CENTER}
                 text={t('Произошла ошибка при загрузке статьи')}
+                data-testid="ArticleDetails.Error"
             />
         );
     } else {
@@ -141,7 +150,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         <VStack
             className={classNames(cls.ArticleDetails, {}, [className])}
             gap="16"
-            max>
+            max
+            data-testid="ArticleDetails"
+        >
             {content}
         </VStack>
     );
