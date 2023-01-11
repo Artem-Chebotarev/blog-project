@@ -4,7 +4,7 @@ import { ArticleBlockType, ArticleType } from '../consts/consts';
 
 export interface ArticleBlockBase {
     id: number;
-    type: ArticleBlockType;
+    // type: ArticleBlockType;
 }
 
 export interface ArticleTextBlock extends ArticleBlockBase {
