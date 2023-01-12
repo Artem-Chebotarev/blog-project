@@ -1,23 +1,24 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-
 // import { BugButton } from '@/app/providers/ErrorBoundary';
+import { useSelector } from 'react-redux';
+
+import { getUserAuthData } from '@/entities/User';
+import { Text } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
 
 const MainPage = memo(() => {
-    const { t } = useTranslation();
+    const authData = useSelector(getUserAuthData);
 
     return (
         <Page data-testid="MainPage">
             {/* <BugButton /> */}
-            {t('Главная страница')}
-            {/* <StarRating size={50} /> */}
-            {/* <RatingCard
-                title="Как вам статья?"
-                feedbackTitle="Оставьте отзыв о статье"
-                hasFeedback
-            /> */}
             {/* <Counter /> */}
+            {!authData && (
+                <>
+                    <Text title="Login: user" />
+                    <Text title="Password: 123" />
+                </>
+            )}
         </Page>
     );
 });
