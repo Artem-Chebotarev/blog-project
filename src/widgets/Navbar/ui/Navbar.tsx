@@ -47,7 +47,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 />
                 <Applink
                     theme={ApplinkTheme.SECONDARY}
-                    to={getRouteArticleCreate()}>
+                    to={getRouteArticleCreate()}
+                >
                     {t('Создать статью')}
                 </Applink>
                 <HStack className={cls.actions} gap="16">
@@ -68,7 +69,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             <Button
                 theme={ButtonTheme.CLEAR_INVERTED}
                 className={cls.links}
-                onClick={onShowModal}>
+                onClick={onShowModal}
+            >
                 {t('Войти')}
             </Button>
             {isAuthModal && (

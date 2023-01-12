@@ -1,8 +1,13 @@
-import { bindActionCreators, createSlice } from '@reduxjs/toolkit';
+import {
+    ActionCreatorsMapObject,
+    bindActionCreators,
+    createSlice,
+} from '@reduxjs/toolkit';
 // папка, куда билдится сам rtk
 import { SliceCaseReducers, CreateSliceOptions } from '@reduxjs/toolkit/dist';
 import { useMemo } from 'react';
-import { useDispatch } from 'react-redux';
+
+import { useAppDispatch } from '../hooks/useAppDispatch/useAppDispatch';
 
 export function buildSlice<
     State,
@@ -11,14 +16,17 @@ export function buildSlice<
 >(options: CreateSliceOptions<State, CaseReducers, Name>) {
     const slice = createSlice(options);
 
-    const useActions = (): typeof slice.actions => {
-        const dispatch = useDispatch();
+    const useActions = () => {
+        const dispatch = useAppDispatch();
 
-        // @ts-ignore
         return useMemo(
-            // @ts-ignore
-            () => bindActionCreators(slice.actions, dispatch),
-            [dispatch],
+            () =>
+                bindActionCreators(
+                    slice.actions as ActionCreatorsMapObject,
+                    dispatch,
+                ),
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            [],
         );
     };
 

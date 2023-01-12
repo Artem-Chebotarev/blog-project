@@ -31,7 +31,8 @@ export const ArticleRecommendationsList = memo(
             <VStack
                 className={classNames('', {}, [className])}
                 gap="8"
-                data-testid="ArticleRecommendationsList">
+                data-testid="ArticleRecommendationsList"
+            >
                 <Text title={t('Рекомендуем')} size={TextSize.M} />
                 <ArticleList articles={articles} target="_blank" />
             </VStack>

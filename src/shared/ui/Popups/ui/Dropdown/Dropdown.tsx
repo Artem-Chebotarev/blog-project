@@ -38,7 +38,8 @@ export const Dropdown = (props: DropdownProps) => {
                 className,
                 popupCls.popup,
             ])}
-            as="div">
+            as="div"
+        >
             <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
             <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
                 {items.map((elem) => {
@@ -53,7 +54,8 @@ export const Dropdown = (props: DropdownProps) => {
                             )}
                             disabled={elem.disabled}
                             type="button"
-                            onClick={elem.onClick}>
+                            onClick={elem.onClick}
+                        >
                             {elem.content}
                         </button>
                     );
@@ -65,7 +67,8 @@ export const Dropdown = (props: DropdownProps) => {
                                 as={Applink}
                                 to={elem.href}
                                 disabled={elem.disabled}
-                                ref={ref}>
+                                ref={ref}
+                            >
                                 {content}
                             </Menu.Item>
                         );
@@ -75,7 +78,8 @@ export const Dropdown = (props: DropdownProps) => {
                         <Menu.Item
                             key={elem.id}
                             as={Fragment}
-                            disabled={elem.disabled}>
+                            disabled={elem.disabled}
+                        >
                             {content}
                         </Menu.Item>
                     );

@@ -39,7 +39,8 @@ export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
                 <option
                     className={cls.option}
                     value={elem.value}
-                    key={elem.value}>
+                    key={elem.value}
+                >
                     {elem.content}
                 </option>
             )),
@@ -57,7 +58,8 @@ export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
                 className={cls.select}
                 value={value}
                 onChange={onChangeHandler}
-                disabled={readonly}>
+                disabled={readonly}
+            >
                 {optionsList}
             </select>
         </div>

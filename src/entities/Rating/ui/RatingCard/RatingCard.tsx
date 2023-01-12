@@ -98,7 +98,8 @@ export const RatingCard = memo((props: RatingCardProps) => {
                         <Button
                             onClick={acceptHandler}
                             size={ButtonSize.L}
-                            fullWidth>
+                            fullWidth
+                        >
                             {t('Отправить')}
                         </Button>
                     </VStack>
@@ -110,13 +111,15 @@ export const RatingCard = memo((props: RatingCardProps) => {
                         <HStack justify="end" gap="16" max>
                             <Button
                                 onClick={acceptHandler}
-                                data-testid="RatingCard.Send">
+                                data-testid="RatingCard.Send"
+                            >
                                 {t('Отправить')}
                             </Button>
                             <Button
                                 theme={ButtonTheme.OUTLINE_RED}
                                 onClick={cancelHandler}
-                                data-testid="RatingCard.Close">
+                                data-testid="RatingCard.Close"
+                            >
                                 {t('Закрыть')}
                             </Button>
                         </HStack>

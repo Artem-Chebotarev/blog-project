@@ -69,12 +69,20 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
         [dispatch],
     );
 
+    const onClearUsername = useCallback(() => {
+        dispatch(loginActions.setUsername(''));
+    }, [dispatch]);
+
     const onChangePassword = useCallback(
         (value: string) => {
             dispatch(loginActions.setPassword(value));
         },
         [dispatch],
     );
+
+    const onClearPassword = useCallback(() => {
+        dispatch(loginActions.setPassword(''));
+    }, [dispatch]);
 
     const onLoginClick = useCallback(async () => {
         const result = await dispatch(loginByUsername({ username, password }));
@@ -102,6 +110,8 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                 placeholder={t('Имя пользователя')}
                 onChange={onChangeUsername}
                 value={username}
+                onClear={onClearUsername}
+                isClearBtn
             />
             <Input
                 type="text"
@@ -109,12 +119,15 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                 placeholder={t('Пароль')}
                 onChange={onChangePassword}
                 value={password}
+                onClear={onClearPassword}
+                isClearBtn
             />
             <Button
                 className={cls.loginBtn}
                 theme={ButtonTheme.OUTLINE}
                 onClick={onLoginClick}
-                disabled={isLoading}>
+                disabled={isLoading}
+            >
                 {t('Войти')}
             </Button>
         </div>

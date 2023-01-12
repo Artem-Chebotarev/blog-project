@@ -60,11 +60,13 @@ export const Text = memo((props: TextProps) => {
                 cls[theme],
                 cls[align],
                 cls[size],
-            ])}>
+            ])}
+        >
             {title && (
                 <HeaderTag
                     className={cls.title}
-                    data-testid={`${dataTestId}.Header`}>
+                    data-testid={`${dataTestId}.Header`}
+                >
                     {title}
                 </HeaderTag>
             )}

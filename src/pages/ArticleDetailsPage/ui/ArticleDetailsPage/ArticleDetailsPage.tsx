@@ -38,7 +38,8 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     return (
         <Page
             className={classNames(cls.ArticleDetailsPage, {}, [className])}
-            data-testid="ArticleDetailsPage">
+            data-testid="ArticleDetailsPage"
+        >
             <VStack gap="16" max>
                 <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />

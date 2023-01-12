@@ -61,7 +61,8 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
             className={classNames(cls.AddCommentForm, {}, [className])}
             justify="between"
             max
-            data-testid="AddCommentForm">
+            data-testid="AddCommentForm"
+        >
             <Input
                 className={cls.input}
                 placeholder={t('Введите текст комментария')}
@@ -72,7 +73,8 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
             <Button
                 theme={ButtonTheme.OUTLINE}
                 onClick={onSendHandler}
-                data-testid="AddCommentForm.Button">
+                data-testid="AddCommentForm.Button"
+            >
                 {t('Отправить')}
             </Button>
         </HStack>

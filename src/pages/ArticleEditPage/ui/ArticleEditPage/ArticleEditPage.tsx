@@ -18,7 +18,8 @@ const ArticleEditPage = memo((props: ArticleEditPageProps) => {
     return (
         <Page
             className={classNames('', {}, [className])}
-            data-testid="ArticleEditPage">
+            data-testid="ArticleEditPage"
+        >
             Article edit page
         </Page>
     );

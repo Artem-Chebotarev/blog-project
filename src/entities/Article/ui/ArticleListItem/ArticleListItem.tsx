@@ -54,7 +54,8 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     className,
                     cls[view],
                 ])}
-                data-testid="ArticleListItem">
+                data-testid="ArticleListItem"
+            >
                 <Card>
                     <div className={cls.header}>
                         <Avatar size={30} src={article.user.avatar} />
@@ -81,7 +82,8 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     <div className={cls.footer}>
                         <Applink
                             to={getRouteArticleDetails(String(article.id))}
-                            target={target}>
+                            target={target}
+                        >
                             <Button theme={ButtonTheme.OUTLINE}>
                                 {t('Читать далее...')}
                             </Button>
@@ -102,7 +104,8 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 cls[view],
             ])}
             to={getRouteArticleDetails(String(article.id))}
-            target={target}>
+            target={target}
+        >
             <Card>
                 <div className={cls.imageWrapper} data-testid="ArticleListItem">
                     <AppImage
