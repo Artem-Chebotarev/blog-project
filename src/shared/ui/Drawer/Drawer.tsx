@@ -95,7 +95,8 @@ const DrawerContent = memo((props: DrawerProps) => {
                         bottom: `calc(-100vh + ${height - 100}px)`,
                         y,
                     }}
-                    {...bind()}>
+                    {...bind()}
+                >
                     {children}
                 </Spring.a.div>
             </div>

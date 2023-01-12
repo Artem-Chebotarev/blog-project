@@ -58,7 +58,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     cls.loading,
                 ])}
                 justify="center"
-                max>
+                max
+            >
                 <Loader />
             </HStack>
         );
@@ -72,7 +73,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     cls.error,
                 ])}
                 justify="center"
-                max>
+                max
+            >
                 <Text
                     theme={TextTheme.ERROR}
                     title={t('Произошла ошибка при загрузке профиля')}
@@ -100,7 +102,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
         <VStack
             className={classNames(cls.ProfileCard, mods, [className])}
             gap="16"
-            max>
+            max
+        >
             {data?.avatar && (
                 <HStack className={cls.avatarWrapper} justify="center" max>
                     <Avatar src={data?.avatar} alt="avatar" />

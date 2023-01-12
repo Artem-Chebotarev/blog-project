@@ -46,7 +46,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 className={classNames(cls.ArticleList, {}, [
                     className,
                     cls[view],
-                ])}>
+                ])}
+            >
                 <Text title={t('Статьи не найдены')} size={TextSize.L} />
             </div>
         );
@@ -55,7 +56,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
     return (
         <div
             className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-            data-testid="ArticleList">
+            data-testid="ArticleList"
+        >
             {articles.map((elem) => (
                 <ArticleListItem
                     className={cls.card}

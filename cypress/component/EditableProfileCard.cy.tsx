@@ -16,7 +16,8 @@ describe('EditableProfileCard', () => {
                             },
                         },
                     },
-                }}>
+                }}
+            >
                 <EditableProfileCard id={String(USER_ID)} />
             </TestProvider>,
         );

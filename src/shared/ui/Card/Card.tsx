@@ -31,7 +31,8 @@ export const Card = (props: CardProps) => {
             className={classNames(cls.Card, { [cls.max]: max }, [
                 className,
                 cls[theme],
-            ])}>
+            ])}
+        >
             {children}
         </div>
     );

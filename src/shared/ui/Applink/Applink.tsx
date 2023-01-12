@@ -32,7 +32,8 @@ export const Applink = forwardRef((props: ApplinkProps, ref) => {
                 className,
             ])}
             to={to}
-            {...otherProps}>
+            {...otherProps}
+        >
             {children}
         </Link>
     );

@@ -42,14 +42,16 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
                 className,
-            ])}>
+            ])}
+        >
             <Button
                 data-testid="sidebar-toogle"
                 onClick={onToggle}
                 className={cls.collapseBtn}
                 theme={ButtonTheme.BACKGROUND_INVERTED}
                 size={ButtonSize.L}
-                square>
+                square
+            >
                 {collapsed ? '>' : '<'}
             </Button>
             <VStack className={cls.items} role="navigation" gap="8">

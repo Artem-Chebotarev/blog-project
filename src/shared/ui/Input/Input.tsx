@@ -9,6 +9,8 @@ import React, {
 import { classNames, Mods } from '@/shared/lib/helpers/classNames/classNames';
 import { TestProps } from '@/shared/types/tests';
 
+import { Button } from '../Button';
+
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<
@@ -22,6 +24,8 @@ interface InputProps extends HTMLInputProps, TestProps {
     onChange?: (value: string) => void;
     autofocus?: boolean;
     readonly?: boolean;
+    onClear?: () => void;
+    isClearBtn?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -34,6 +38,8 @@ export const Input = memo((props: InputProps) => {
         autofocus,
         readonly,
         'data-testid': dataTestId = 'Input',
+        onClear,
+        isClearBtn = false,
         ...otherProps
     } = props;
 
@@ -99,6 +105,9 @@ export const Input = memo((props: InputProps) => {
                         className={cls.caret}
                         style={{ left: `${caretPosition * 9}px` }}
                     />
+                )}
+                {isClearBtn && (
+                    <Button className={cls.clearBtn} onClick={onClear} />
                 )}
             </div>
         </div>

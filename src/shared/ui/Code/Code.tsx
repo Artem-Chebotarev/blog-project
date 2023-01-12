@@ -24,7 +24,8 @@ export const Code = (props: CodeProps) => {
             <Button
                 className={cls.copyBtn}
                 theme={ButtonTheme.CLEAR}
-                onClick={onCopy}>
+                onClick={onCopy}
+            >
                 <CopyIcon className={cls.copyIcon} />
             </Button>
             <code>{text}</code>

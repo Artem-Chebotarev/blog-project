@@ -79,7 +79,8 @@ export const Button = memo((props: ButtonProps) => {
                 className,
                 cls[theme],
                 cls[size],
-            ])}>
+            ])}
+        >
             {children}
         </button>
     );

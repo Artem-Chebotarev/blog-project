@@ -50,7 +50,8 @@ export const ListBox = memo((props: ListBoxProps) => {
                 <span
                     className={classNames('', { [cls.readonly]: readonly }, [
                         className,
-                    ])}>{`${label}>`}</span>
+                    ])}
+                >{`${label}>`}</span>
             )}
             <HListBox
                 className={classNames(cls.ListBox, {}, [
@@ -60,19 +61,22 @@ export const ListBox = memo((props: ListBoxProps) => {
                 as="div"
                 value={value}
                 onChange={onChange}
-                disabled={readonly}>
+                disabled={readonly}
+            >
                 <HListBox.Button className={popupCls.trigger} as="div">
                     <Button disabled={readonly}>{value ?? defaultValue}</Button>
                 </HListBox.Button>
 
                 <HListBox.Options
-                    className={classNames(cls.options, {}, optionsClasses)}>
+                    className={classNames(cls.options, {}, optionsClasses)}
+                >
                     {items?.map((item) => (
                         <HListBox.Option
                             key={item.value}
                             value={item.value}
                             disabled={item.disabled}
-                            as={Fragment}>
+                            as={Fragment}
+                        >
                             {({ active, selected, disabled }) => (
                                 <li
                                     className={classNames(
@@ -82,7 +86,8 @@ export const ListBox = memo((props: ListBoxProps) => {
                                             [popupCls.disabled]: disabled,
                                         },
                                         [],
-                                    )}>
+                                    )}
+                                >
                                     {item.content}
                                     {selected && (
                                         <Icon

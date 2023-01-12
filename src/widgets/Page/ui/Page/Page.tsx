@@ -72,7 +72,8 @@ export const Page = memo((props: PageProps) => {
             ref={wrapperRef}
             onScroll={onScroll}
             id={PAGE_ID}
-            data-testid={`${dataTestId}`}>
+            data-testid={`${dataTestId}`}
+        >
             {children}
             {onScrollEnd ? (
                 <div className={cls.trigger} ref={triggerRef} />
