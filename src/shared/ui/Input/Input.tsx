@@ -1,6 +1,8 @@
-import React, {
+import {
+    ChangeEvent,
     InputHTMLAttributes,
     memo,
+    SyntheticEvent,
     useEffect,
     useRef,
     useState,
@@ -56,7 +58,7 @@ export const Input = memo((props: InputProps) => {
         }
     }, [autofocus]);
 
-    const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         // аналогично опшеонал чейнинг в объектах (т.е. если эта функция не передана,
         // то вернется undefined)
         onChange?.(event.target.value);
@@ -71,7 +73,7 @@ export const Input = memo((props: InputProps) => {
         setIsFocused(true);
     };
 
-    const onSelect = (event: React.SyntheticEvent<HTMLInputElement, Event>) => {
+    const onSelect = (event: SyntheticEvent<HTMLInputElement, Event>) => {
         if (event.target instanceof HTMLInputElement) {
             setCaretPosition(event.target.selectionStart || 0);
         }
