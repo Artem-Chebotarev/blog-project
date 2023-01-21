@@ -77,20 +77,25 @@ describe('articleDetailsCommentsSlice', () => {
         });
     });
 
-    // test('test fetchCommentsByArticleId service rejected', () => {
-    //     const fn = jest.fn();
-    //     const state: DeepPartial<ArticleDetailsSchema> = {
-    //         isLoading: false,
-    //     };
+    test('test fetchCommentsByArticleId service rejected', () => {
+        const fn = jest.fn();
+        const state: DeepPartial<ArticleDetailsCommentsSchema> = {
+            isLoading: false,
+        };
 
-    //     expect(
-    //         articleDetailsReducer(
-    //             state as ArticleDetailsSchema,
-    //             fetchArticleById.rejected(new Error(), '', fn(), 'error'),
-    //         ),
-    //     ).toEqual({
-    //         isLoading: false,
-    //         error: 'error',
-    //     });
-    // });
+        expect(
+            articleDetailsCommentsReducer(
+                state as ArticleDetailsCommentsSchema,
+                fetchCommentsByArticleId.rejected(
+                    new Error(),
+                    '',
+                    fn(),
+                    'error',
+                ),
+            ),
+        ).toEqual({
+            isLoading: false,
+            error: 'error',
+        });
+    });
 });
