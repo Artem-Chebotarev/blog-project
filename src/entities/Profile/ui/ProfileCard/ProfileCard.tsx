@@ -105,14 +105,13 @@ export const ProfileCard = (props: ProfileCardProps) => {
             max
         >
             {data?.avatar && (
-                <HStack className={cls.avatarWrapper} justify="center" max>
+                <HStack justify="center" max>
                     <Avatar src={data?.avatar} alt="avatar" />
                 </HStack>
             )}
             <Input
                 value={data?.first}
                 placeholder={t('Ваше имя')}
-                className={cls.input}
                 onChange={onChangeFirstname}
                 readonly={readonly}
                 data-testid="ProfileCard.firstname"
@@ -120,7 +119,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
             <Input
                 value={data?.lastname}
                 placeholder={t('Вашa фамилия')}
-                className={cls.input}
                 onChange={onChangeLastname}
                 readonly={readonly}
                 data-testid="ProfileCard.lastname"
@@ -128,7 +126,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
             <Input
                 value={data?.age}
                 placeholder={t('Возраст')}
-                className={cls.input}
                 onChange={onChangeAge}
                 readonly={readonly}
                 onKeyPress={onKeyPress}
@@ -137,7 +134,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
             <Input
                 value={data?.city}
                 placeholder={t('Город')}
-                className={cls.input}
                 onChange={onChangeCity}
                 readonly={readonly}
                 data-testid="ProfileCard.city"
@@ -145,7 +141,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
             <Input
                 value={data?.username}
                 placeholder={t('Имя пользователя')}
-                className={cls.input}
                 onChange={onChangeUsername}
                 readonly={readonly}
                 data-testid="ProfileCard.username"
@@ -153,19 +148,16 @@ export const ProfileCard = (props: ProfileCardProps) => {
             <Input
                 value={data?.avatar}
                 placeholder={t('Ссылка на аватар')}
-                className={cls.input}
                 onChange={onChangeAvatar}
                 readonly={readonly}
                 data-testid="ProfileCard.avatar"
             />
             <CurrencySelect
-                className={cls.input}
                 value={data?.currency}
                 onChange={onChangeCurrency}
                 readonly={readonly}
             />
             <CountrySelect
-                className={cls.input}
                 value={data?.country}
                 onChange={onChangeCountry}
                 readonly={readonly}
