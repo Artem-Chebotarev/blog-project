@@ -8,15 +8,11 @@ import { getArticlesPageInited } from '../../selectors/articlesPageSelectors';
 import { articlesPageActions } from '../../slice/articlesPageSlice';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
-// 1 арг в дженерике - что возвращаем с бека
-// 2 арг в дженерике - тип аргумента на входе
-// 3 арг - настройки конфига thunk (AsyncThunkConfig), где можем задавать dispatch, rejectValue
 export const initArticlesPage = createAsyncThunk<
     void,
     URLSearchParams,
     ThunkConfig<string>
 >('articlesPage/initArticlesPage', async (searchParams, thunkAPI) => {
-    // деструктуризация из thunkAPI
     const { dispatch, getState } = thunkAPI;
 
     const inited = getArticlesPageInited(getState());

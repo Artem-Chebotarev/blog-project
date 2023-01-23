@@ -1,6 +1,3 @@
-// const path = require('path'); // так как вебпак работает в среде nodejs нам доступны require
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const webpack = require('webpack');
 import path from 'path';
 
 import webpack from 'webpack';

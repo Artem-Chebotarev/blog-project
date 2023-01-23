@@ -1,4 +1,3 @@
-// TODO не работает addon-mock для storybook
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';

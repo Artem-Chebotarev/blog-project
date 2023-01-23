@@ -3,7 +3,9 @@ import {
     bindActionCreators,
     createSlice,
 } from '@reduxjs/toolkit';
-// папка, куда билдится сам rtk
+/**
+ * папка, куда билдится сам rtk
+ */
 import { SliceCaseReducers, CreateSliceOptions } from '@reduxjs/toolkit/dist';
 import { useMemo } from 'react';
 

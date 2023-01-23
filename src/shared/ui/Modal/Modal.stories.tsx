@@ -5,8 +5,6 @@ import { Theme } from '@/shared/const/theme';
 
 import { Modal } from './Modal';
 
-// import 'app/styles/index.scss';
-
 export default {
     title: 'shared/Modal',
     component: Modal,

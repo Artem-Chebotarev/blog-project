@@ -16,7 +16,6 @@ const defaultAsyncReducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,
 };
 
-// в сторибук можем задавать любые асинхронные редьюсеры для каждого компонента
 export const StoreDecorator =
     (state: DeepPartial<StateSchema>, asyncReducers?: ReducersList) =>
     (StoryComponet: Story) =>

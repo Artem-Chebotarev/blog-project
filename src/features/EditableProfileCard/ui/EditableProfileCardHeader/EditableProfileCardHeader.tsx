@@ -24,10 +24,8 @@ export const EditableProfileCardHeader = ({
 
     const dispatch = useAppDispatch();
 
-    // readonly это состояние editable для формы профиля
     const readonly = useSelector(getProfileReadonly);
 
-    // селектор с использованием реселект
     const canEditProfile = useSelector(getCanEditProfile);
 
     const onEdit = useCallback(() => {

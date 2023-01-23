@@ -14,20 +14,16 @@ export function buildBabelLoader({ isDev, isTsx }: BuildBabelLoaderProps) {
         use: {
             loader: 'babel-loader',
             options: {
-                // кеширование для более быстрой сборки (полезно для большого проекта)
                 cacheDirectory: true,
                 presets: ['@babel/preset-env'],
                 plugins: [
                     [
-                        // отвечает за парсинг jsx/tsx
                         '@babel/plugin-transform-typescript',
                         {
                             isTsx,
                         },
                     ],
                     '@babel/plugin-transform-runtime',
-                    // самописный babel плагин на удаление заданных атрибутов в продакшен и дев
-                    // сборке (меньше вес бандла)
                     isTsx && isProd && [
                         babelRemovePropsPlugin,
                         {

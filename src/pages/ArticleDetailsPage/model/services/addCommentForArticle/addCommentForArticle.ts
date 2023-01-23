@@ -17,40 +17,31 @@ export const addCommentForArticle = createAsyncThunk<
     Comment,
     string,
     ThunkConfig<string>
->(
-    'articleDetails/addCommentForArticle',
-    // деструктуризация из thunkAPI
-    async (text, thunkAPI) => {
-        const { dispatch, extra, rejectWithValue, getState } = thunkAPI;
+>('articleDetails/addCommentForArticle', async (text, thunkAPI) => {
+    const { dispatch, extra, rejectWithValue, getState } = thunkAPI;
 
-        const userData = getUserAuthData(getState());
-        const article = getArticleDetailsData(getState());
+    const userData = getUserAuthData(getState());
+    const article = getArticleDetailsData(getState());
 
-        if (!userData || !text || !article) {
-            return rejectWithValue(ThunkErrors.NO_DATA);
+    if (!userData || !text || !article) {
+        return rejectWithValue(ThunkErrors.NO_DATA);
+    }
+
+    try {
+        const response = await extra.api.post<Comment>('/comments', {
+            articleId: article.id,
+            userId: userData.id,
+            text,
+        });
+
+        if (!response.data) {
+            throw new Error(ThunkErrors.NO_DATA);
         }
 
-        try {
-            const response = await extra.api.post<Comment>('/comments', {
-                articleId: article.id,
-                userId: userData.id,
-                text,
-            });
+        dispatch(fetchCommentsByArticleId(String(article.id)));
 
-            // если ответ от сервера пришел пустой, то это будет ошибкой
-            if (!response.data) {
-                throw new Error(ThunkErrors.NO_DATA);
-            }
-
-            // либо добавлять в стейт этот коммент, но
-            // идеальный вариант на добавление комента получить от бэка все коменты,
-            // включая добавленный
-            dispatch(fetchCommentsByArticleId(String(article.id)));
-
-            return response.data;
-        } catch (e) {
-            // обработка ошибок в thunk
-            return rejectWithValue('error');
-        }
-    },
-);
+        return response.data;
+    } catch (e) {
+        return rejectWithValue('error');
+    }
+});

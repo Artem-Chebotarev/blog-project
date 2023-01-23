@@ -19,13 +19,11 @@ export function createReducerManager(
 
     let combinedReducer = combineReducers(reducers);
 
-    // массив редюсеров, которые хотим удалить
     let keysToRemove: Array<StateSchemaKey> = [];
 
     const mountedReducers: MountedReducers = {};
 
     return {
-        // для проверки вмонтированных редюсеров
         getReducerMap: () => reducers,
         reduce: (state: StateSchema, action: AnyAction) => {
             if (keysToRemove.length > 0) {
@@ -56,6 +54,5 @@ export function createReducerManager(
             mountedReducers[key] = false;
             combinedReducer = combineReducers(reducers);
         },
-        // getMountedReducers: () => mountedReducers,
     };
 }

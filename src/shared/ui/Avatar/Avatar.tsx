@@ -25,7 +25,6 @@ export const Avatar = memo((props: AvatarProps) => {
 
     const mods: Mods = {};
 
-    // стили это объект, чтобы не было перерисовок используем useMemo
     const styles = {
         width: size,
         height: size,

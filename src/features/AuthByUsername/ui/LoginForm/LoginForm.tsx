@@ -37,8 +37,6 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 
     const dispatch = useAppDispatch();
 
-    // лучше делать селекторы на мелкие кускочки стейта (например пароль и юзернейм лучше,
-    // чем один логинФорм)
     const username = useSelector(getUsername);
 
     const password = useSelector(getPassword);
@@ -46,21 +44,6 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     const isLoading = useSelector(getIsLoading);
 
     const error = useSelector(getError);
-
-    // useEffect(() => {
-    //     // в момент монтирования комнонента нужно добавить редюсер с помощью редюсер менеджера
-    //     store.reducerManager.add('loginForm', loginReducer);
-    //     dispatch({ type: '@INIT loginForm reducer' });
-
-    //     // при размонтировании - удаляем редюсер
-    //     return () => {
-    //         store.reducerManager.remove('loginForm');
-
-    //         dispatch({ type: '@DESTROY loginForm reducer' });
-    //     };
-
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, []);
 
     const onChangeUsername = useCallback(
         (value: string) => {

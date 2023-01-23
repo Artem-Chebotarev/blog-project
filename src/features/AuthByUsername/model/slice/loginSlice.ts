@@ -23,7 +23,6 @@ export const loginSlice = createSlice({
             state.error = action.payload;
         },
     },
-    // для того, чтобы изменять стейт
     extraReducers: (builder) => {
         builder
             .addCase(loginByUsername.pending, (state) => {

@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 
 import StarIcon from '@/shared/assets/icons/star.svg';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
@@ -17,7 +17,6 @@ interface StarRatingProps {
 }
 
 const maxStar = 5;
-// const stars = [1, 2, 3, 4, 5];
 
 export const StarRating = memo((props: StarRatingProps) => {
     const { className, onSelect, size = 30, selectedStars = 3, align } = props;
@@ -25,21 +24,27 @@ export const StarRating = memo((props: StarRatingProps) => {
     const [rating, setRating] = useState(selectedStars);
     const [hover, setHover] = useState(0);
 
-    const onHover = (starsCount: number) => () => {
-        setHover(starsCount);
-    };
+    const onHover = useCallback(
+        (starsCount: number) => () => {
+            setHover(starsCount);
+        },
+        [],
+    );
 
-    const onLeave = () => {
+    const onLeave = useCallback(() => {
         setHover(0);
-    };
+    }, []);
 
-    const onClick = (starsCount: number) => () => {
-        setRating(starsCount);
-        onSelect?.(starsCount);
-    };
+    const onClick = useCallback(
+        (starsCount: number) => () => {
+            setRating(starsCount);
+            onSelect?.(starsCount);
+        },
+        [onSelect],
+    );
 
     return (
-        <div className={classNames(cls.StarRating, {}, [className])}>
+        <div className={classNames('', {}, [className])}>
             {[...Array(maxStar)].map((_, index) => {
                 const value = index + 1;
 

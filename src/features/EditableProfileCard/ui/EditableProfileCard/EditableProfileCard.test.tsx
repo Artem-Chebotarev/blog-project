@@ -62,7 +62,6 @@ describe('features/EditableProfileCard', () => {
 
         await userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
         await userEvent.clear(screen.getByTestId('ProfileCard.lastname'));
-        // await userEvent.clear(screen.getByTestId('ProfileCard.age'));
 
         await userEvent.type(
             screen.getByTestId('ProfileCard.firstname'),
@@ -72,11 +71,9 @@ describe('features/EditableProfileCard', () => {
             screen.getByTestId('ProfileCard.lastname'),
             'user',
         );
-        // await userEvent.type(screen.getByTestId('ProfileCard.age'), '400');
 
         expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue('user');
         expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('user');
-        // expect(screen.getByTestId('ProfileCard.age')).toHaveValue('400');
 
         await userEvent.click(
             screen.getByTestId('EditableProfileCardHeader.CancelButton'),
@@ -86,7 +83,6 @@ describe('features/EditableProfileCard', () => {
             'admin',
         );
         expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('admin');
-        // expect(screen.getByTestId('ProfileCard.age')).toHaveValue('32');
     });
 
     test('Validation error', async () => {

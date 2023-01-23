@@ -5,8 +5,6 @@ import { Theme } from '@/shared/const/theme';
 
 import { Button, ButtonSize, ButtonTheme } from './Button';
 
-// import 'app/styles/index.scss';
-
 export default {
     title: 'shared/Button',
     component: Button,

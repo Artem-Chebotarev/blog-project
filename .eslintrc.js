@@ -28,7 +28,6 @@ module.exports = {
         'import',
     ],
     rules: {
-        // indent: [2, 4, { ignoredNodes: ['VariableDeclaration[declarations.length=0]'] }],
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
@@ -43,8 +42,6 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         'i18next/no-literal-string': 'off',
-        // 'i18next/no-literal-string': ['error', { markupOnly: true, ignoreAttribute:
-        // ['data-testid', 'to'] }],
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
         'react-hooks/rules-of-hooks': 'error', // Checks rules for hooks

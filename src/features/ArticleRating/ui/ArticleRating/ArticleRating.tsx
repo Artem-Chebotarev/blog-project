@@ -26,8 +26,6 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
         articleId: id,
     });
 
-    // 1 арг - функция, которая вызывает мутацию
-    // 2 арг - объект с настройками
     const [rateArticleMutation] = useRateArticle();
 
     const rating = data?.at(-1);
@@ -42,7 +40,6 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
                     feedback,
                 });
             } catch (error) {
-                // handle error
                 console.log(error);
             }
         },

@@ -26,7 +26,6 @@ describe('initArticlesPage', () => {
 
         await thunk.callThunk(searchParams);
 
-        // pending, filfilled and 2 dispatches inside action
         expect(thunk.dispatch).toBeCalledTimes(4);
         expect(articlesPageActions.initView).toHaveBeenCalled();
         expect(fetchArticlesList).toHaveBeenCalled();
@@ -47,7 +46,6 @@ describe('initArticlesPage', () => {
 
         await thunk.callThunk(searchParams);
 
-        // pending, filfilled and 1 dispatch
         expect(thunk.dispatch).toBeCalledTimes(3);
         expect(articlesPageActions.initView).not.toHaveBeenCalled();
         expect(fetchArticlesList).toHaveBeenCalled();

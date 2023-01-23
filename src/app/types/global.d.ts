@@ -1,4 +1,6 @@
-// глобальная декларация типов
+/**
+ * глобальная декларация типов
+ */
 declare module '*.scss' {
     interface IClassNames {
         [className: string]: string;

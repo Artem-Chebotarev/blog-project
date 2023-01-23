@@ -6,7 +6,6 @@ import cls from './Skeleton.module.scss';
 
 interface SkeletonProps {
     className?: string;
-    // либо пиксили, либо проценты
     height?: string | number;
     width?: string | number;
     border?: string;

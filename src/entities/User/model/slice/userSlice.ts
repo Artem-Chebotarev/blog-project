@@ -15,7 +15,6 @@ export const userSlice = createSlice({
         setAuthData: (state, action: PayloadAction<User>) => {
             state.authData = action.payload;
         },
-        // закрыл-открыл вкладку и надо определить, что пользователь авторизован
         initAuthData: (state) => {
             const user = localStorage.getItem(USER_LOCAL_STORAGE_KEY);
 

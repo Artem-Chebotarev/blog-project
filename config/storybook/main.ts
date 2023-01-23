@@ -39,7 +39,6 @@ export default {
 
         config.resolve!.extensions?.push('.ts', '.tsx');
 
-        // чтобы исключить svg лоадер встроенный в сторибук и подключить далее свой лоадер
         const rules = config.module!.rules as RuleSetRule[];
         config.module!.rules = rules.map((rule: RuleSetRule) => {
             if (
@@ -47,7 +46,6 @@ export default {
                 rule.test.toString().includes('svg')
             ) {
                 return { ...rule, exclude: /\.(png|svg|jpe?g"gif)$/i };
-                // return { ...rule, exclude: /\.(svg)$/i };
             }
 
             return rule;
@@ -57,8 +55,6 @@ export default {
             test: /\.svg$/,
             use: ['@svgr/webpack'],
         });
-
-        // config.module!.rules.push(buildFileLoader());
 
         config.module!.rules.push(buildCssLoader(true));
 

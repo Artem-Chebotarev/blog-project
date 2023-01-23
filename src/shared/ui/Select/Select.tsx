@@ -30,7 +30,6 @@ export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
         if (onChange) {
             onChange(event.target.value as T);
         }
-        // либо onChange?.(event.target.value);
     };
 
     const optionsList = useMemo(
