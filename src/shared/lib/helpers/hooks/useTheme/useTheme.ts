@@ -31,9 +31,8 @@ export function useTheme(): UseThemeResult {
             default:
                 newTheme = Theme.LIGHT;
         }
-        // опшеонал чейнинг для функции
         setTheme?.(newTheme);
-        // надо при маунте приложения просто тему из локал стороджа брать и накидывать на body
+
         document.body.className = newTheme;
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     };

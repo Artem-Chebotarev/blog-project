@@ -18,15 +18,11 @@ interface FetchArticlesListProps {
     replace?: boolean;
 }
 
-// 1 арг в дженерике - что возвращаем с бека
-// 2 арг в дженерике - тип аргумента на входе
-// 3 арг - настройки конфига thunk (AsyncThunkConfig), где можем задавать dispatch, rejectValue
 export const fetchArticlesList = createAsyncThunk<
     Article[],
     FetchArticlesListProps,
     ThunkConfig<string>
 >('articlesPage/fetchArticlesList', async (_, thunkAPI) => {
-    // деструктуризация из thunkAPI
     const { extra, rejectWithValue, getState } = thunkAPI;
 
     const page = getArticlesPageNumber(getState());
@@ -38,8 +34,6 @@ export const fetchArticlesList = createAsyncThunk<
 
     try {
         addQueryParams({
-            // page: String(page),
-            // limit: String(limit),
             order,
             sort,
             search,
@@ -63,7 +57,6 @@ export const fetchArticlesList = createAsyncThunk<
 
         return response.data;
     } catch (e) {
-        // обработка ошибок в thunk
         return rejectWithValue('error');
     }
 });

@@ -46,8 +46,4 @@ class ErrorBoundary extends React.Component<
     }
 }
 
-// если нужно испозьзовать интернационализацию в классовом компоненте, то
-// используем HOC так как не можем использовать хуки в классовых компонентах
-// export default withTranslation()(ErrorBoundary);
-
 export default ErrorBoundary;

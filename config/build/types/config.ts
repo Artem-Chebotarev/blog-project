@@ -9,7 +9,6 @@ export interface BuildPaths {
     buidLocales: string;
 }
 
-// ожидаемые поля в переменных окружения
 export interface BuildEnv {
     mode: BuildMode;
     port: number;

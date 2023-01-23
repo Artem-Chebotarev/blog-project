@@ -29,7 +29,6 @@ const viewTypes = [
 export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
     const { className, view, onViewClick } = props;
 
-    // обход ошибки с event через замыкание
     const onClick = useCallback(
         (newView: ArticleView) => () => {
             onViewClick?.(newView);
@@ -37,7 +36,7 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
         [onViewClick],
     );
     return (
-        <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
+        <div className={classNames('', {}, [className])}>
             {viewTypes.map((elem) => (
                 <Button
                     key={elem.view}

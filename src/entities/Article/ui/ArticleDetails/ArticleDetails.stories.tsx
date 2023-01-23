@@ -28,8 +28,6 @@ const article: Article = {
     user: {
         id: 2,
         username: 'user',
-        // лучше не использовать ссылки на внешние сторонние ресурсы
-        // avatar: 'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg',
     },
     createdAt: '26.02.2022',
     type: [ArticleType.IT],

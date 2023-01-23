@@ -6,7 +6,6 @@ import { ArticleRatingProps } from './ArticleRating';
 
 const ArticleRatingLazy = lazy(() => import('./ArticleRating'));
 
-// чтобы предотвратить потерю типов для компонента при использовании memo и промиса
 export const ArticleRatingAsync = (props: ArticleRatingProps) => (
     <Suspense fallback={<Skeleton width="100%" height={140} />}>
         <ArticleRatingLazy {...props} />

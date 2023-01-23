@@ -27,7 +27,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const authData = useSelector(getUserAuthData);
     const [isAuthModal, setIsAuthModal] = useState(false);
 
-    // для всех функций, которые будем передавать куда то как props, будем использовать useCallback
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
     }, []);
@@ -51,7 +50,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 >
                     {t('Создать статью')}
                 </Applink>
-                <HStack className={cls.actions} gap="16">
+                <HStack gap="16">
                     <NotificationButton />
                     <AvatarDropdown />
                 </HStack>
@@ -66,11 +65,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 theme={TextTheme.INVERTED}
                 title={t('Новостной блог')}
             />
-            <Button
-                theme={ButtonTheme.CLEAR_INVERTED}
-                className={cls.links}
-                onClick={onShowModal}
-            >
+            <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onShowModal}>
                 {t('Войти')}
             </Button>
             {isAuthModal && (

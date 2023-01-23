@@ -21,7 +21,6 @@ describe('fetchNextArticlesPage', () => {
 
         await thunk.callThunk();
 
-        // pending, filfilled and 2 dispatches inside action
         expect(thunk.dispatch).toBeCalledTimes(4);
         expect(fetchArticlesList).toHaveBeenCalled();
     });
@@ -40,7 +39,6 @@ describe('fetchNextArticlesPage', () => {
 
         await thunk.callThunk();
 
-        // pending, filfilled
         expect(thunk.dispatch).toBeCalledTimes(2);
         expect(fetchArticlesList).not.toHaveBeenCalled();
     });
@@ -59,7 +57,6 @@ describe('fetchNextArticlesPage', () => {
 
         await thunk.callThunk();
 
-        // pending, filfilled
         expect(thunk.dispatch).toBeCalledTimes(2);
         expect(fetchArticlesList).not.toHaveBeenCalled();
     });

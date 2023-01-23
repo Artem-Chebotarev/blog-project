@@ -4,11 +4,9 @@ import { ArticleBlockType, ArticleType } from '../consts/consts';
 
 export interface ArticleBlockBase {
     id: number;
-    // type: ArticleBlockType;
 }
 
 export interface ArticleTextBlock extends ArticleBlockBase {
-    // для работы автокомплита нужно явно указать это свойство
     type: ArticleBlockType.TEXT;
     title?: string;
     paragraphs: string[];

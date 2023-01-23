@@ -10,7 +10,6 @@ export function buildCssLoader(isDev: boolean) {
             // Translates CSS into CommonJS
             {
                 loader: 'css-loader',
-                // настройки лоадера
                 options: {
                     modules: {
                         auto: (resPath: string) => Boolean(resPath.includes('.module.scss')),

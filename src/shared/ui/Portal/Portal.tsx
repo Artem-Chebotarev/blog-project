@@ -2,8 +2,8 @@ import { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
 interface PortalProps {
-    children: ReactNode; // то, что мы телепортируем
-    element?: HTMLElement; // куда мы телепортируем
+    children: ReactNode;
+    element?: HTMLElement;
 }
 
 export const Portal = (props: PortalProps) => {

@@ -31,7 +31,6 @@ describe('AppRouter', () => {
             route: getRouteMain(),
         });
 
-        // findByTestId - нужно использовать, когда есть Suspense
         const page = await screen.findByTestId('MainPage');
         expect(page).toBeInTheDocument();
     });
@@ -136,7 +135,6 @@ describe('AppRouter', () => {
             route: '/abcde',
         });
 
-        // findByTestId - нужно использовать, когда есть Suspense
         const page = await screen.findByTestId('NotFoundPage');
         expect(page).toBeInTheDocument();
     });

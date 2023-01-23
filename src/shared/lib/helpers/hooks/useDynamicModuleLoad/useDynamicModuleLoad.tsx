@@ -27,20 +27,16 @@ export function useDynamicModuleLoader(
 
     useEffect(() => {
         const mountedReducers = store.reducerManager.getReducerMap();
-        // в момент монтирования комнонента нужно добавить редюсер с помощью редюсер менеджера
         Object.entries(reducers).forEach(([name, reducer]) => {
-            // проверка: вмонтрован редюсер или еще нет
             if (!Object.keys(mountedReducers).includes(name)) {
                 store.reducerManager.add(name as StateSchemaKey, reducer);
                 dispatch({ type: `@INIT ${name} reducer` });
             }
         });
 
-        // при размонтировании - удаляем редюсер
         return () => {
             if (removeAfterUnmount) {
                 Object.entries(reducers).forEach(([name]) => {
-                    // добавляем новый редюсер, только если его нет
                     store.reducerManager.remove(name as StateSchemaKey);
                     dispatch({ type: `@DESTROY ${name} reducer` });
                 });

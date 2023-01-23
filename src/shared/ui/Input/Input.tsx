@@ -59,8 +59,6 @@ export const Input = memo((props: InputProps) => {
     }, [autofocus]);
 
     const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-        // аналогично опшеонал чейнинг в объектах (т.е. если эта функция не передана,
-        // то вернется undefined)
         onChange?.(event.target.value);
         setCaretPosition(event.target.value.length);
     };

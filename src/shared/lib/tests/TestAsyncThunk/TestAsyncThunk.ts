@@ -9,12 +9,9 @@ type ActionCreatorType<Return, Arg, RejectedValue> = (
 
 jest.mock('axios');
 
-// 1 арг - модуль, который хотим замокать
-// 2 арг - глубокий мок (мокаем не только сам модуль, но и внутренние поля)
 const mockedAxios = jest.mocked(axios, { shallow: false });
 
 export class TestAsyncThunk<Return, Arg, RejectedValue> {
-    // объеявляем поля, которые будут у объекта этого класса
     dispatch: jest.MockedFn<any>;
 
     getState: () => StateSchema;

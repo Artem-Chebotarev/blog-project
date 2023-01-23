@@ -22,7 +22,7 @@
     flex-direction: column;
 
     & > .item:first-child,
-    *:first-child .item { // если первый элемент в дропдауне ссылка
+    *:first-child .item {
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
     }

@@ -25,10 +25,7 @@ export const parameters = {
     },
 };
 
-// для добавления оберток глобально, которые будут оборачивать каждый сторибук компонент
-// например для подключения глобальных переменных
 addDecorator(StyleDecorator);
 addDecorator(ThemeDecorator(Theme.LIGHT));
 addDecorator(RouterDecorator);
 addDecorator(SuspenseDecorator);
-// addDecorator(StoreDecorator);

@@ -40,7 +40,6 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
     const text = useSelector(getAddCommentFormText);
 
-    // так как передаем пропсом, то нужно использовать useCallback
     const onCommentTextChange = useCallback(
         (value: string) => {
             dispatch(addCommentFormActions.setText(value));

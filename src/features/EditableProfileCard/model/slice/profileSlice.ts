@@ -25,7 +25,6 @@ export const profileSlice = createSlice({
             state.readonly = true;
             state.form = state.data;
         },
-        // универсальный редюcер для полей Profile
         updateProfile: (state, action: PayloadAction<Profile>) => {
             state.form = {
                 ...state.form,

@@ -53,18 +53,6 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
         [t],
     );
 
-    /**
-     * Это bad practises и так делать не нужно (кастовать типы в данном случае)
-     * из-за возможных ошибок при явном приведении типов
-     */
-    // const changeSortHandler = useCallback((value: string) => {
-    //     onChangeSort(value as ArticleSortField);
-    // }, [onChangeSort]);
-
-    // const changeOrderHandler = useCallback((value: string) => {
-    //     onChangeOrder(value as SortOrder);
-    // }, [onChangeOrder]);
-
     return (
         <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
             <Select<ArticleSortField>

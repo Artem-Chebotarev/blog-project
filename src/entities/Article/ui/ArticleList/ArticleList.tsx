@@ -21,10 +21,6 @@ interface ArticleListProps {
 
 const getSkeletons = (view: ArticleView) =>
     new Array(view === ArticleView.GRID ? 8 : 3).fill(0).map((elem, index) => (
-        /**
-         * если элементы не изменяются, не удаляются,
-         * то индекс можно использовать в качестве ключа
-         */
         // eslint-disable-next-line react/no-array-index-key
         <ArticleListItemSkeleton key={index} view={view} />
     ));
@@ -42,12 +38,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     if (!isLoading && !articles.length) {
         return (
-            <div
-                className={classNames(cls.ArticleList, {}, [
-                    className,
-                    cls[view],
-                ])}
-            >
+            <div className={classNames('', {}, [className, cls[view]])}>
                 <Text title={t('Статьи не найдены')} size={TextSize.L} />
             </div>
         );
@@ -55,7 +46,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     return (
         <div
-            className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+            className={classNames('', {}, [className, cls[view]])}
             data-testid="ArticleList"
         >
             {articles.map((elem) => (

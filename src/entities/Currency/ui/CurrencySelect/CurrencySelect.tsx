@@ -13,9 +13,6 @@ interface CurrencySelectProps {
     readonly?: boolean;
 }
 
-// ЛЮБЫЕ ОБЪЕКТЫ ИЛИ МАССИВЫ, КОТОРЫЕ ПЕРЕДАЕМ КУДА-ТО ПРОПСАМИ НУЖНО МЕМОИЗИРОВАТЬ
-
-// если массив статичный, то его можно вынести за пределы компонента
 const currencyOptions = Object.entries(Currency).map(([value, content]) => ({
     value,
     content,
@@ -28,7 +25,6 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
 
     const onChangeHandler = useCallback(
         (value: string) => {
-            // кастуем тип, когда мы уверены что будут эти значения Currency
             onChange?.(value as Currency);
         },
         [onChange],

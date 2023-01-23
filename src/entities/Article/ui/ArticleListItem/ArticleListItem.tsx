@@ -31,9 +31,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     const { t } = useTranslation();
 
-    // хук useHover
-    // const [isHover, bindHover] = useHover();
-
     const types = <Text className={cls.types} text={article.type.join(', ')} />;
 
     const views = (
@@ -50,10 +47,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
         return (
             <div
-                className={classNames(cls.ArticleListItem, {}, [
-                    className,
-                    cls[view],
-                ])}
+                className={classNames('', {}, [className, cls[view]])}
                 data-testid="ArticleListItem"
             >
                 <Card>
@@ -97,12 +91,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     return (
         <Applink
-            // хук useHover
-            // {...bindHover}
-            className={classNames(cls.ArticleListItem, {}, [
-                className,
-                cls[view],
-            ])}
+            className={classNames('', {}, [className, cls[view]])}
             to={getRouteArticleDetails(String(article.id))}
             target={target}
         >

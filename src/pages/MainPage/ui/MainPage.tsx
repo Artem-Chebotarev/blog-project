@@ -1,5 +1,4 @@
 import { memo } from 'react';
-// import { BugButton } from '@/app/providers/ErrorBoundary';
 import { useSelector } from 'react-redux';
 
 import { getUserAuthData } from '@/entities/User';
@@ -11,8 +10,6 @@ const MainPage = memo(() => {
 
     return (
         <Page data-testid="MainPage">
-            {/* <BugButton /> */}
-            {/* <Counter /> */}
             {!authData && (
                 <>
                     <Text title="Login: user" />

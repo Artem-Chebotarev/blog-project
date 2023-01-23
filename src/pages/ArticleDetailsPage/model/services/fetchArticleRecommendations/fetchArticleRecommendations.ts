@@ -14,7 +14,6 @@ export const fetchArticleRecommendations = createAsyncThunk<
     void,
     ThunkConfig<string>
 >('articleDetails/fetchArticleRecommendations', async (_, thunkAPI) => {
-    // деструктуризация из thunkAPI
     const { extra, rejectWithValue } = thunkAPI;
 
     try {
@@ -31,7 +30,6 @@ export const fetchArticleRecommendations = createAsyncThunk<
 
         return response.data;
     } catch (e) {
-        // обработка ошибок в thunk
         return rejectWithValue('error');
     }
 });

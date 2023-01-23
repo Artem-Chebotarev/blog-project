@@ -43,14 +43,6 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     const search = useSelector(getArticlesPageSearch);
     const type = useSelector(getArticlesPageType);
 
-    /**
-     * лучше реализовать это через функцию,
-     * так как от сайд эффектов необходимо избавляться
-     */
-    // useEffect(() => {
-    //     dispatch(fetchArticlesList({ replace: true }));
-    // }, [dispatch, order, sort, search]);
-
     const fetchData = useCallback(() => {
         dispatch(
             fetchArticlesList({
@@ -105,7 +97,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     );
 
     return (
-        <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
+        <div className={classNames('', {}, [className])}>
             <div className={cls.sortWrapper}>
                 <ArticleSortSelector
                     order={order}

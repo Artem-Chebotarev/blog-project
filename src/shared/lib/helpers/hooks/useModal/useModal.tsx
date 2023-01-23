@@ -28,7 +28,6 @@ export function useModal(props: UseModalProps) {
         ReturnType<typeof setTimeout>
     >;
 
-    // Управление монтированием
     useEffect(() => {
         if (isOpen) {
             setIsMounted(true);
@@ -46,7 +45,6 @@ export function useModal(props: UseModalProps) {
         }
     }, [onClose, animationDelay]);
 
-    // На каждый перерендер компонента эти функции создаются заного (новые ссылки)
     const onKeyDown = useCallback(
         (event: KeyboardEvent) => {
             if (event.key === 'Escape') {
@@ -55,11 +53,6 @@ export function useModal(props: UseModalProps) {
         },
         [close],
     );
-
-    // без этой функции клик по модалке будет отрабатывать как клик outside
-    // const onContentClick = (event: React.MouseEvent) => {
-    //     event.stopPropagation();
-    // };
 
     useEffect(() => {
         if (isOpen) {

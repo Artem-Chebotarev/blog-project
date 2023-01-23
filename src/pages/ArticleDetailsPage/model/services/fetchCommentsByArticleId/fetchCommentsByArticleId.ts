@@ -14,7 +14,6 @@ export const fetchCommentsByArticleId = createAsyncThunk<
     string | undefined,
     ThunkConfig<string>
 >('articleDetails/fetchCommentsByArticleId', async (articleId, thunkAPI) => {
-    // деструктуризация из thunkAPI
     const { extra, rejectWithValue } = thunkAPI;
 
     if (!articleId) {
@@ -35,7 +34,6 @@ export const fetchCommentsByArticleId = createAsyncThunk<
 
         return response.data;
     } catch (e) {
-        // обработка ошибок в thunk
         return rejectWithValue('error');
     }
 });

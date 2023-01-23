@@ -19,7 +19,6 @@ interface ProfileCardProps {
     data?: Profile;
     isLoading?: boolean;
     error?: string;
-    // колюбэки необязательные, чтобы их не нужно было передавать при настройке сторибук
     onChangeFirstname?: (value: string) => void;
     onChangeLastname?: (value: string) => void;
     onChangeAge?: (value: string) => void;
