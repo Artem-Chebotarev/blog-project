@@ -60,6 +60,7 @@ describe('articleDetailsCommentsSlice', () => {
             error: undefined,
         });
     });
+
     test('test fetchCommentsByArticleId service fulfilled', () => {
         const state: DeepPartial<ArticleDetailsCommentsSchema> = {
             isLoading: false,
