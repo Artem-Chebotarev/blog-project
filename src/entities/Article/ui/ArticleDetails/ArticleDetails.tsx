@@ -60,7 +60,6 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                 return (
                     <ArticleTextBlockComponent
                         key={block.id}
-                        className={cls.block}
                         block={block}
                         data-testid="ArticleBlock"
                     />
@@ -69,7 +68,6 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                 return (
                     <ArticleCodeBlockComponent
                         key={block.id}
-                        className={cls.block}
                         block={block}
                         data-testid="ArticleBlock"
                     />
@@ -78,7 +76,6 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                 return (
                     <ArticleImageBlockComponent
                         key={block.id}
-                        className={cls.block}
                         block={block}
                         data-testid="ArticleBlock"
                     />
@@ -132,11 +129,11 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                         text={article?.subtitle}
                         size={TextSize.L}
                     />
-                    <HStack className={cls.articleInfo} gap="8">
+                    <HStack gap="8">
                         <Icon Svg={EyeIcon} />
                         <Text text={String(article?.views)} />
                     </HStack>
-                    <HStack className={cls.articleInfo} gap="8">
+                    <HStack gap="8">
                         <Icon Svg={CalendarIcon} />
                         <Text text={article?.createdAt} />
                     </HStack>
