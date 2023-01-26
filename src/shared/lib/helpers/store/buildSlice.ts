@@ -1,5 +1,6 @@
 import {
     ActionCreatorsMapObject,
+    AsyncThunk,
     bindActionCreators,
     createSlice,
 } from '@reduxjs/toolkit';
@@ -10,6 +11,16 @@ import { SliceCaseReducers, CreateSliceOptions } from '@reduxjs/toolkit/dist';
 import { useMemo } from 'react';
 
 import { useAppDispatch } from '../hooks/useAppDispatch/useAppDispatch';
+
+type BoundAsyncThunk<Thunk extends AsyncThunk<any, any, any>> = (
+    ...args: Parameters<Thunk>
+) => ReturnType<ReturnType<Thunk>>;
+
+type BoundActions<Actions extends ActionCreatorsMapObject> = {
+    [key in keyof Actions]: Actions[key] extends AsyncThunk<any, any, any>
+        ? BoundAsyncThunk<Actions[key]>
+        : Actions[key];
+};
 
 export function buildSlice<
     State,
