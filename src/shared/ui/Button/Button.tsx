@@ -35,10 +35,6 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
      */
     size?: ButtonSize;
     /**
-     * Флаг, отвечающий за работу кнопки
-     */
-    disabled?: boolean;
-    /**
      * Содержимое кнопки
      */
     children?: ReactNode;
