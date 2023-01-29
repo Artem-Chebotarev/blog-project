@@ -12,7 +12,13 @@ export enum CardTheme {
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
     children: ReactNode;
+    /**
+     * Тема карточки. Отвечает за визуал (в рамке, с бэкграундом)
+     */
     theme?: CardTheme;
+    /**
+     * Ширина по всей ширине родителя
+     */
     max?: boolean;
 }
 
