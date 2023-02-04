@@ -21,7 +21,10 @@ export const ArticleListItemSkeleton = memo(
             return (
                 <div className={classNames('', {}, [className, cls[view]])}>
                     <Card>
-                        <div className={cls.header}>
+                        <div
+                            className={cls.header}
+                            data-testid="ArticleListItemSkeleton"
+                        >
                             <Skeleton width={30} height={30} border="50%" />
                             <Skeleton
                                 className={cls.username}
@@ -51,7 +54,10 @@ export const ArticleListItemSkeleton = memo(
         return (
             <div className={classNames('', {}, [className, cls[view]])}>
                 <Card>
-                    <div className={cls.imageWrapper}>
+                    <div
+                        className={cls.imageWrapper}
+                        data-testid="ArticleListItemSkeleton"
+                    >
                         <Skeleton
                             className={cls.img}
                             width={200}
