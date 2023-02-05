@@ -17,7 +17,7 @@ import { SortOrder } from '@/shared/types/sort';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 
-const articlesAdapter = createEntityAdapter<Article>({
+export const articlesAdapter = createEntityAdapter<Article>({
     selectId: (article) => article.id,
 });
 
@@ -25,7 +25,7 @@ export const getArticles = articlesAdapter.getSelectors<StateSchema>(
     (state) => state.articlesPage || articlesAdapter.getInitialState(),
 );
 
-const articlesPageSlice = createSlice({
+export const articlesPageSlice = createSlice({
     name: 'articlesPageSlice',
     initialState: articlesAdapter.getInitialState<ArticlesPageSchema>({
         isLoading: false,
@@ -84,7 +84,7 @@ const articlesPageSlice = createSlice({
                 state.error = undefined;
                 state.isLoading = true;
 
-                if (action.meta.arg.replace) {
+                if (action.meta?.arg.replace) {
                     articlesAdapter.removeAll(state);
                 }
             })
