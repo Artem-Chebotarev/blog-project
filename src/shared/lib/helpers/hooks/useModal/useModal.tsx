@@ -6,7 +6,7 @@ import {
     useState,
 } from 'react';
 
-interface UseModalProps {
+export interface UseModalProps {
     onClose?: () => void;
     isOpen?: boolean;
     animationDelay: number;
