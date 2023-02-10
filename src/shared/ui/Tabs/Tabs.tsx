@@ -39,7 +39,6 @@ export const Tabs = typedMemo(<T extends string>(props: TabsProps<T>) => {
                             ? CardTheme.NORMAL
                             : CardTheme.OUTLINED
                     }
-                    className={cls.tab}
                     key={elem.value}
                     onClick={clickHandler(elem)}
                 >
