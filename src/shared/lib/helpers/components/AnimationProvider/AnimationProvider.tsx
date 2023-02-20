@@ -17,7 +17,7 @@ interface AnimationContextPayload {
     isLoaded?: boolean;
 }
 
-const AnimationContext = createContext<AnimationContextPayload>({});
+export const AnimationContext = createContext<AnimationContextPayload>({});
 
 const getAsyncAnimationModules = () =>
     Promise.all([import('@react-spring/web'), import('@use-gesture/react')]);
