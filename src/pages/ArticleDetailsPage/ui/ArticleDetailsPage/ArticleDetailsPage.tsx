@@ -2,8 +2,10 @@ import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { ArticleDetails } from '@/entities/Article';
+import { Counter } from '@/entities/Counter';
 import { ArticleRating } from '@/features/ArticleRating';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
+import { getFeatureFlags } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import {
     ReducersList,
@@ -31,6 +33,9 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
     useDynamicModuleLoader(reducers);
 
+    const isArticleRatingEnabled = getFeatureFlags('isArticleRatingEnabled');
+    const isCounterEnabled = getFeatureFlags('isCounterEnabled');
+
     if (!id) {
         return null;
     }
@@ -43,7 +48,8 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
             <VStack gap="16" max>
                 <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
-                <ArticleRating id={id} />
+                {isCounterEnabled && <Counter />}
+                {isArticleRatingEnabled && <ArticleRating id={id} />}
                 <ArticleRecommendationsList />
                 <ArticleDetailsComments id={id} />
             </VStack>

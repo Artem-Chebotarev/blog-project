@@ -33,6 +33,8 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
 
     const [searchParams] = useSearchParams();
 
+    // const data = useArticleItemById();
+
     const onLoadNextPart = useCallback(() => {
         if (__PROJECT__ !== 'storybook') {
             dispatch(fetchNextArticlesPage());
