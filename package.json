@@ -37,12 +37,6 @@
         "docker:build": "docker build . --tag blog-project",
         "docker:run": "docker run -d --name blogproject -p 80:80 blog-project"
     },
-    "lint-staged": {
-        "**/*.{ts,tsx}": [
-            "prettier --list-different",
-            "eslint"
-        ]
-    },
     "keywords": [],
     "author": "",
     "license": "ISC",
