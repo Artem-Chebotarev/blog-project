@@ -97,6 +97,7 @@ module.exports = {
             },
         ],
         'linebreak-style': ['error', process.platform === 'win32' ? 'windows' : 'unix'],
+        'react/no-unstable-nested-components': 'warn'
     },
     globals: {
         __IS_DEV__: true,

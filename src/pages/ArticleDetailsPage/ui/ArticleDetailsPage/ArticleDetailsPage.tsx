@@ -1,16 +1,17 @@
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
 import { ArticleDetails } from '@/entities/Article';
-import { Counter } from '@/entities/Counter';
 import { ArticleRating } from '@/features/ArticleRating';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
-import { getFeatureFlags } from '@/shared/lib/features';
+import { getFeatureFlags, toggleFeatures } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import {
     ReducersList,
     useDynamicModuleLoader,
 } from '@/shared/lib/helpers/hooks/useDynamicModuleLoad/useDynamicModuleLoad';
+import { Card } from '@/shared/ui/Card';
 import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
 
@@ -24,11 +25,15 @@ interface ArticleDetailsPageProps {
     className?: string;
 }
 
+const CounterRedisigned = () => <div>Counter</div>
+
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
+    const { t } = useTranslation();
+
     const { id } = useParams<{ id: string }>();
 
     useDynamicModuleLoader(reducers);
@@ -40,6 +45,12 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
         return null;
     }
 
+    const articleRatingCard = toggleFeatures({
+        name: 'isCounterEnabled',
+        on: () => <ArticleRating id={id} />,
+        off: () => <Card>{t('Оценка статей скоро появится!')}</Card>,
+    })
+
     return (
         <Page
             className={classNames(cls.ArticleDetailsPage, {}, [className])}
@@ -48,8 +59,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
             <VStack gap="16" max>
                 <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
-                {isCounterEnabled && <Counter />}
-                {isArticleRatingEnabled && <ArticleRating id={id} />}
+                {articleRatingCard}
                 <ArticleRecommendationsList />
                 <ArticleDetailsComments id={id} />
             </VStack>
