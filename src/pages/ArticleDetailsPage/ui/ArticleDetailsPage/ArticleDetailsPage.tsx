@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { ArticleDetails } from '@/entities/Article';
 import { ArticleRating } from '@/features/ArticleRating';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
-import { getFeatureFlags, toggleFeatures } from '@/shared/lib/features';
+import { getFeatureFlags, ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import {
     ReducersList,
@@ -38,18 +38,9 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
     useDynamicModuleLoader(reducers);
 
-    const isArticleRatingEnabled = getFeatureFlags('isArticleRatingEnabled');
-    const isCounterEnabled = getFeatureFlags('isCounterEnabled');
-
     if (!id) {
         return null;
     }
-
-    const articleRatingCard = toggleFeatures({
-        name: 'isCounterEnabled',
-        on: () => <ArticleRating id={id} />,
-        off: () => <Card>{t('Оценка статей скоро появится!')}</Card>,
-    })
 
     return (
         <Page
@@ -59,7 +50,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
             <VStack gap="16" max>
                 <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
-                {articleRatingCard}
+                <ToggleFeatures feature="isArticleRatingEnabled" on={<ArticleRating id={id} />} off={<Card>{t('Оценка статей скоро появится!')}</Card>}/>
                 <ArticleRecommendationsList />
                 <ArticleDetailsComments id={id} />
             </VStack>
