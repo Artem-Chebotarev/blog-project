@@ -8,3 +8,8 @@ export {
     isUserAdmin,
     isUserManager,
 } from './model/selectors/getUserRoles/getUserRolesSelectors.ts';
+export {
+    useJsonSettings, 
+    getJsonSettings,
+} from './model/selectors/getJsonSettings/getJsonSettings.ts'
+export { saveJsonSettings } from './model/services/saveJsonSettings';
