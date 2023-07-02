@@ -11,7 +11,7 @@ const article: Article = {
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     user: {
-        id: 2,
+        id: '2',
         username: 'user',
     },
     createdAt: '26.02.2022',
@@ -46,13 +46,13 @@ const data = [
         id: 1,
         text: 'some comment',
         articleId: 1,
-        userId: 1,
+        userId: '1',
     },
     {
         id: 2,
         text: 'some comment 2',
         articleId: 1,
-        userId: 1,
+        userId: '1',
     },
 ];
 
@@ -61,7 +61,7 @@ describe('addCommentForArticle', () => {
         const thunk = new TestAsyncThunk(addCommentForArticle, {
             user: {
                 authData: {
-                    id: 1,
+                    id: '1',
                     username: 'admin',
                 },
             },
@@ -83,7 +83,7 @@ describe('addCommentForArticle', () => {
         const thunk = new TestAsyncThunk(addCommentForArticle, {
             user: {
                 authData: {
-                    id: 1,
+                    id: '1',
                     username: 'admin',
                 },
             },
@@ -104,7 +104,7 @@ describe('addCommentForArticle', () => {
         const thunk = new TestAsyncThunk(addCommentForArticle, {
             user: {
                 authData: {
-                    id: 1,
+                    id: '1',
                     username: 'admin',
                 },
             },
