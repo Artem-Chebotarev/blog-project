@@ -50,7 +50,7 @@ describe('AppRouter', () => {
             initialState: {
                 user: {
                     authData: {
-                        id: 1,
+                        id: '1',
                     },
                     _inited: true,
                 },
@@ -67,7 +67,7 @@ describe('AppRouter', () => {
             initialState: {
                 user: {
                     authData: {
-                        id: 1,
+                        id: '1',
                     },
                     _inited: true,
                 },
@@ -84,7 +84,7 @@ describe('AppRouter', () => {
             initialState: {
                 user: {
                     authData: {
-                        id: 1,
+                        id: '1',
                     },
                     _inited: true,
                 },
@@ -101,7 +101,7 @@ describe('AppRouter', () => {
             initialState: {
                 user: {
                     authData: {
-                        id: 1,
+                        id: '1',
                     },
                     _inited: true,
                 },
@@ -118,7 +118,7 @@ describe('AppRouter', () => {
             initialState: {
                 user: {
                     authData: {
-                        id: 1,
+                        id: '1',
                         roles: [UserRole.ADMIN],
                     },
                     _inited: true,

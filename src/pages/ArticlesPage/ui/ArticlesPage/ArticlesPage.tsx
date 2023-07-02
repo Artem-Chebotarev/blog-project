@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
+import { ArticlePageGreeting } from '@/features/ArticlePageGreeting';
 import { classNames } from '@/shared/lib/helpers/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/helpers/hooks/useAppDispatch/useAppDispatch';
 import {
@@ -33,8 +34,6 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
 
     const [searchParams] = useSearchParams();
 
-    // const data = useArticleItemById();
-
     const onLoadNextPart = useCallback(() => {
         if (__PROJECT__ !== 'storybook') {
             dispatch(fetchNextArticlesPage());
@@ -53,6 +52,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
         >
             <ArticlesPageFilters />
             <ArticlesInfiniteList />
+            <ArticlePageGreeting />
         </Page>
     );
 };

@@ -8,7 +8,7 @@ import { ValidateProfileError } from '../../consts/consts';
 import { updateProfileData } from './updateProfileData';
 
 const data = {
-    id: 1,
+    id: '1',
     username: 'Admin',
     age: 22,
     country: Country.Russia,

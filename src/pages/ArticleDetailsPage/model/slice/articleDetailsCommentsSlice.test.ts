@@ -8,7 +8,7 @@ const data = [
         id: 1,
         text: 'some comment',
         user: {
-            id: 1,
+            id: '1',
             username: 'admin',
         },
     },
@@ -16,7 +16,7 @@ const data = [
         id: 2,
         text: 'some comment1',
         user: {
-            id: 1,
+            id: '1',
             username: 'admin',
         },
     },
@@ -28,7 +28,7 @@ const normalizedData = {
             id: 1,
             text: 'some comment',
             user: {
-                id: 1,
+                id: '1',
                 username: 'admin',
             },
         },
@@ -36,7 +36,7 @@ const normalizedData = {
             id: 2,
             text: 'some comment1',
             user: {
-                id: 1,
+                id: '1',
                 username: 'admin',
             },
         },

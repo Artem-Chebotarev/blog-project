@@ -5,7 +5,7 @@ import { UserRole } from '../consts/consts';
 import { JsonSettings } from './jsonSettings';
 
 export interface User {
-    id: number;
+    id: string;
     username: string;
     avatar?: string;
     roles?: UserRole[];

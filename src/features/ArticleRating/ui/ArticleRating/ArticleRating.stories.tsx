@@ -25,7 +25,7 @@ Normal.decorators = [
     StoreDecorator({
         user: {
             authData: {
-                id: 1,
+                id: '1',
             },
         },
     }),
@@ -55,7 +55,7 @@ WithoutRate.decorators = [
     StoreDecorator({
         user: {
             authData: {
-                id: 1,
+                id: '1',
             },
         },
     }),

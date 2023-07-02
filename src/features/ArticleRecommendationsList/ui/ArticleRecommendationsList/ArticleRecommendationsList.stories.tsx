@@ -22,7 +22,7 @@ const article: Article = {
     img: '',
     createdAt: '',
     views: 123,
-    user: { id: 1, username: '123' },
+    user: { id: '1', username: '123' },
     blocks: [],
     type: [],
     title: '123',

@@ -12,7 +12,7 @@ import { profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCard } from './EditableProfileCard';
 
 const profile: Profile = {
-    id: 1,
+    id: '1',
     first: 'admin',
     lastname: 'admin',
     age: 32,
@@ -31,7 +31,7 @@ const options = {
         },
         user: {
             authData: {
-                id: 1,
+                id: '1',
                 username: 'admin',
             },
         },

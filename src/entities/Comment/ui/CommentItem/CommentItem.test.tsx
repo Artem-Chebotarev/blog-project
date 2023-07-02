@@ -10,7 +10,7 @@ const comment: Comment = {
     id: 1,
     text: 'some comment',
     user: {
-        id: 1,
+        id: '1',
         username: 'admin',
         avatar: 'https://pbs.twimg.com/media/FFUbOUsXwAAHlnf.jpg',
     },

@@ -15,7 +15,7 @@ const article: Article = {
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     user: {
-        id: 2,
+        id: '2',
         username: 'user',
     },
     createdAt: '26.02.2022',
@@ -52,7 +52,7 @@ const articleWitoutBlocks: Article = {
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     user: {
-        id: 2,
+        id: '2',
         username: 'user',
     },
     createdAt: '26.02.2022',
