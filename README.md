@@ -178,7 +178,7 @@ To asynchronously connect the reducers (so as not to pull them into the main bun
 
 ----
 
-### Work с feature-flags
+### Working с feature-flags
 
 It is allowed to use feature-flags only with the help of toggleFeatures
 
