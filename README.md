@@ -1,8 +1,8 @@
-## Запуск проекта
+## Start of the project
 
 ```
 npm install - install dependencies
-npm run start:dev или npm run start:dev:vite - start the server + frontend project in dev mode
+npm run start:dev or npm run start:dev:vite - start the server + frontend project in dev mode
 ```
 
 ----
